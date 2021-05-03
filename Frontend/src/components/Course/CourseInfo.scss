@@ -1,0 +1,19 @@
+@import "../../containers/base";
+
+.courseInfo {
+  @include flex;
+  align-self: stretch;
+  margin: 0.5em 0 0;
+  .courseInfo__badge {
+    margin-right: 0.8em;
+  }
+  .courseInfo__rating {
+    color: $clr-card-badge-bg;
+  }
+  .courseInfo__starContainer {
+    font-size: 0.75rem;
+    & > span {
+      margin: 0 0.3em;
+    }
+  }
+}

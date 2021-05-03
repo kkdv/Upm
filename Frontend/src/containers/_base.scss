@@ -1,0 +1,74 @@
+$clr-udemy: #675c55;
+
+// header colors
+$clr-header-text: #3c3b37;
+$clr-header-quantity: #ec5252;
+$clr-header-btn: #0f7c90;
+$clr-header-btn-hover: #094c59;
+$clr-header-btn-white: #fff;
+
+// Row base colors
+$clr-row-title: #3c3b37;
+$clr-row-desc: #73726c;
+
+// Category styes
+$clr-category-bg: #fff7f0;
+
+// Banner styles
+$clr-banner-modal: #fff;
+$clr-banner-modal-title: $clr-row-title;
+$banner-bs: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+$banner-form-border: 1px solid #989586;
+
+// Card base colors
+$clr-card-border: #dcdacb;
+$clr-card-badge-bg: #ffe799;
+$clr-card-badge: #593d00;
+$clr-card-title: $clr-row-title;
+$clr-card-noBuys: #73726c;
+
+// ad colors
+$clr-ad-icon-bg: #f2fbfc;
+$clr-ad-icon: #0f7c90;
+
+// course styles
+$clr-course-header-bg: #1e1e1c;
+$clr-course-header-text: #fff;
+
+// course learning styles
+$clr-course-learning-bg: #fbfbf8;
+$course-learning-border: 1px solid #dcdacb;
+
+// corse card styles
+$clr-coursecard-button-red: $clr-header-quantity;
+$clr-coursecard-button-red-hover: #e61b1b;
+$clr-coursecard-button: #fff;
+$clr-coursecard-button-blue: $clr-header-btn;
+$clr-coursecard-button-icon: $clr-card-noBuys;
+
+// Cart styles
+$cart-padding: 3em 12em;
+$clr-cart-top-bg: #505763;
+$clr-cart-top-text: #fff;
+
+$br-btn: 4px;
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin grid {
+  display: grid;
+  place-items: center;
+}
+
+@mixin flexColumn {
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin center {
+  width: 88%;
+  margin: 0 auto;
+}
