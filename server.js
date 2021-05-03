@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const users = require("./routes/users");
 const mongoose = require("mongoose");
+const courses = require("./routes/courses");
 
 const app = express();
 
@@ -28,7 +28,7 @@ mongoose
   .then(() => console.log("mongodb connected"))
   .catch((err) => console.log(err));
 
-app.use("/api/users", users);
+app.use("/api", courses);
 
 const port = process.env.PORT || 5000;
 
