@@ -37,12 +37,12 @@ const Row = ({ button, title, description, data }) => {
   const [cardCourses, setCardCourses] = useState(coursesData);
   const [categoryData, setCategoryData] = useState(filterCategoryData);
 
-  const dispatch = useDispatch();
-  const courses = useSelector((state) => state.courses.courses);
+  // const dispatch = useDispatch();
+  // const courses = useSelector((state) => state.courses.courses);
 
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCourses());
+  // }, [dispatch]);
 
   const buttonsJsx = (
     <>

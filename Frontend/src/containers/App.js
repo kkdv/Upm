@@ -13,6 +13,10 @@ import {
 } from "../utils/customComponents";
 import { Route, Switch } from "react-router-dom";
 import Test from "../components/Test";
+import Footer from "../components/Footer";
+import FillerDiv from "../components/FillerDiv";
+import TopCategories from "../components/TopCategories";
+import VideoAd from "../components/VideoAd";
 
 const mainApp = (
   <>
@@ -22,9 +26,12 @@ const mainApp = (
       {buttonRow}
       <div className="app__ads">{adBottom}</div>
       <Row title="Students are also viewing" data />
+      <FillerDiv />
+      <TopCategories />
       <Facility instructor />
       {companies}
       <Facility buisness />
+      <VideoAd />
     </div>
   </>
 );
@@ -32,7 +39,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Test />
+
       <Switch>
         <Route path="/cart">
           <Cart />
@@ -44,6 +51,7 @@ function App() {
           {mainApp}
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

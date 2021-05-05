@@ -1,0 +1,7 @@
+.carousel__button_right {
+  background: red;
+  height: 40px;
+  width: 50px;
+
+  transform: translateX(-20px);
+}

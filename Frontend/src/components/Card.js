@@ -1,6 +1,6 @@
-import { useHistory } from 'react-router-dom';
-import './Card.scss';
-import '../containers/sharedClasses.scss';
+import { useHistory } from "react-router-dom";
+import "./Card.scss";
+import "../containers/sharedClasses.scss";
 
 const Card = (props) => {
   const {
