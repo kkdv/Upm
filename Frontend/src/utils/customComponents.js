@@ -1,5 +1,4 @@
 import Ad from "../components/Ad";
-import Row from "../components/Row";
 
 import { ReactComponent as Video } from "../images/logo/yt.svg";
 import { ReactComponent as Certificate } from "../images/logo/certificate.svg";
@@ -7,14 +6,6 @@ import { ReactComponent as Lifetime } from "../images/logo/lifetime.svg";
 import { ReactComponent as Time } from "../images/logo/time.svg";
 import { ReactComponent as Teach } from "../images/logo/teach.svg";
 import { ReactComponent as VideoGroup } from "../images/logo/video.svg";
-
-const buttonRow = (
-  <Row
-    button
-    title="The world's largest selection of courses"
-    description="Choose from 130,000 online video courses with new additions published every month"
-  />
-);
 
 const companies = (
   <div className="app__companies">
@@ -104,4 +95,4 @@ const adBottom = (
   </>
 );
 
-export { adBottom, companies, adTop, buttonRow };
+export { adBottom, companies, adTop };

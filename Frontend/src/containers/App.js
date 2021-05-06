@@ -5,27 +5,25 @@ import Banner from "../components/Banner";
 import Facility from "../components/Facility";
 import Cart from "../components/Cart/Cart";
 import Course from "../components/Course/Course";
-import {
-  adTop,
-  adBottom,
-  buttonRow,
-  companies,
-} from "../utils/customComponents";
+import { adTop, adBottom, companies } from "../utils/customComponents";
 import { Route, Switch } from "react-router-dom";
-import Test from "../components/Test";
 import Footer from "../components/Footer";
 import FillerDiv from "../components/FillerDiv";
 import TopCategories from "../components/TopCategories";
 import VideoAd from "../components/VideoAd";
+import Login from "../components/Authentication/Login";
 
 const mainApp = (
   <>
     <div className="app__body">
       <Banner />
       <div className="app__ads">{adTop}</div>
-      {buttonRow}
+      <Row
+        title="The world's largest selection of courses"
+        description="Choose from 130,000 online video courses with new additions published every month"
+      />
       <div className="app__ads">{adBottom}</div>
-      <Row title="Students are also viewing" data />
+      <Row title="Students are viewing" />
       <FillerDiv />
       <TopCategories />
       <Facility instructor />
@@ -39,13 +37,18 @@ function App() {
   return (
     <div className="app">
       <Header />
-
       <Switch>
         <Route path="/cart">
           <Cart />
+          {companies}
         </Route>
         <Route path="/course/:courseId">
           <Course />
+          {companies}
+        </Route>
+        <Route path="/login">
+          <Login />
+          {companies}
         </Route>
         <Route exact path="/">
           {mainApp}

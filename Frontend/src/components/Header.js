@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { ReactComponent as CartSvg } from '../images/logo/cart.svg';
-import { ReactComponent as Search } from '../images/logo/search.svg';
-import UdemyLogo from '../images/logo/udemy.svg';
-import './Header.scss';
+import { Link } from "react-router-dom";
+import { ReactComponent as CartSvg } from "../images/logo/cart.svg";
+import { ReactComponent as Search } from "../images/logo/search.svg";
+import UdemyLogo from "../images/logo/udemy.svg";
+import "./Header.scss";
 
 const Header = () => {
   const submitHandler = (e) => {
@@ -29,7 +29,9 @@ const Header = () => {
           <CartSvg className="header__cartLogo" />
           <span className="header__quantity">0</span>
         </div>
-        <button className="header__btn header__login">Log in</button>
+        <Link to="/login">
+          <button className="header__btn header__login">Log in</button>
+        </Link>
         <button className="header__btn header__signup">Sign up</button>
       </div>
     </header>

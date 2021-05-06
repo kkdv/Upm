@@ -27,7 +27,7 @@ const CoursesSchema = new Schema({
     required: true,
   },
   ratings: {
-    type: ["Number"],
+    type: "String",
     required: true,
   },
   currPrice: {
@@ -35,7 +35,7 @@ const CoursesSchema = new Schema({
     required: true,
   },
   orgPrice: {
-    type: ["Number"],
+    type: "String",
     required: true,
   },
   bestSeller: {
@@ -43,7 +43,7 @@ const CoursesSchema = new Schema({
     required: true,
   },
   noOfStudents: {
-    type: ["Number"],
+    type: "String",
     required: true,
   },
   language: {

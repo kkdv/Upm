@@ -1,0 +1,47 @@
+.mainRow {
+  margin: 20px 35px;
+}
+
+.row {
+  margin: 20px 0px;
+}
+
+.row h3 {
+  font-size: 1.6rem;
+  color: #3c3b37;
+  margin: 0.5em 0 0.3em;
+  padding-top: 0.5em;
+}
+
+.row p {
+  color: #73726c;
+  font-size: 0.95rem;
+  margin: 0.5em 0 1.5em;
+}
+
+.carousel__button_right {
+  outline: none;
+  height: 40px;
+  width: 50px;
+  border-radius: 50%;
+  transform: translate(-20px, -80px);
+  border: none;
+  font-size: 23px;
+  font-weight: 600;
+  color: #0f7c90;
+  background: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.carousel__button_left {
+  height: 40px;
+  width: 50px;
+  border-radius: 50%;
+  transform: translate(20px, -80px);
+  border: none;
+  font-size: 23px;
+  font-weight: 600;
+  color: #0f7c90;
+  background: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}

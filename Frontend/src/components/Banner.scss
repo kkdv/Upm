@@ -4,6 +4,7 @@
   background-image: url(../images/Banner1.jpg);
   height: 400px;
   background-repeat: no-repeat;
+  width: 98% !important;
   @include center;
   margin-bottom: -0.2em;
   .banner__modal {

@@ -8,11 +8,11 @@ function VideoAd() {
         <iframe
           title="Mohamad Alaloush's Story"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen=""
-          src="https://www.youtube.com/embed/QFIhEmOd6No/?autoplay=1"
+          allowFullScreen=""
+          src="https://www.youtube.com/embed/QFIhEmOd6No/"
           width="560"
           height="315"
-          frameborder="0"
+          frameBorder="0"
         ></iframe>
       </div>
       <div className="content">

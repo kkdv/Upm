@@ -10,9 +10,9 @@ exports.getCourses = async (req, res) => {
 };
 
 exports.getSingalCourse = async (req, res) => {
-  const course = await Courses.findById(req.params.id);
+  const courses = await Courses.findById(req.params.id);
 
-  if (!course) {
+  if (!courses) {
     return res.status(404).json({
       success: false,
       message: "Course not found!",
@@ -21,6 +21,30 @@ exports.getSingalCourse = async (req, res) => {
 
   res.status(200).json({
     success: true,
-    course,
+    courses,
+  });
+};
+
+exports.findCourses = async (req, res) => {
+  const { keyword } = req.params.keyword;
+  const response = await Courses.find({
+    $or: [
+      { title: { $regex: keyword, $options: "$i" } },
+      { category: { $regex: keyword, $options: "$i" } },
+      { description: { $regex: keyword, $options: "$i" } },
+      { author: { $regex: keyword, $options: "$i" } },
+    ],
+  });
+
+  if (!response) {
+    return res.status(404).json({
+      success: false,
+      message: "Sorry, we couldn't find any results.",
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    response,
   });
 };

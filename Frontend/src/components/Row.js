@@ -1,119 +1,61 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import Category from "./Category";
-import courses from "../data/courses";
-import categories from "../data/category";
-import "./Row.scss";
+import "./Row.css";
+import ItemsCarousel from "react-items-carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCourses } from "../app/actions/courseAction";
+import { getCourses } from "../app/actions/courseAction";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
 
-const coursesData = (category = "python") => {
-  const filteredCourses = courses.filter((course) => {
-    return course.category === category;
-  });
-  return filteredCourses;
-};
+const Row = ({ title, description }) => {
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.courses.courses);
 
-const filterCategoryData = (cat = "python") => {
-  const filteredCourses = categories.filter((category) => {
-    return category.category === cat;
-  });
-  return filteredCourses;
-};
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const [loading, setloading] = useState(true);
+  const chevronWidth = 40;
 
-const randomCourses = () => {
-  let randomArray = [];
-  for (let i = 1; i <= 5; i++) {
-    const randomCourse =
-      courses[Math.floor(Math.random() * (courses.length - 1))];
-    randomArray.push(randomCourse);
-  }
-  randomArray = [...new Set(randomArray)];
-
-  return randomArray.map((course) => <Card key={course.id} data={course} />);
-};
-
-const Row = ({ button, title, description, data }) => {
-  const [cardCourses, setCardCourses] = useState(coursesData);
-  const [categoryData, setCategoryData] = useState(filterCategoryData);
-
-  // const dispatch = useDispatch();
-  // const courses = useSelector((state) => state.courses.courses);
-
-  // useEffect(() => {
-  //   dispatch(fetchCourses());
-  // }, [dispatch]);
-
-  const buttonsJsx = (
-    <>
-      <div className="row__buttons">
-        <button
-          onClick={() => {
-            setCardCourses(coursesData("python"));
-            setCategoryData(filterCategoryData("python"));
-          }}
-          className={`row__btn ${
-            categoryData && categoryData[0]?.category === "python"
-              ? "selected"
-              : ""
-          }`}
-        >
-          Python
-        </button>
-        <button
-          onClick={() => {
-            setCardCourses(coursesData("Excel"));
-            setCategoryData(filterCategoryData("Excel"));
-          }}
-          className={`row__btn ${
-            categoryData && categoryData[0]?.category === "Excel"
-              ? "selected"
-              : ""
-          }`}
-        >
-          Excel
-        </button>
-        <button
-          onClick={() => {
-            setCardCourses(coursesData("web-development"));
-            setCategoryData(filterCategoryData("web-development"));
-          }}
-          className={`row__btn ${
-            categoryData && categoryData[0]?.category === "web-development"
-              ? "selected"
-              : ""
-          }`}
-        >
-          Web Development
-        </button>
-        <button
-          onClick={() => {
-            setCardCourses(coursesData("javascript"));
-            setCategoryData(filterCategoryData("javascript"));
-          }}
-          className={`row__btn ${
-            categoryData && categoryData[0]?.category === "javascript"
-              ? "selected"
-              : ""
-          }`}
-        >
-          JavaScript
-        </button>
-      </div>
-      <Category data={categoryData} />
-    </>
-  );
-
-  const cardsJsx = cardCourses.map((course) => (
-    <Card key={course.id} data={course} />
+  useEffect(() => {
+    dispatch(getCourses());
+    setloading(false);
+  }, [dispatch]);
+  const cardsJsx = courses.map((course) => (
+    <Card key={course._id} data={course} />
   ));
 
+  //loader style
+  const override = css`
+    display: block;
+    margin: 0 auto;
+  `;
+
   return (
-    <div className="row">
-      <h3>{title}</h3>
-      {description && <p>{description}</p>}
-      {button && buttonsJsx}
-      <div className="row__cards">{!data ? cardsJsx : randomCourses()}</div>
+    <div className="mainRow">
+      <div className="row">
+        <h3>{title}</h3>
+        {description && <p>{description}</p>}
+      </div>
+      {!loading ? (
+        <ItemsCarousel
+          requestToChangeActive={setActiveItemIndex}
+          activeItemIndex={activeItemIndex}
+          numberOfCards={5}
+          gutter={20}
+          slidesToScroll={4}
+          leftChevron={<button className="carousel__button_left">{"<"}</button>}
+          rightChevron={
+            <button className="carousel__button_right">{">"}</button>
+          }
+          outsideChevron
+          chevronWidth={chevronWidth}
+        >
+          {courses && cardsJsx}
+        </ItemsCarousel>
+      ) : (
+        <div className="course__loader">
+          <ClipLoader size={20} css={override} color="#3c3b37" />
+        </div>
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import "../containers/sharedClasses.scss";
 
 const Card = (props) => {
   const {
-    id,
+    _id,
     imageURL,
     title,
     author,
@@ -18,7 +18,7 @@ const Card = (props) => {
   const history = useHistory();
 
   return (
-    <div className="card" onClick={() => history.push(`/course/${id}`)}>
+    <div className="card" onClick={() => history.push(`/course/${_id}`)}>
       <div className="card__image">
         <div className="card__imageWrapper"></div>
         <img src={imageURL} alt={title} />

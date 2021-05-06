@@ -1,5 +1,6 @@
 const initialState = {
   courses: [],
+  activeCourse: [],
   error: [],
 };
 
@@ -7,17 +8,27 @@ export default function courseReducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_COURSES_REQUEST":
       return {
+        ...state,
         loading: true,
-        courses: [],
+        activeCourse: [],
       };
     case "ADD_COURSES_SUCCESS":
       return {
+        ...state,
         loading: false,
         courses: action.payload.courses,
       };
 
+    case "ADD_SINGAL_COURSES_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        activeCourse: action.payload.courses,
+      };
+
     case "ADD_COURSES_FAIL":
       return {
+        ...state,
         loading: false,
         error: action.payload,
       };

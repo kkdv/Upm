@@ -5,7 +5,6 @@
   flex-direction: column;
   height: 100vh;
   .app__body {
-    margin: auto;
     flex: 1;
   }
   .app__ads {
@@ -14,6 +13,7 @@
     justify-content: space-between;
     border-bottom: 1px solid $clr-card-border;
     border-top: 1px solid $clr-card-border;
+    width: 98%;
     padding: 2.5em 0;
     .ad:first-of-type {
       margin-left: 4em;
@@ -25,7 +25,8 @@
     flex-direction: column;
     border-bottom: 1px solid $clr-card-border;
     border-top: 1px solid $clr-card-border;
-    padding: 2.5em 0;
+    padding: 2em 0;
+    width: 98%;
     h3 {
       color: $clr-row-title;
       font-size: 1.6rem;
