@@ -12,6 +12,8 @@ import FillerDiv from "../components/FillerDiv";
 import TopCategories from "../components/TopCategories";
 import VideoAd from "../components/VideoAd";
 import Login from "../components/Authentication/Login";
+import Signup from "../components/Authentication/Signup";
+import Search from "../components/Search/Search";
 
 const mainApp = (
   <>
@@ -42,12 +44,20 @@ function App() {
           <Cart />
           {companies}
         </Route>
+        <Route path="/search">
+          <Search />
+          {companies}
+        </Route>
         <Route path="/course/:courseId">
           <Course />
           {companies}
         </Route>
         <Route path="/login">
           <Login />
+          {companies}
+        </Route>
+        <Route path="/signup">
+          <Signup />
           {companies}
         </Route>
         <Route exact path="/">

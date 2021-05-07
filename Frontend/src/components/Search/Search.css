@@ -1,0 +1,12 @@
+.course__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cannotfind {
+  font-size: 22px;
+  padding: 40px 30px;
+  font-weight: 700;
+}

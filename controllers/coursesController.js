@@ -26,7 +26,7 @@ exports.getSingalCourse = async (req, res) => {
 };
 
 exports.findCourses = async (req, res) => {
-  const { keyword } = req.params.keyword;
+  const keyword = req.params.keyword;
   const response = await Courses.find({
     $or: [
       { title: { $regex: keyword, $options: "$i" } },
