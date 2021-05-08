@@ -1,19 +1,32 @@
-import { useState } from 'react';
-import { ReactComponent as Search } from '../images/logo/search.svg';
-import './Banner.scss';
+import { useState } from "react";
+import { useHistory } from "react-router";
+import { ReactComponent as Search } from "../images/logo/search.svg";
+import "./Banner.scss";
 
 const Banner = () => {
   const [input, setInput] = useState();
-
-  const handleSubmit = (e) => {
-    e.preventDefault(0);
+  const history = useHistory();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (input) {
+      history.push({
+        pathname: `/search`,
+        search: `?src=ukw&q=${input}`,
+        state: { detail: input },
+      });
+    } else {
+      history.push("/");
+    }
   };
   return (
     <div className="banner">
       <div className="banner__modal">
         <h1>Dream up</h1>
-        <p>Ambition accepted. Learn the latest skills to reach your professional goals.</p>
-        <form className="banner__form" onSubmit={handleSubmit}>
+        <p>
+          Ambition accepted. Learn the latest skills to reach your professional
+          goals.
+        </p>
+        <form className="banner__form" onSubmit={submitHandler}>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}

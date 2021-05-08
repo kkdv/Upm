@@ -4,30 +4,21 @@ import "./Row.css";
 import ItemsCarousel from "react-items-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { getCourses } from "../app/actions/courseAction";
-import { ClipLoader } from "react-spinners";
-import { css } from "@emotion/core";
+import { List } from "react-content-loader";
 
 const Row = ({ title, description }) => {
   const dispatch = useDispatch();
-  const courses = useSelector((state) => state.courses.courses);
+  const { courses, loading } = useSelector((state) => state.courses);
 
   const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const [loading, setloading] = useState(true);
   const chevronWidth = 40;
 
   useEffect(() => {
     dispatch(getCourses());
-    setloading(false);
   }, [dispatch]);
   const cardsJsx = courses.map((course) => (
     <Card key={course._id} data={course} />
   ));
-
-  //loader style
-  const override = css`
-    display: block;
-    margin: 0 auto;
-  `;
 
   return (
     <div className="mainRow">
@@ -52,9 +43,7 @@ const Row = ({ title, description }) => {
           {courses && cardsJsx}
         </ItemsCarousel>
       ) : (
-        <div className="course__loader">
-          <ClipLoader size={20} css={override} color="#3c3b37" />
-        </div>
+        <List />
       )}
     </div>
   );

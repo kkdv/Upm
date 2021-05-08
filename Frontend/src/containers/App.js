@@ -14,6 +14,10 @@ import VideoAd from "../components/VideoAd";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 import Search from "../components/Search/Search";
+import store from "../app/store";
+import setAuthToken from "../utils/setAuthToken";
+import { setCurrentUser } from "../app/actions/authAction";
+import jwt_decode from "jwt-decode";
 
 const mainApp = (
   <>
@@ -35,6 +39,13 @@ const mainApp = (
     </div>
   </>
 );
+
+if (localStorage.jwtToken) {
+  setAuthToken(localStorage.jwtToken);
+  const decoded = jwt_decode(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(decoded));
+}
+
 function App() {
   return (
     <div className="app">
@@ -42,28 +53,24 @@ function App() {
       <Switch>
         <Route path="/cart">
           <Cart />
-          {companies}
         </Route>
         <Route path="/search">
           <Search />
-          {companies}
         </Route>
         <Route path="/course/:courseId">
           <Course />
-          {companies}
         </Route>
         <Route path="/login">
           <Login />
-          {companies}
         </Route>
         <Route path="/signup">
           <Signup />
-          {companies}
         </Route>
         <Route exact path="/">
           {mainApp}
         </Route>
       </Switch>
+      {companies}
       <Footer />
     </div>
   );

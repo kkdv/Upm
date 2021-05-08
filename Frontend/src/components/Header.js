@@ -10,7 +10,7 @@ const Header = () => {
   const history = useHistory();
   const submitHandler = (e) => {
     e.preventDefault();
-    if (data.trim()) {
+    if (data) {
       history.push({
         pathname: `/search`,
         search: `?src=ukw&q=${data}`,

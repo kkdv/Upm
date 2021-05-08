@@ -1,34 +1,65 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Title, Input, Button } from "./Input";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { loginUser } from "../../app/actions/authAction";
 import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
 import "./login.css";
 
 function Login() {
+  const [formEmail, setformEmail] = useState("");
+  const [formPassword, setformPassword] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const changeHandler = (event) => {
+    const name = event.target.name;
+    if (name === "email") {
+      setformEmail(event.target.value);
+    } else {
+      setformPassword(event.target.value);
+    }
+  };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const userData = {
+      email: formEmail,
+      password: formPassword,
+    };
+
+    dispatch(loginUser(userData));
+    history.push("/");
+  };
+
   return (
-    <div className="form">
-      <Title title="Login To Your Udemy Account!" />
+    <form className="form" onSubmit={submitHandler}>
+      <div className="form__header">Login To Your Udemy Account!</div>
       <div className="form__content">
-        <Input
-          name="email"
-          type="Email"
-          placeholder="Example@gmail.com"
-          icon={email}
-        />
-        <Input
-          name="password"
-          type="Password"
-          placeholder="Password"
-          icon={password}
-        />
-        <Button
-          name="submit"
-          type="submit"
-          value="Log In"
-          info="or"
-          data="Forgot your password?"
-        />
+        <div className="form__input">
+          <img className="form__icon" src={email} alt="email"></img>
+          <input
+            name="email"
+            placeholder="Example@gmail.com"
+            type="Email"
+            onChange={changeHandler}
+            required
+          />
+        </div>
+        <div className="form__input">
+          <img className="form__icon" src={password} alt="password"></img>
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            onChange={changeHandler}
+            required
+          />
+        </div>
+        <div className="form__button">
+          <button type="submit">Log In</button>
+          <span>or </span>
+          <a>Forgot your password?</a>
+        </div>
       </div>
       <div className="form__footer">
         <div>
@@ -37,10 +68,9 @@ function Login() {
             Sign up
           </Link>
         </div>
-
         <a className="form__link">Log in with your organization</a>
       </div>
-    </div>
+    </form>
   );
 }
 

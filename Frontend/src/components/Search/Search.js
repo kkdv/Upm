@@ -2,8 +2,8 @@ import { React, useEffect, useState } from "react";
 import SearchList from "./SearchList";
 import "./Search.css";
 import { useLocation } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
 import axios from "axios";
+import { List } from "react-content-loader";
 
 function Search() {
   const location = useLocation();
@@ -11,18 +11,15 @@ function Search() {
   const [data, setData] = useState();
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`http://localhost:5000/api/course/find/${location.state.detail}`)
-      .then(
-        (response) => {
-          setData(response.data.response);
-        },
-        (error) => {
-          console.log(error);
-        }
+    fetchData();
+    async function fetchData() {
+      setLoading(true);
+      const response = await axios.get(
+        `http://localhost:5000/api/course/find/${location.state.detail}`
       );
-    setLoading(false);
+      setData(response.data.response);
+      setLoading(false);
+    }
   }, [location]);
 
   const mapCourse = (
@@ -46,16 +43,13 @@ function Search() {
           );
         })
       ) : (
-        <div className="course__loader">
-          <ClipLoader loading={loading} size={60} color="#3c3b37" />
-        </div>
+        <List />
       )}
     </div>
   );
 
   return (
     <div>
-      {location.data}
       {mapCourse}
       {data && !loading && data.length === 0 && (
         <p className="cannotfind">

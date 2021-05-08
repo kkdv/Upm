@@ -1,41 +1,83 @@
-import React from "react";
-import { Input, Button, Title } from "./Input";
+import React, { useState } from "react";
 import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
 import user from "../../images/logo/user.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./login.css";
+import { useDispatch } from "react-redux";
+import { registeruser } from "../../app/actions/authAction";
 
 function Signup() {
+  const [formEmail, setformEmail] = useState("");
+  const [formPassword, setformPassword] = useState("");
+  const [formName, setformName] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const changeHandler = (event) => {
+    const name = event.target.name;
+    if (name === "email") {
+      setformEmail(event.target.value);
+    } else if (name === "password") {
+      setformPassword(event.target.value);
+    } else {
+      setformName(event.target.value);
+    }
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const userData = {
+      name: formName,
+      email: formEmail,
+      password: formPassword,
+    };
+
+    dispatch(registeruser(userData));
+    history.push("/");
+  };
+
   return (
-    <div className="form">
-      <Title title="Login To Your Udemy Account!" />
+    <form className="form" onSubmit={submitHandler}>
+      <div className="form__header">Sign Up and Start Learning!</div>
       <div className="form__content">
-        <Input
-          name="name"
-          type="text"
-          placeholder="Enter your name"
-          icon={user}
-        />
-        <Input
-          name="email"
-          type="Email"
-          placeholder="Example@gmail.com"
-          icon={email}
-        />
-        <Input
-          name="password"
-          type="Password"
-          placeholder="Password"
-          icon={password}
-        />
-        <Button
-          name="submit"
-          type="submit"
-          value="Sign Up"
-          info="By signing up, you agree to our"
-          data="Terms of Use and Privacy Policy."
-        />
+        <div className="form__input">
+          <img className="form__icon" src={user} alt="user"></img>
+          <input
+            name="name"
+            placeholder="Enter your name"
+            type="text"
+            onChange={changeHandler}
+            required
+          />
+        </div>
+        <div className="form__input">
+          <img className="form__icon" src={email} alt="email"></img>
+          <input
+            name="email"
+            placeholder="Example@gmail.com"
+            type="Email"
+            onChange={changeHandler}
+            required
+          />
+        </div>
+        <div className="form__input">
+          <img className="form__icon" src={password} alt="password"></img>
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            onChange={changeHandler}
+            required
+          />
+        </div>
+        <div className="form__button">
+          <button type="submit" name="submit">
+            Sign Up
+          </button>
+          <span>By signing up, you agree to our </span>
+          <a>Terms of Use and Privacy Policy.</a>
+        </div>
       </div>
       <div className="form__footer">
         <div>
@@ -45,25 +87,7 @@ function Signup() {
           </Link>
         </div>
       </div>
-    </div>
-
-    // <div class="loginbox-v4 modal-content-wrapper">
-    //   <Title title="Sign Up For Learing Today" />
-    //   <div class="loginbox-v4__content">
-    //     <Input name="name" type="text" placeholder="Name" />
-    //     <Input name="email" type="Email" placeholder="@Gmail.com" />
-    //     <Input name="password" type="Password" placeholder="Password" />
-    //     <Button
-    //       name="submit"
-    //       type="submit"
-    //       value="Sign In"
-    //       info="Already Have Account"
-    //       data="Login"
-    //     />
-    //   </div>
-    //   <div class="loginbox-v4__secondary-text"></div>
-    //   <div class="loginbox-v4__separator"></div>
-    // </div>
+    </form>
   );
 }
 

@@ -28,7 +28,7 @@ const Course = () => {
   useEffect(() => {
     dispatch(getSingalCourse(courseId));
     setLoading(false);
-  }, [dispatch]);
+  }, [dispatch, courseId]);
 
   return (
     <div className="course">
