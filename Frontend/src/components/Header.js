@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import { logoutUser } from "../app/actions/authAction";
 import { ReactComponent as CartSvg } from "../images/logo/cart.svg";
 import { ReactComponent as Search } from "../images/logo/search.svg";
 import UdemyLogo from "../images/logo/udemy.svg";
@@ -8,6 +10,9 @@ import "./Header.scss";
 const Header = () => {
   const [data, setData] = useState(null);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.auth.isAuthenticated);
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (data) {
@@ -20,6 +25,11 @@ const Header = () => {
       history.push("/");
     }
   };
+
+  const logoutHandler = () => {
+    dispatch(logoutUser());
+  };
+
   return (
     <header className="header">
       <Link to="/">
@@ -44,12 +54,26 @@ const Header = () => {
           <CartSvg className="header__cartLogo" />
           <span className="header__quantity">0</span>
         </div>
-        <Link to="/login">
-          <button className="header__btn header__login">Log in</button>
-        </Link>
-        <Link to="/signup">
-          <button className="header__btn header__signup">Sign up</button>
-        </Link>
+        {!isLogin && (
+          <Link to="/login">
+            <button className="header__btn header__login">Log in</button>
+          </Link>
+        )}
+        {!isLogin && (
+          <Link to="/signup">
+            <button className="header__btn header__signup">Sign up</button>
+          </Link>
+        )}
+        {isLogin && (
+          <Link to="/">
+            <button
+              className="header__btn header__signup"
+              onClick={logoutHandler}
+            >
+              Log Out
+            </button>
+          </Link>
+        )}
       </div>
     </header>
   );

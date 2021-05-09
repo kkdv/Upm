@@ -4,7 +4,7 @@ import password from "../../images/logo/password.svg";
 import user from "../../images/logo/user.svg";
 import { Link, useHistory } from "react-router-dom";
 import "./login.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registeruser } from "../../app/actions/authAction";
 
 function Signup() {
@@ -13,6 +13,10 @@ function Signup() {
   const [formName, setformName] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const nameError = useSelector((state) => state.auth.errors.name);
+  const EmailError = useSelector((state) => state.auth.errors.email);
+  const passwordError = useSelector((state) => state.auth.errors.password);
 
   const changeHandler = (event) => {
     const name = event.target.name;
@@ -33,8 +37,7 @@ function Signup() {
       password: formPassword,
     };
 
-    dispatch(registeruser(userData));
-    history.push("/");
+    dispatch(registeruser(userData, history));
   };
 
   return (
@@ -51,6 +54,11 @@ function Signup() {
             required
           />
         </div>
+        {nameError && (
+          <div className="error">
+            <p>{nameError}</p>
+          </div>
+        )}
         <div className="form__input">
           <img className="form__icon" src={email} alt="email"></img>
           <input
@@ -61,6 +69,11 @@ function Signup() {
             required
           />
         </div>
+        {EmailError && (
+          <div className="error">
+            <p>{EmailError}</p>
+          </div>
+        )}
         <div className="form__input">
           <img className="form__icon" src={password} alt="password"></img>
           <input
@@ -71,6 +84,11 @@ function Signup() {
             required
           />
         </div>
+        {passwordError && (
+          <div className="error">
+            <p>{passwordError}</p>
+          </div>
+        )}
         <div className="form__button">
           <button type="submit" name="submit">
             Sign Up

@@ -93,3 +93,15 @@
 .form__button button:hover {
   background-color: #c74b4b;
 }
+
+.form .error {
+  width: 80%;
+  width: 340px;
+  margin-bottom: 10px;
+  background: #faebeb;
+}
+.form .error p {
+  color: #521822;
+  font-weight: 400;
+  padding: 13px;
+}

@@ -3,6 +3,7 @@ import isEmpty from "../../utils/is-Empty";
 const initialState = {
   isAuthenticated: false,
   user: {},
+  errors: "",
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +13,11 @@ export default function (state = initialState, action) {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload,
+      };
+    case "GET_FORM_ERRORS":
+      return {
+        ...state,
+        errors: action.payload,
       };
     default:
       return state;

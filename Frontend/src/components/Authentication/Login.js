@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loginUser } from "../../app/actions/authAction";
 import email from "../../images/logo/email.svg";
@@ -11,6 +11,9 @@ function Login() {
   const [formPassword, setformPassword] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const EmailError = useSelector((state) => state.auth.errors.email);
+  const passwordError = useSelector((state) => state.auth.errors.password);
 
   const changeHandler = (event) => {
     const name = event.target.name;
@@ -27,8 +30,7 @@ function Login() {
       password: formPassword,
     };
 
-    dispatch(loginUser(userData));
-    history.push("/");
+    dispatch(loginUser(userData, history));
   };
 
   return (
@@ -45,6 +47,11 @@ function Login() {
             required
           />
         </div>
+        {EmailError && (
+          <div className="error">
+            <p>{EmailError}</p>
+          </div>
+        )}
         <div className="form__input">
           <img className="form__icon" src={password} alt="password"></img>
           <input
@@ -55,6 +62,11 @@ function Login() {
             required
           />
         </div>
+        {passwordError && (
+          <div className="error">
+            <p>{passwordError}</p>
+          </div>
+        )}
         <div className="form__button">
           <button type="submit">Log In</button>
           <span>or </span>

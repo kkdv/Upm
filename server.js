@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const courses = require("./routes/courses");
 const users = require("./routes/users");
+const passport = require("passport");
 
 const app = express();
 
@@ -23,6 +24,12 @@ app.use((req, res, next) => {
   next();
 });
 
+//passport middleware
+app.use(passport.initialize());
+
+//passport config
+require("./config/passport")(passport);
+
 // Connect to mongodb
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -30,7 +37,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api", courses);
-app.use("/api/users/", users);
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
