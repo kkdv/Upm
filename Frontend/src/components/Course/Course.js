@@ -14,16 +14,8 @@ const Course = () => {
   const dispatch = useDispatch();
   const { courseId } = useParams();
   const [loading, setLoading] = useState(true);
-  // const [data, setData] = useState({});
 
   const courses = useSelector((state) => state.courses.activeCourse);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const data = courses.filter((course) => course._id === courseId);
-  //   setData(data[0]);
-  //   setLoading(false);
-  // }, [courseId]);
 
   useEffect(() => {
     dispatch(getSingalCourse(courseId));

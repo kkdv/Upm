@@ -1,7 +1,9 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { logoutUser } from "../app/actions/authAction";
+import { ADD_ALL } from "../app/actions/types";
 import { ReactComponent as CartSvg } from "../images/logo/cart.svg";
 import { ReactComponent as Search } from "../images/logo/search.svg";
 import UdemyLogo from "../images/logo/udemy.svg";
@@ -12,6 +14,19 @@ const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+  const cartCount = useSelector((state) => state.cart.basketItem);
+
+  useEffect(async () => {
+    const response = await axios.get(
+      "http://localhost:5000/api/users/cart/cartcount"
+    );
+
+    await dispatch({
+      type: ADD_ALL,
+      payload: response.data,
+    });
+  }, [dispatch, isLogin]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,6 +42,10 @@ const Header = () => {
   };
 
   const logoutHandler = () => {
+    dispatch({
+      type: ADD_ALL,
+      payload: 0,
+    });
     dispatch(logoutUser());
   };
 
@@ -46,14 +65,21 @@ const Header = () => {
             <Search />
           </button>
         </form>
-        <p>Udemy for Buisness</p>
+        {!isLogin && <p>Udemy for Buisness</p>}
+        {isLogin && <p>Welcome {user.name} !</p>}
         <p>Teach on Udemy</p>
       </div>
       <div className="header__right">
-        <div className="header__cart">
-          <CartSvg className="header__cartLogo" />
-          <span className="header__quantity">0</span>
-        </div>
+        {isLogin && (
+          <Link to="/cart">
+            <div className="header__cart">
+              <CartSvg className="header__cartLogo" />
+              {cartCount > 0 && (
+                <span className="header__quantity">{cartCount}</span>
+              )}
+            </div>
+          </Link>
+        )}
         {!isLogin && (
           <Link to="/login">
             <button className="header__btn header__login">Log in</button>

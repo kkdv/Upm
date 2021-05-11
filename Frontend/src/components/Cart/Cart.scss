@@ -11,5 +11,14 @@
   }
   .cart__info {
     padding: $cart-padding;
+    display: flex;
+    .cart__items {
+      flex: 1;
+      padding: 0 20px;
+      .cart__itemsnumber {
+        font-size: 20px;
+        font-weight: 400;
+      }
+    }
   }
 }

@@ -76,20 +76,4 @@ router.post("/login", async (req, res) => {
   });
 });
 
-router.get(
-  "/cart",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    res.json(req.user);
-  }
-);
-
-// router.get(
-//   "/current",
-//   passport.authenticate("jwt", { session: false }),
-//   (req, res) => {
-//     res.json(req.user);
-//   }
-// );
-
 module.exports = router;

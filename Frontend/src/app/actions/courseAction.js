@@ -32,15 +32,11 @@ export const getSingalCourse = (id) => async (dispatch) => {
     console.log(`http://localhost:5000/api/course/${id}`);
 
     const { data } = await axios.get(`http://localhost:5000/api/course/${id}`);
-
-    console.log(data);
-
     dispatch({
       type: ADD_SINGAL_COURSES_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: ADD_COURSES_FAIL,
       payload: error.message,

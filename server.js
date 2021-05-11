@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const courses = require("./routes/courses");
+const userCart = require("./routes/userCart");
 const users = require("./routes/users");
 const passport = require("passport");
 
@@ -38,6 +39,7 @@ mongoose
 
 app.use("/api", courses);
 app.use("/api/users", users);
+app.use("/api/users/cart", userCart);
 
 const port = process.env.PORT || 5000;
 
