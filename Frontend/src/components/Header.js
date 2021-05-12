@@ -66,8 +66,14 @@ const Header = () => {
           </button>
         </form>
         {!isLogin && <p>Udemy for Buisness</p>}
+        {!isLogin && <p>Teach on Udemy</p>}
         {isLogin && <p>Welcome {user.name} !</p>}
-        <p>Teach on Udemy</p>
+        {isLogin && (
+          <Link className="mycourses" to="/mycourses">
+            <p>My Courses</p>
+          </Link>
+        )}
+        <p></p>
       </div>
       <div className="header__right">
         {isLogin && (

@@ -18,6 +18,7 @@ import store from "../app/store";
 import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../app/actions/authAction";
 import jwt_decode from "jwt-decode";
+import MyCourses from "../components/MyCourses/MyCourses";
 
 const mainApp = (
   <>
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/search">
           <Search />
+        </Route>
+        <Route path="/mycourses">
+          <MyCourses />
         </Route>
         <Route path="/course/:courseId">
           <Course />

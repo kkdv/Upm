@@ -1,18 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./Cart.scss";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
 
 const Cart = () => {
   const [cart, setcart] = useState();
+  const cartNumber = useSelector((state) => state.cart.basketItem);
 
   useEffect(async () => {
     const response = await axios.get(
       "http://localhost:5000/api/users/cart/get"
     );
-    setcart(response.data);
-  }, [cart]);
+    console.log(response);
+    await setcart(response.data);
+  }, [cartNumber]);
 
   return (
     <div className="cart">

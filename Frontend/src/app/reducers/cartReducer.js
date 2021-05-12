@@ -1,6 +1,7 @@
 const initialState = {
   basket: [],
   basketItem: 0,
+  courseItem: 0,
 };
 
 // export const getBasketTotal = (basket) =>
@@ -38,6 +39,12 @@ export default function cartReducer(state = initialState, action) {
       return {
         ...state,
         basketItem: action.payload,
+      };
+
+    case "ADD_ALL_COURSES":
+      return {
+        ...state,
+        courseItem: action.payload,
       };
 
     default:

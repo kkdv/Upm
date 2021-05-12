@@ -20,6 +20,10 @@
       letter-spacing: -0.5px;
       color: $clr-header-text;
     }
+    .mycourses {
+      text-decoration: none;
+      margin-right: -20px;
+    }
     .header__searchbar {
       flex: 1;
       display: flex;
@@ -48,7 +52,7 @@
     @include flex;
     .header__cart {
       position: relative;
-      margin: 0 0.7em;
+      margin: 0 1.5em;
       .header__cartLogo {
         object-fit: contain;
         height: 1.75em;

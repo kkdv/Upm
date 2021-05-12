@@ -73,14 +73,16 @@ const CourseCard = ({ data }) => {
             )}
           </button>
         )}
-        <Link to="/login">
-          {!isLogin && (
+        {!isLogin && (
+          <Link to="/login">
             <button className="courseCard__cart">Add to cart</button>
-          )}
-        </Link>
-        <Link to="/cart">
-          {status && <button className="courseCard__cart">Go to cart</button>}
-        </Link>
+          </Link>
+        )}
+        {status && (
+          <Link to="/cart">
+            <button className="courseCard__cart">Go to cart</button>
+          </Link>
+        )}
         <Link to="/cart">
           <button className="courseCard__buy">Buy now</button>
         </Link>
