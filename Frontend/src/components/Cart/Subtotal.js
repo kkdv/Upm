@@ -46,23 +46,23 @@ function Subtotal({ cart }) {
     <div className="subtotal">
       <p>Total:</p>
       <h1>₹{getBasketTotal(cart) || 0}</h1>
-      <StripeCheckout
-        stripeKey="pk_test_51Ik2o1SC4PUMUVRnJmttcc7VqoegdemrDUDlEF5ReXtrAymYlGmfPNw1StRHj5uEO4tyy00YQk516lO54QBp9g9v00mQDM0U3A"
-        token={handleToken}
-        amount={getBasketTotal(cart) * 100}
-        name="Udemy"
-        currency="INR"
-        email={user.email}
-        description="Safe & Secure Payment"
-      >
-        {getBasketTotal(cart) > 0 ? (
+      {getBasketTotal(cart) > 0 ? (
+        <StripeCheckout
+          stripeKey="pk_test_51Ik2o1SC4PUMUVRnJmttcc7VqoegdemrDUDlEF5ReXtrAymYlGmfPNw1StRHj5uEO4tyy00YQk516lO54QBp9g9v00mQDM0U3A"
+          token={getBasketTotal(cart) > 0 ? handleToken : null}
+          amount={getBasketTotal(cart) * 100}
+          name="Udemy"
+          currency="INR"
+          email={user.email}
+          description="Safe & Secure Payment"
+        >
           <button className="checkOutButton">Checkout</button>
-        ) : (
-          <Link to="/">
-            <button className="checkOutButton">Keep shopping</button>
-          </Link>
-        )}
-      </StripeCheckout>
+        </StripeCheckout>
+      ) : (
+        <Link to="/">
+          <button className="checkOutButton">Keep shopping</button>
+        </Link>
+      )}
       {loading && (
         <div className="course__loader">
           <ClipLoader loading={loading} size={60} color="#3c3b37" />

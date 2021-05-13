@@ -4,7 +4,7 @@ import "./TopCategories.css";
 
 function TopCategories() {
   return (
-    <div className="topCategories">
+    <div id="categories" className="topCategories">
       <h2 className="categoryHeading">Top Categories</h2>
       <div className="categories">
         <CategoryCard

@@ -84,11 +84,18 @@ const CourseCard = ({ data }) => {
             <button className="courseCard__cart">Go to cart</button>
           </Link>
         )}
-        <Link to="/cart">
-          <button className="courseCard__buy" onClick={clickHandler}>
-            Buy now
-          </button>
-        </Link>
+        {isLogin && (
+          <Link to="/cart">
+            <button className="courseCard__buy" onClick={clickHandler}>
+              Buy now
+            </button>
+          </Link>
+        )}
+        {!isLogin && (
+          <Link to="/login">
+            <button className="courseCard__buy">Buy now</button>
+          </Link>
+        )}
         <small>30-Day Money-Back Guarantee</small>
       </div>
 

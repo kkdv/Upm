@@ -58,7 +58,7 @@ const Header = () => {
         <img src={UdemyLogo} alt="logo" className="header__logo" />
       </Link>
       <div className="header__search">
-        <p>Categories</p>
+        <a href="#categories">Categories</a>
         <form className="header__searchbar" onSubmit={submitHandler}>
           <input
             onChange={(event) => setData(event.target.value)}
@@ -76,7 +76,6 @@ const Header = () => {
             <p>My Courses</p>
           </Link>
         )}
-        <p></p>
       </div>
       <div className="header__right">
         {isLogin && (

@@ -14,11 +14,13 @@
     flex: 1;
     @include flex;
     margin: 0 0.5em;
-    p {
+    p,
+    a {
       font-size: 0.88rem;
       margin: 0 0.7em;
       letter-spacing: -0.5px;
       color: $clr-header-text;
+      text-decoration: none;
     }
     .mycourses {
       text-decoration: none;
