@@ -30,10 +30,10 @@ function MyCoursesItem(props) {
       />
       <div className="myCoursesItem__info">
         <p className="myCoursesItem__title">{props.title}</p>
-        <p className="myCoursesItem__author">By {props.author}</p>
+        <p className="myCoursesItem__author">By {props._id}</p>
       </div>
       <div className="myCoursesItem__down">
-        <p onClick={() => history.push(`/course/${props._id}`)}>START COURSE</p>
+        <p onClick={() => history.push(`course/${props._id}`)}>START COURSE</p>
         <p onClick={onClickHandler}>REMOVE COURSE</p>
       </div>
     </div>

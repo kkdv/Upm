@@ -13,7 +13,7 @@ import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ data }) => {
-  const { id, imageURL, author, currPrice, title, orgPrice, courseIncludes } =
+  const { _id, imageURL, author, currPrice, title, orgPrice, courseIncludes } =
     data;
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(false);
@@ -30,6 +30,7 @@ const CourseCard = ({ data }) => {
 
   const clickHandler = async () => {
     const course = {
+      _id,
       imageURL,
       title,
       author,
@@ -84,7 +85,9 @@ const CourseCard = ({ data }) => {
           </Link>
         )}
         <Link to="/cart">
-          <button className="courseCard__buy">Buy now</button>
+          <button className="courseCard__buy" onClick={clickHandler}>
+            Buy now
+          </button>
         </Link>
         <small>30-Day Money-Back Guarantee</small>
       </div>

@@ -30,7 +30,8 @@ const mainApp = (
         description="Choose from 130,000 online video courses with new additions published every month"
       />
       <div className="app__ads">{adBottom}</div>
-      <Row title="Students are viewing" />
+      <Row title="Students are viewing for " category="web-development" />
+
       <FillerDiv />
       <TopCategories />
       <Facility instructor />

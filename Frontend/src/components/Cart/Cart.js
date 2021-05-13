@@ -9,12 +9,15 @@ const Cart = () => {
   const [cart, setcart] = useState();
   const cartNumber = useSelector((state) => state.cart.basketItem);
 
-  useEffect(async () => {
-    const response = await axios.get(
-      "http://localhost:5000/api/users/cart/get"
-    );
-    console.log(response);
-    await setcart(response.data);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(
+        "http://localhost:5000/api/users/cart/get"
+      );
+      console.log(response);
+      await setcart(response.data);
+    }
+    fetchData();
   }, [cartNumber]);
 
   return (

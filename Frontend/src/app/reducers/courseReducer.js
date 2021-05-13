@@ -1,5 +1,6 @@
 const initialState = {
   courses: [],
+  filteredCourse: [],
   activeCourse: [],
   error: [],
 };
@@ -17,6 +18,12 @@ export default function courseReducer(state = initialState, action) {
         ...state,
         loading: false,
         courses: action.payload.courses,
+      };
+    case "ADD_FILTERD_COURSES_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        filteredCourse: action.payload,
       };
 
     case "ADD_SINGAL_COURSES_SUCCESS":

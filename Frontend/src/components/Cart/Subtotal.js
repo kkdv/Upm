@@ -8,6 +8,7 @@ import { ClipLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ADD_ALL } from "../../app/actions/types";
+import { Link } from "react-router-dom";
 
 function Subtotal({ cart }) {
   toast.configure();
@@ -53,9 +54,14 @@ function Subtotal({ cart }) {
         currency="INR"
         email={user.email}
         description="Safe & Secure Payment"
-        image=""
       >
-        <button className="checkOutButton">Checkout</button>
+        {getBasketTotal(cart) > 0 ? (
+          <button className="checkOutButton">Checkout</button>
+        ) : (
+          <Link to="/">
+            <button className="checkOutButton">Keep shopping</button>
+          </Link>
+        )}
       </StripeCheckout>
       {loading && (
         <div className="course__loader">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_ALL, ADD_TO_BASKET, REMOVE_FROM_BASKET } from "./types";
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from "./types";
 
 export const addToCart = (course) => async (dispatch) => {
   await axios.post("http://localhost:5000/api/users/cart/add", {

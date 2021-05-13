@@ -19,8 +19,8 @@ function MyCourses() {
       const response = await axios.get(
         "http://localhost:5000/api/mycourses/get"
       );
-      console.log(response);
       await setmyCourses(response.data);
+
       setloading(false);
     }
     fetchData();
@@ -35,6 +35,7 @@ function MyCourses() {
         {myCourses &&
           myCourses.map((item) => (
             <MyCoursesItem
+              key={item._id}
               _id={item._id}
               imageURL={item.imageURL}
               title={item.title}

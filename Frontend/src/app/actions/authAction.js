@@ -7,7 +7,11 @@ export const registeruser = (userData, history) => (dispatch) => {
   axios
     .post("http://localhost:5000/api/users/signup", userData)
     .then((res) => {
-      console.log(res);
+      const { token } = res.data;
+      localStorage.setItem("jwtToken", token);
+      setAuthToken(token);
+      const decoded = jwt_decode(token);
+      dispatch(setCurrentUser(decoded));
       history.push("/");
     })
     .catch((err) =>

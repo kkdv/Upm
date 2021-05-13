@@ -4,15 +4,12 @@ const initialState = {
   courseItem: 0,
 };
 
-// export const getBasketTotal = (basket) =>
-//   basket?.reduce((amount, item) => item.currPrice + amount, 0);
-
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_TO_BASKET":
       return {
         ...state,
-        // basket: [...state.basket, action.payload],
+
         basketItem: state.basketItem + 1,
       };
 

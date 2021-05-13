@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loginUser } from "../../app/actions/authAction";
+import { REMOVE_FORM_ERRORS } from "../../app/actions/types";
 import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
 import "./login.css";
@@ -14,6 +15,10 @@ function Login() {
 
   const EmailError = useSelector((state) => state.auth.errors.email);
   const passwordError = useSelector((state) => state.auth.errors.password);
+
+  useEffect(() => {
+    dispatch({ type: REMOVE_FORM_ERRORS });
+  }, [dispatch]);
 
   const changeHandler = (event) => {
     const name = event.target.name;

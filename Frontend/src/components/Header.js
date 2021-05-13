@@ -17,15 +17,18 @@ const Header = () => {
   const user = useSelector((state) => state.auth.user);
   const cartCount = useSelector((state) => state.cart.basketItem);
 
-  useEffect(async () => {
-    const response = await axios.get(
-      "http://localhost:5000/api/users/cart/cartcount"
-    );
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(
+        "http://localhost:5000/api/users/cart/cartcount"
+      );
 
-    await dispatch({
-      type: ADD_ALL,
-      payload: response.data,
-    });
+      await dispatch({
+        type: ADD_ALL,
+        payload: response.data,
+      });
+    }
+    fetchData();
   }, [dispatch, isLogin]);
 
   const submitHandler = (e) => {

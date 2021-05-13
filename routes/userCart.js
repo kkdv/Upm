@@ -61,7 +61,10 @@ router.post(
     const { title } = req.body;
 
     Users.findOne(
-      { email: email, cart: { $elemMatch: { title: title } } },
+      {
+        email: email,
+        cart: { $elemMatch: { title: title } },
+      },
       function (err, user) {
         if (err) {
           return done(err);

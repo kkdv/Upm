@@ -1,5 +1,4 @@
 const express = require("express");
-const passport = require("passport");
 const router = express.Router();
 const Users = require("../models/Users");
 const bcrypt = require("bcryptjs");
@@ -35,7 +34,25 @@ router.post("/signup", async (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then((user) => res.json(user))
+            .then((user) => {
+              const payload = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+              };
+
+              jwt.sign(
+                payload,
+                key.secretKey,
+                { expiresIn: 3600 },
+                (err, token) => {
+                  res.json({
+                    success: true,
+                    token: "Bearer " + token,
+                  });
+                }
+              );
+            })
             .catch((err) => console.log(err));
         });
       });

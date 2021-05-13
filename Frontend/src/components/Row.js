@@ -3,27 +3,33 @@ import Card from "./Card";
 import "./Row.css";
 import ItemsCarousel from "react-items-carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { getCourses } from "../app/actions/courseAction";
+import { getCourses, getFilteredCourses } from "../app/actions/courseAction";
 import { List } from "react-content-loader";
 
-const Row = ({ title, description }) => {
+const Row = ({ title, description, category }) => {
   const dispatch = useDispatch();
-  const { courses, loading } = useSelector((state) => state.courses);
+  const { courses, loading, filteredCourse } = useSelector(
+    (state) => state.courses
+  );
 
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
 
   useEffect(() => {
     dispatch(getCourses());
-  }, [dispatch]);
+    dispatch(getFilteredCourses(category));
+  }, [dispatch, category]);
   const cardsJsx = courses.map((course) => (
+    <Card key={course._id} data={course} />
+  ));
+  const filteredCardsJsx = filteredCourse.map((course) => (
     <Card key={course._id} data={course} />
   ));
 
   return (
     <div className="mainRow">
       <div className="row">
-        <h3>{title}</h3>
+        <h3>{category ? title + category : title}</h3>
         {description && <p>{description}</p>}
       </div>
       {!loading ? (
@@ -40,7 +46,7 @@ const Row = ({ title, description }) => {
           outsideChevron
           chevronWidth={chevronWidth}
         >
-          {courses && cardsJsx}
+          {category ? filteredCardsJsx : cardsJsx}
         </ItemsCarousel>
       ) : (
         <List />
