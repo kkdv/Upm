@@ -24,20 +24,21 @@ const mainApp = (
   <>
     <div className="app__body">
       <Banner />
-      <div className="app__ads">{adTop}</div>
-      <Row
+      {/* 
+      <div className="app__ads">{adTop}</div>  
+       <Row
         title="The world's largest selection of courses"
-        description="Choose from 130,000 online video courses with new additions published every month"
-      />
-      <div className="app__ads">{adBottom}</div>
-      <Row title="Students are viewing for " category="web-development" />
-
-      <FillerDiv />
-      <TopCategories />
-      <Facility instructor />
+        description="Choose from 930,000 online video courses with new additions published every month"
+      />  
+     <div className="app__ads">{adBottom}</div>  
+      <Row title="Students are viewing for " category="web-development" /> 
+     <FillerDiv /> */}
+      { <TopCategories /> }
+      
+     {/*  <Facility instructor />
       {companies}
-      <Facility buisness />
-      <VideoAd />
+      <Facility business />
+      <VideoAd /> */}
     </div>
   </>
 );
@@ -75,8 +76,8 @@ function App() {
           {mainApp}
         </Route>
       </Switch>
-      {companies}
-      <Footer />
+      {/* {companies} */}
+      {/* <Footer /> */}
     </div>
   );
 }

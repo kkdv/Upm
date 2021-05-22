@@ -52,7 +52,9 @@ export const getSingalCourse = (id) => async (dispatch) => {
   try {
     dispatch({ type: ADD_COURSES_REQUEST });
 
-    console.log(`http://localhost:5000/api/course/${id}`);
+    console.log(`http://localhost:5000/api/course1/${id}`);
+
+    console.log('hello');
 
     const { data } = await axios.get(`http://localhost:5000/api/course/${id}`);
     dispatch({

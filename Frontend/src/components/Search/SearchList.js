@@ -37,10 +37,10 @@ function SearchList(props) {
         <div className="searchcard__priceinfo">
           <p className="searchcard__price">
             <span className="searchcard__currentPrice">
-              <strong>&#8377;{props.currPrice}</strong>
+              <strong>&#36;{props.currPrice}</strong>
             </span>
             <span className="searchcard__originalPrice">
-              &#8377;{props.orgPrice}
+            &#3;{props.orgPrice}
             </span>
           </p>
         </div>

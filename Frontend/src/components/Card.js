@@ -35,9 +35,9 @@ const Card = (props) => {
         </p>
         <p className="card__price">
           <span className="card__currentPrice">
-            <strong>&#8377;{currPrice}</strong>
+            <strong>&#36;{currPrice}</strong>
           </span>
-          <span className="card__originalPrice">&#8377;{orgPrice}</span>
+          <span className="card__originalPrice">&#36;{orgPrice}</span>
         </p>
         {bestSeller ? <div className="bestSeller">Bestseller</div> : null}
       </div>

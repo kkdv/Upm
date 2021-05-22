@@ -1,5 +1,4 @@
 module.exports = {
-  mongoURL:
-    "mongodb+srv://gaurav:123@cluster0.6tw19.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  secretKey: "developerx",
+    mongoURL: "mongodb+srv://kktest:@b6KdjVAhpP6wfY@cluster0.hoiau.mongodb.net/Master_DB?retryWrites=true&w=majority",
+    secretKey: "developerx",
 };

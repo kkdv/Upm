@@ -60,8 +60,8 @@ const CourseCard = ({ data }) => {
       <img src={imageURL} alt={title} className="courseCard__image" />
       <div className="courseCard__priceInfo">
         <div className="courseCard__price">
-          <span className="courseCard__currPrice">&#8377;{currPrice}</span>
-          <span className="courseCard__orgPrice">&#8377;{orgPrice}</span>
+          <span className="courseCard__currPrice">&#36;{currPrice}</span>
+          <span className="courseCard__orgPrice">&#36;{orgPrice}</span>
         </div>
         {!status && isLogin && (
           <button className="courseCard__cart" onClick={clickHandler}>

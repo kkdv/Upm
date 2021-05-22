@@ -21,10 +21,9 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="banner__modal">
-        <h1>Dream up</h1>
+        <h1>Search for video</h1>
         <p>
-          Ambition accepted. Learn the latest skills to reach your professional
-          goals.
+          Search for medical content
         </p>
         <form className="banner__form" onSubmit={submitHandler}>
           <input

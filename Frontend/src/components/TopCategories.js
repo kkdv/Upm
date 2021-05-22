@@ -1,63 +1,80 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 import "./TopCategories.css";
+import kidney_img from '../images/logo/upmc/kidney.jpeg'; 
+import surgery_img from '../images/logo/upmc/surgery.jpeg'; 
+import general_med_img from '../images/logo/upmc/general_med.jpeg'; 
+import urology_img from '../images/logo/upmc/urology.jpeg'; 
+import ent_img from '../images/logo/upmc/ent.jpeg';
+import womens_img from '../images/logo/upmc/womens.jpeg';  
+import mental_img from '../images/logo/upmc/mental.jpeg'; 
+import endocrine_img from '../images/logo/upmc/endocrine.jpeg'; 
+
 
 function TopCategories() {
-  return (
-    <div id="categories" className="topCategories">
-      <h2 className="categoryHeading">Top Categories</h2>
-      <div className="categories">
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg"
-          }
-          title={"Design"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-development.jpg"
-          }
-          title={"Development"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-marketing.jpg"
-          }
-          title={"Marketing"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software.jpg"
-          }
-          title={"IT and Software"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-personal-development.jpg"
-          }
-          title={"Personal Development"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-business.jpg"
-          }
-          title={"Business"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-photography.jpg"
-          }
-          title={"Photography"}
-        />
-        <CategoryCard
-          imgSrc={
-            "https://s.udemycdn.com/home/top-categories/lohp-category-music.jpg"
-          }
-          title={"Music"}
-        />
-      </div>
-    </div>
-  );
+    return ( 
+      <div id = "categories" className = "topCategories" >
+        <h2 className = "categoryHeading" > Top Categories </h2> 
+        <div className = "categories" >
+        <CategoryCard imgSrc = {
+            surgery_img
+        }
+        title = {
+            "Surgery"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+            general_med_img
+        }
+        title = {
+            "General Medicine"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+            kidney_img
+        }
+        title = {
+            "Kidney"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+           ent_img
+        }
+        title = {
+            "Ear, Nose, Throat"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+            endocrine_img
+        }
+        title = {
+            "Endocrinology"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+           urology_img
+        }
+        title = {
+            "Urology"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+            mental_img
+        }
+        title = {
+            "Mental Health"
+        }
+        /> 
+        <CategoryCard imgSrc = {
+            womens_img
+        }
+        title = {
+            "Women's health"
+        }
+        /> 
+        </div> 
+        </div>
+    );
 }
 
 export default TopCategories;
