@@ -12,12 +12,15 @@ function Signup() {
   const [formEmail, setformEmail] = useState("");
   const [formPassword, setformPassword] = useState("");
   const [formName, setformName] = useState("");
+  const [formUsertype, setformUserType] = useState("");
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const nameError = useSelector((state) => state.auth.errors.name);
   const EmailError = useSelector((state) => state.auth.errors.email);
   const passwordError = useSelector((state) => state.auth.errors.password);
+  const usertypeError = useSelector((state) => state.auth.errors.usertype);
 
   useEffect(() => {
     dispatch({ type: REMOVE_FORM_ERRORS });
@@ -29,6 +32,8 @@ function Signup() {
       setformEmail(event.target.value);
     } else if (name === "password") {
       setformPassword(event.target.value);
+    } else if (name === "usertype") {
+      setformUserType(event.target.value);
     } else {
       setformName(event.target.value);
     }
@@ -40,6 +45,7 @@ function Signup() {
       name: formName,
       email: formEmail,
       password: formPassword,
+      usertype: formUsertype,
     };
 
     dispatch(registeruser(userData, history));
@@ -64,6 +70,19 @@ function Signup() {
             <p>{nameError}</p>
           </div>
         )}
+        <div className="form__select">
+          <label for="usertype">Select user type:</label>
+          <select
+            name="usertype"
+            id="usertype"
+            onChange={changeHandler}
+            required
+          >
+            <option value=""></option>
+            <option value="P">Professor</option>
+            <option value="S">Student</option>
+          </select>
+        </div>
         <div className="form__input">
           <img className="form__icon" src={email} alt="email"></img>
           <input
@@ -113,5 +132,4 @@ function Signup() {
     </form>
   );
 }
-
 export default Signup;

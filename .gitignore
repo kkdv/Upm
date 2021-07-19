@@ -1,2 +1,10 @@
-node_modules/.bin/*
-node_modules/*
+Frontend/node_modules/.bin/*
+Frontend/node_modules/
+Server/node_modules/*
+.DS_Store
+Frontend/f/
+Frontend/n2/
+.eslintcache
+.vscode
+
+

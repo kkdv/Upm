@@ -1,0 +1,26 @@
+.videoAdDiv {
+  border-top: 1px solid #dcdacb;
+  padding-top: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 1px;
+}
+
+.videoAdDiv .content {
+  height: 100px;
+  width: 400px;
+  text-align: left;
+  color: #3c3b37;
+  margin-left: 70px;
+}
+
+.videoAdDiv .content .heading {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.videoAdDiv .content .about {
+  font-size: 18px;
+  line-height: 1.4;
+}

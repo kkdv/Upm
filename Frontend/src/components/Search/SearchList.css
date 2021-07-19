@@ -1,7 +1,7 @@
 .searchcard {
   display: flex;
   margin-top: 0%;
-  padding: 20px 50px;
+  padding: 10px 50px;
   flex-direction: row;
   overflow: hidden;
   max-width: 100%;
@@ -52,6 +52,13 @@
   font-size: 0.9rem;
   margin-bottom: -0.1em;
   margin-top: 0.3em;
+}
+.searchcard__info td {
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-bottom: -0.1em;
+  margin-top: 0.3em;
+  padding: 5px;
 }
 .searchcard__info small {
   font-size: 0.72rem;

@@ -1,20 +1,22 @@
 .subtotal {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 300px;
-  height: 170px;
-  padding: 20px;
+  justify-content: flex-start;
+  width: 500px;
+  height: 500px;
+  padding: 0px;
   background-color: #f3f3f3;
-  border: 1px solid #dddddd;
+  border: 3px solid #dddddd;
   border-radius: 3px;
 }
 
 .checkOutButton {
-  background: #a435f0;
+  background: #0880c0;
   border-radius: 2px;
-  width: 100%;
-  height: 50px;
+  justify-content: center;
+  align-self: center;
+  width: 50%;
+  height: 30px;
   border: 1px solid;
   margin-top: 10px;
   color: #ffffff;
@@ -23,5 +25,5 @@
 }
 
 .checkOutButton:hover {
-  background: #7019aa;
+  background: #1106e0;
 }

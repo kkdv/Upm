@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ADD_ALL } from "../../app/actions/types";
 import { Link } from "react-router-dom";
+import Subscribe from "../Subscribe/Subscribe";
 
 function Subtotal({ cart }) {
   toast.configure();
@@ -16,16 +17,19 @@ function Subtotal({ cart }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const usertype = useSelector((state) => state.auth.usertype);
 
   async function handleToken(token) {
-    setLoading(true);
+    /*     setLoading(true);
     const response = await axios.post("http://localhost:5000/api/payment", {
       token: token,
       product: cart,
       amount: getBasketTotal(cart),
     });
-    setLoading(false);
-    if (response.data.status === "success") {
+    setLoading(false); */
+    const status = "success";
+    // if (response.data.status === "success") {
+    if (status === "success") {
       await axios.get("http://localhost:5000/api/mycourses/add");
       await dispatch({
         type: ADD_ALL,
@@ -44,23 +48,14 @@ function Subtotal({ cart }) {
 
   return (
     <div className="subtotal">
-      <p>Total:</p>
-      <h1>₹{getBasketTotal(cart) || 0}</h1>
+      {/* <p>Total:</p> */}
+      {/* <h1>₹{getBasketTotal(cart) || 0}</h1> */}
+
       {getBasketTotal(cart) > 0 ? (
-        <StripeCheckout
-          stripeKey="pk_test_51Ik2o1SC4PUMUVRnJmttcc7VqoegdemrDUDlEF5ReXtrAymYlGmfPNw1StRHj5uEO4tyy00YQk516lO54QBp9g9v00mQDM0U3A"
-          token={getBasketTotal(cart) > 0 ? handleToken : null}
-          amount={getBasketTotal(cart) * 100}
-          name="Udemy"
-          currency="INR"
-          email={user.email}
-          description="Safe & Secure Payment"
-        >
-          <button className="checkOutButton">Checkout</button>
-        </StripeCheckout>
+        <Subscribe />
       ) : (
         <Link to="/">
-          <button className="checkOutButton">Keep shopping</button>
+          <button className="checkOutButton">Add Courses</button>
         </Link>
       )}
       {loading && (
@@ -68,9 +63,22 @@ function Subtotal({ cart }) {
           <ClipLoader loading={loading} size={60} color="#3c3b37" />
         </div>
       )}
+
       <ToastContainer />
     </div>
   );
 }
 
 export default Subtotal;
+/*
+        <StripeCheckout
+          stripeKey="pk_test_51Ik2o1SC4PUMUVRnJmttcc7VqoegdemrDUDlEF5ReXtrAymYlGmfPNw1StRHj5uEO4tyy00YQk516lO54QBp9g9v00mQDM0U3A"
+          token={getBasketTotal(cart) > 0 ? handleToken : null}
+          amount={getBasketTotal(cart) * 100}
+          name="Upm"
+          currency="USD"
+          email={user.email}
+          description="Safe & Secure Payment">
+          <button className="checkOutButton">Assign</button>
+        </StripeCheckout>
+*/

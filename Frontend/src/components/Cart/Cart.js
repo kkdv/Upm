@@ -14,7 +14,7 @@ const Cart = () => {
       const response = await axios.get(
         "http://localhost:5000/api/users/cart/get"
       );
-      console.log(response);
+      console.log("Cart=>" + JSON.stringify(response, null, "\t"));
       await setcart(response.data);
     }
     fetchData();
@@ -23,7 +23,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="cart__top">
-        <h3>Shopping Cart</h3>
+        <h3>Cart</h3>
       </div>
       <div className="cart__info">
         <div className="cart__items">

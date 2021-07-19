@@ -18,9 +18,9 @@ function CheckoutProduct({ imageURL, title, author, currPrice }) {
         <p className="checkoutProduct__author">By {author}</p>
       </div>
       <div className="checkoutProduct__right">
-        <p>₹{currPrice}</p>
+        {/*         <p>₹{currPrice}</p> */}
         <button className="remove__button" onClick={removeCart}>
-          Remove
+          Remove from Cart
         </button>
       </div>
     </div>

@@ -27,7 +27,7 @@ const Course = () => {
       {!loading ? (
         <>
           <CourseHeader data={courses} />
-          <CourseTop data={courses} />
+          {<CourseTop data={courses} />}
           <div className="course__body">
             <div className="course__left">
               <div className="course__includes">
@@ -52,7 +52,7 @@ const Course = () => {
                 </ul>
               </div>
             </div>
-            <CourseCard data={courses} />
+            {<CourseCard data={courses} />}
           </div>
         </>
       ) : (

@@ -14,10 +14,12 @@ function Search() {
     fetchData();
     async function fetchData() {
       setLoading(true);
+      console.log("DEBUG: location.state.detail: " + location.state.detail);
       const response = await axios.get(
         `http://localhost:5000/api/course/find/${location.state.detail}`
       );
       setData(response.data.response);
+      console.log("SearchData-->" + JSON.stringify(response, null, "\t"));
       setLoading(false);
     }
   }, [location]);
@@ -32,6 +34,7 @@ function Search() {
               id={course._id}
               title={course.title}
               image={course.imageURL}
+              docURL={course.docURL}
               description={course.description}
               author={course.author}
               stars={course.stars}
