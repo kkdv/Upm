@@ -1,6 +1,6 @@
-# Udemy-Clone
-React js, Node js, Express js, Mongodb
+# Upm LMS System Prototype
 
+React js, Node js, Express js, Mongodb
 
 npm install
 
