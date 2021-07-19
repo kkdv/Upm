@@ -5,7 +5,9 @@ import { useHistory } from "react-router";
 import { ADD_ALL_COURSES } from "../../app/actions/types";
 // import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
 import "./MyCoursesItem.css";
+import "../MainPage/Banner.scss";
 import "../Subscribe/UserList.css";
+import "../Search/SearchList.css";
 
 import VideoAd from "../MainPage/VideoAd";
 import MyCourses from "./MyCourses";
@@ -48,27 +50,52 @@ function MyCoursesItem(props) {
     });
   };
 
-  return (
-    <div className="userlist">
+  /* return (
+    <div>
+      <div className="myCoursesItem">
+        <img
+          className="myCoursesItem__image"
+          src={props.imageURL}
+          alt={props.title}
+        />
+        <div className="myCoursesItem__info">
+          <p className="myCoursesItem__title"> {props.title} </p>
+          <p className="myCoursesItem__author"> By {props.author} </p>
+        </div>
+        <div className="myCoursesItem__down">
+          <p onClick={StartCourse}> START COURSE </p>
+          <p onClick={onClickHandler}> REMOVE COURSE </p>
+        </div>
+      </div>
       <div className="userlist__info">
-        <div className="myCoursesItem">
+        <VideoAd docURL={data.docURL} title={data.docURL} />
+      </div>
+    </div>
+  );
+} */
+
+  return (
+    <div className="searchcard">
+      <div className="searchcard__info">
+        {
           <img
             className="myCoursesItem__image"
             src={props.imageURL}
             alt={props.title}
           />
-          <div className="myCoursesItem__info">
-            <p className="myCoursesItem__title"> {props.title} </p>
-            <p className="myCoursesItem__author"> By {props.author} </p>
-          </div>
-          <div className="myCoursesItem__down">
-            <p onClick={StartCourse}> START COURSE </p>
-            <p onClick={onClickHandler}> REMOVE COURSE </p>
-          </div>
+        }
+        <div className="myCoursesItem__info">
+          <p className="myCoursesItem__title"> {props.title} </p>
+          <p className="myCoursesItem__author"> By {props.author} </p>
+        </div>
+
+        <div className="myCoursesItem__down">
+          <p onClick={StartCourse}> START COURSE </p>
+          <p onClick={onClickHandler}> REMOVE COURSE </p>
         </div>
       </div>
-      <div className="userlist__info">
-        <VideoAd docURL={data.docURL} title={data.docURL} />
+      <div>
+        <VideoAd docURL={data.docURL} title={data.docURL} />{" "}
       </div>
     </div>
   );

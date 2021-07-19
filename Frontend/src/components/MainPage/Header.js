@@ -6,7 +6,7 @@ import { logoutUser } from "../../app/actions/authAction";
 import { ADD_ALL } from "../../app/actions/types";
 import { ReactComponent as CartSvg } from "../../images/logo/cart.svg";
 import { ReactComponent as Search } from "../../images/logo/search.svg";
-import UdemyLogo from "../../images/logo/upmc.png";
+import LMSLogo from "../../images/logo/upmc/lms.jpg";
 import "./Header.scss";
 
 const Header = () => {
@@ -57,8 +57,8 @@ const Header = () => {
   return (
     <header className="header">
       <Link to="/">
-        <img src={UdemyLogo} alt="logo" className="header__logo" />
-      </Link>{" "}
+        <img src={LMSLogo} alt="logo" className="header__logo" />
+      </Link>
       <div className="header__search">
         <a href="#categories"> Categories </a>{" "}
         <form className="header__searchbar" onSubmit={submitHandler}>
@@ -70,14 +70,7 @@ const Header = () => {
             <Search />
           </button>{" "}
         </form>{" "}
-        {/*!isLogin && <p>Udemy for Business</p>}
-                    {!isLogin && <p>Teach on Udemy</p>*/}{" "}
-        {isLogin && (
-          <p>
-            Welcome {user.name}{" "}
-            {user.usertype.trim() === "P" ? "Professor" : "Student"}{" "}
-          </p>
-        )}{" "}
+        {isLogin && <p>Welcome {user.name}</p>}{" "}
         {isLogin && (
           <Link className="mycourses" to="/mycourses">
             <p> My Courses </p>{" "}

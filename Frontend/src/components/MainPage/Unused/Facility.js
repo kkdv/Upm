@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Instructor from "../../images/instructor.jpg";
-import Buisness from "../../images/buisness.jpg";
+import Buisness from "../../../images/business.jpg";
 import "./Facility.scss";
 const Facility = ({ instructor, buisness }) => {
   const Div = styled.div`
@@ -41,7 +41,7 @@ const Facility = ({ instructor, buisness }) => {
         <Title> Become an instructor </Title>{" "}
         <Para>
           Top instructors from around the world teach millions of students on
-          Udemy .We provide the tools and skills to teach what you love.{" "}
+          LMS .We provide the tools and skills to teach what you love.{" "}
         </Para>{" "}
         <Button instructor> Start Teaching Today </Button>{" "}
       </div>{" "}
@@ -51,13 +51,12 @@ const Facility = ({ instructor, buisness }) => {
     <>
       <Img draggable={false} src={Buisness} alt="buisness" />
       <div className="facility__info">
-        <Title> Udemy for Business </Title>{" "}
+        <Title> LMS for Business </Title>{" "}
         <Para>
           {" "}
-          Get unlimited access to 5, 000 + of Udemy’ s top courses for your
-          team.{" "}
+          Get unlimited access to 5, 000 + of LMS s top courses for your team.{" "}
         </Para>{" "}
-        <Button instructor> Get Udemy for Business </Button>{" "}
+        <Button instructor> Get LMS for Business </Button>{" "}
       </div>{" "}
     </>
   );

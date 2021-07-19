@@ -23,7 +23,9 @@ function Signup() {
   const usertypeError = useSelector((state) => state.auth.errors.usertype);
 
   useEffect(() => {
-    dispatch({ type: REMOVE_FORM_ERRORS });
+    dispatch({
+      type: REMOVE_FORM_ERRORS,
+    });
   }, [dispatch]);
 
   const changeHandler = (event) => {
@@ -53,10 +55,10 @@ function Signup() {
 
   return (
     <form className="form" onSubmit={submitHandler}>
-      <div className="form__header">Sign Up and Start Learning!</div>
+      <div className="form__header"> Sign Up and Start Learning! </div>{" "}
       <div className="form__content">
         <div className="form__input">
-          <img className="form__icon" src={user} alt="user"></img>
+          <img className="form__icon" src={user} alt="user" />
           <input
             name="name"
             placeholder="Enter your name"
@@ -64,27 +66,26 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>
+        </div>{" "}
         {nameError && (
           <div className="error">
-            <p>{nameError}</p>
+            <p> {nameError} </p>{" "}
           </div>
-        )}
+        )}{" "}
         <div className="form__select">
-          <label for="usertype">Select user type:</label>
+          <label for="usertype"> Select user type: </label>{" "}
           <select
             name="usertype"
             id="usertype"
             onChange={changeHandler}
             required
           >
-            <option value=""></option>
-            <option value="P">Professor</option>
-            <option value="S">Student</option>
-          </select>
-        </div>
+            <option value=""> </option> <option value="P"> Professor </option>{" "}
+            <option value="S"> Student </option>{" "}
+          </select>{" "}
+        </div>{" "}
         <div className="form__input">
-          <img className="form__icon" src={email} alt="email"></img>
+          <img className="form__icon" src={email} alt="email" />
           <input
             name="email"
             placeholder="Example@gmail.com"
@@ -92,14 +93,14 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>
+        </div>{" "}
         {EmailError && (
           <div className="error">
-            <p>{EmailError}</p>
+            <p> {EmailError} </p>{" "}
           </div>
-        )}
+        )}{" "}
         <div className="form__input">
-          <img className="form__icon" src={password} alt="password"></img>
+          <img className="form__icon" src={password} alt="password" />
           <input
             name="password"
             placeholder="Password"
@@ -107,28 +108,28 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>
+        </div>{" "}
         {passwordError && (
           <div className="error">
-            <p>{passwordError}</p>
+            <p> {passwordError} </p>{" "}
           </div>
-        )}
+        )}{" "}
         <div className="form__button">
           <button type="submit" name="submit">
-            Sign Up
-          </button>
-          <span>By signing up, you agree to our </span>
-          <a>Terms of Use and Privacy Policy.</a>
-        </div>
-      </div>
+            Sign Up{" "}
+          </button>{" "}
+          <span> By signing up, you agree to our </span>{" "}
+          <a> Terms of Use and Privacy Policy. </a>{" "}
+        </div>{" "}
+      </div>{" "}
       <div className="form__footer">
         <div>
-          Already have an account?
+          Already have an account ?
           <Link className="form__link" to="/login">
-            Login
-          </Link>
-        </div>
-      </div>
+            Login{" "}
+          </Link>{" "}
+        </div>{" "}
+      </div>{" "}
     </form>
   );
 }

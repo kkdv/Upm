@@ -8,11 +8,11 @@ function VideoAd(props) {
         <iframe
           title={props.title}
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen=""
+          allowFullScreen="true"
           src={props.docURL}
           frameBorder="0"
-          height="300"
-          width="300"
+          height="360"
+          width="640"
         ></iframe>
       </div>
     </div>

@@ -18,7 +18,9 @@ function Login() {
   const passwordError = useSelector((state) => state.auth.errors.password);
 
   useEffect(() => {
-    dispatch({ type: REMOVE_FORM_ERRORS });
+    dispatch({
+      type: REMOVE_FORM_ERRORS,
+    });
   }, [dispatch]);
 
   const changeHandler = (event) => {
@@ -41,10 +43,10 @@ function Login() {
 
   return (
     <form className="form" onSubmit={submitHandler}>
-      <div className="form__header">Login To Your Udemy Account!</div>
+      <div className="form__header"> Login To Your LMS Account! </div>{" "}
       <div className="form__content">
         <div className="form__input">
-          <img className="form__icon" src={email} alt="email"></img>
+          <img className="form__icon" src={email} alt="email" />
           <input
             name="email"
             placeholder="Example@gmail.com"
@@ -52,14 +54,15 @@ function Login() {
             onChange={changeHandler}
             required
           />
-        </div>
+        </div>{" "}
         {EmailError && (
           <div className="error">
-            <p>{EmailError}</p>
+            <p> {EmailError} </p>{" "}
           </div>
-        )}
+        )}{" "}
         <div className="form__input">
-          <img className="form__icon" src={password} alt="password"></img>
+          <img className="form__icon" src={password} alt="password" />
+
           <input
             name="password"
             placeholder="Password"
@@ -67,27 +70,26 @@ function Login() {
             onChange={changeHandler}
             required
           />
-        </div>
+        </div>{" "}
         {passwordError && (
           <div className="error">
-            <p>{passwordError}</p>
+            <p> {passwordError} </p>{" "}
           </div>
-        )}
+        )}{" "}
         <div className="form__button">
-          <button type="submit">Log In</button>
-          <span>or </span>
-          <a>Forgot your password?</a>
-        </div>
-      </div>
+          <button type="submit"> Log In </button> <span> or </span>{" "}
+          <a> Forgot your password ? </a>{" "}
+        </div>{" "}
+      </div>{" "}
       <div className="form__footer">
         <div>
-          Don't have an account?
+          Don 't have an account?{" "}
           <Link className="form__link" to="/signup">
-            Sign up
-          </Link>
-        </div>
-        <a className="form__link">Log in with your organization</a>
-      </div>
+            Sign up{" "}
+          </Link>{" "}
+        </div>{" "}
+        <a className="form__link"> Log in with your organization </a>{" "}
+      </div>{" "}
     </form>
   );
 }
