@@ -33,7 +33,7 @@ function SearchList(props) {
           ) : null}
         </div>
         <div>
-          <VideoAd docURL={props.docURL} title={props.title} />
+          <VideoAd videoURL={props.videoURL} title={props.title} />
         </div>
         {/*         <div className="searchcard__priceinfo">
                       <p className="searchcard__price">

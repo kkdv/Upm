@@ -3,7 +3,7 @@ import {
     ADD_COURSES_FAIL,
     ADD_COURSES_REQUEST,
     ADD_COURSES_SUCCESS,
-    ADD_SINGAL_COURSES_SUCCESS,
+    ADD_SINGLE_COURSES_SUCCESS,
     CLEAR_ERRORS,
     ADD_FILTERD_COURSES_SUCCESS,
 } from "./types";
@@ -56,21 +56,21 @@ export const getFilteredCourses = (category) => async (dispatch) => {
     }
 };
 
-export const getSingalCourse = (id) => async (dispatch) => {
+export const getSingleCourse = (id) => async (dispatch) => {
     try {
         dispatch({
             type: ADD_COURSES_REQUEST
         });
 
         console.log(
-            "get_SingalCourse: http://localhost:5000/api/course/${id}"
+            "get_SingleCourse: http://localhost:5000/api/course/${id}"
         );
 
         const {
             data
         } = await axios.get(`http://localhost:5000/api/course/${id}`);
         dispatch({
-            type: ADD_SINGAL_COURSES_SUCCESS,
+            type: ADD_SINGLE_COURSES_SUCCESS,
             payload: data,
         });
 

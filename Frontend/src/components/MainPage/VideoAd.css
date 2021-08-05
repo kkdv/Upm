@@ -1,10 +1,13 @@
 .videoAdDiv {
   border-top: 1px solid #dcdacb;
-  padding-top: 5px;
+  padding-top: 0px;
   display: flex;
+  flex-direction: column;
   justify-content: left;
   align-items: left;
   margin-bottom: 1px;
+  height: 160px;
+  width: 540px;
 }
 
 .videoAdDiv .content {

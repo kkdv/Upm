@@ -8,7 +8,7 @@ import { ClipLoader } from "react-spinners";
 import { ReactComponent as Tick } from "../../images/logo/tick.svg";
 import CourseCard from "./CourseCard";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingalCourse } from "../../app/actions/courseAction";
+import { getSingleCourse } from "../../app/actions/courseAction";
 
 const Course = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Course = () => {
   const courses = useSelector((state) => state.courses.activeCourse);
 
   useEffect(() => {
-    dispatch(getSingalCourse(courseId));
+    dispatch(getSingleCourse(courseId));
     setLoading(false);
   }, [dispatch, courseId]);
 

@@ -8,6 +8,7 @@ import "./MyCoursesItem.css";
 import "../MainPage/Banner.scss";
 import "../Subscribe/UserList.css";
 import "../Search/SearchList.css";
+import "../MainPage/Header";
 
 import VideoAd from "../MainPage/VideoAd";
 import MyCourses from "./MyCourses";
@@ -15,11 +16,14 @@ import MyCourses from "./MyCourses";
 function MyCoursesItem(props) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
+
   const user = useSelector((state) => state.auth.user);
   const usertype = useSelector((state) => state.auth.usertype);
+
   const [data, setData] = useState([]);
+
   const courseItem = useSelector((state) => state.cart.courseItem);
+  const [loading, setLoading] = useState(false);
 
   const onClickHandler = async () => {
     await axios.post("http://localhost:5000/api/mycourses/remove", {
@@ -31,48 +35,39 @@ function MyCoursesItem(props) {
     });
   };
 
-  const StartCourse = async () => {
-    await axios
-      .post("http://localhost:5000/api/mycourses/start", {
-        title: props.title,
-        id: props._id,
-      })
-      .then((response) => {
-        console.log("Start Course-->" + JSON.stringify(response, null, "\t"));
-        setData(response.data.course);
-        setData((state) => {
-          return state;
-        });
-      });
-    dispatch({
-      type: ADD_ALL_COURSES,
-      payload: courseItem,
-    });
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
   };
 
   return (
     <div className="searchcard">
       <div className="searchcard__info">
-        {
-          <img
-            className="myCoursesItem__image"
-            src={props.imageURL}
-            alt={props.title}
-          />
-        }
+        {/* <img
+          src={props.imageURL}
+          className="myCoursesItem__image"
+          alt={props.title}
+        /> */}
         <div className="myCoursesItem__info">
-          <p className="myCoursesItem__title"> {props.title} </p>
-          <p className="myCoursesItem__author"> By {props.author} </p>
+          <p className="myCoursesItem__title">{props.title}</p>
+          <p className="myCoursesItem__author">By {props.author} </p>
         </div>
-
         <div className="myCoursesItem__down">
-          <p onClick={StartCourse}> START COURSE </p>
-          <p onClick={onClickHandler}> REMOVE COURSE </p>
+          <p> START </p> <p onClick={onClickHandler}> DROP </p>
         </div>
       </div>
-      <div>
-        <VideoAd docURL={data.docURL} title={data.docURL} />{" "}
-      </div>
+
+      <td>
+        <VideoAd
+          videoURL={props.videoURL}
+          title={props.title}
+          height={240}
+          width={340}
+        />
+      </td>
+      <td>
+        <h4 onClick={() => openInNewTab(props.docURL)}>Document</h4>
+      </td>
     </div>
   );
 }

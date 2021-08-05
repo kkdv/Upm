@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Courses = require("../models/Courses");
 const Users = require("../models/Users");
-const DEBUG = false;
+const DEBUG = true;
 
 
 router.get("/startcourse/:id", async (req, res) => {

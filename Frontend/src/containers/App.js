@@ -57,7 +57,6 @@ function App() {
           {mainApp}{" "}
         </Route>{" "}
       </Switch>{" "}
-      {/* {companies} */} {/* <Footer /> */}{" "}
     </div>
   );
 }

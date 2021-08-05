@@ -6,7 +6,7 @@ const Card = (props) => {
   const {
     _id,
     imageURL,
-    docURL,
+    //  docURL,
     title,
     author,
     stars,
@@ -21,26 +21,26 @@ const Card = (props) => {
   return (
     <div className="card" onClick={() => history.push(`/course/${_id}`)}>
       <div className="card__image">
-        <div className="card__imageWrapper"> </div>
-        <img src={imageURL} alt={title} />
-      </div>
+        <div className="card__imageWrapper"> </div>{" "}
+        <img src={imageURL} alt={title} />{" "}
+      </div>{" "}
       <div className="card__info">
         <h3> {title} </h3> <small> {author} </small>
         <p className="card__starContainer">
           <strong>
-            <span className="card__rating"> {stars} </span>
+            <span className="card__rating"> {stars} </span>{" "}
           </strong>{" "}
           <span className="card__star"> ⭐ </span>{" "}
-          <span className="card__noBuys"> ({noOfStudents}) </span>
+          <span className="card__noBuys"> ({noOfStudents}) </span>{" "}
         </p>{" "}
         {/* <p className="card__price">
-                                  <span className="card__currentPrice">
-                                    <strong>&#36;{currPrice}</strong>
-                                  </span>
-                                  <span className="card__originalPrice">&#36;{orgPrice}</span>
-                                </p>
-                                {bestSeller ? <div className="bestSeller">Bestseller</div> : null} */}{" "}
-      </div>
+                                              <span className="card__currentPrice">
+                                                <strong>&#36;{currPrice}</strong>
+                                              </span>
+                                              <span className="card__originalPrice">&#36;{orgPrice}</span>
+                                            </p>
+                                            {bestSeller ? <div className="bestSeller">Bestseller</div> : null} */}{" "}
+      </div>{" "}
     </div>
   );
 };

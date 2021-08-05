@@ -19,7 +19,7 @@ function Search() {
         `http://localhost:5000/api/course/find/${location.state.detail}`
       );
       setData(response.data.response);
-      console.log("SearchData-->" + JSON.stringify(response, null, "\t"));
+      console.log("Search.js->" + JSON.stringify(response, null, "\t"));
       setLoading(false);
     }
   }, [location]);
@@ -34,7 +34,7 @@ function Search() {
               id={course._id}
               title={course.title}
               image={course.imageURL}
-              docURL={course.docURL}
+              videoURL={course.courseIncludes[0].videoURL}
               description={course.description}
               author={course.author}
               stars={course.stars}

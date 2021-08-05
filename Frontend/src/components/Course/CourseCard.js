@@ -13,16 +13,8 @@ import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ data }) => {
-  const {
-    _id,
-    imageURL,
-    docURL,
-    author,
-    currPrice,
-    title,
-    orgPrice,
-    courseIncludes,
-  } = data;
+  const { _id, imageURL, author, currPrice, title, orgPrice, courseIncludes } =
+    data;
   const [show, setShow] = useState(false);
   const [status, setstatus] = useState(false);
   const [loading, setloading] = useState(false);
@@ -43,7 +35,7 @@ const CourseCard = ({ data }) => {
     const course = {
       _id,
       imageURL,
-      docURL,
+      //    docURL,
       title,
       author,
       currPrice,
@@ -96,19 +88,6 @@ const CourseCard = ({ data }) => {
             <button className="courseCard__cart">Go to cart</button>
           </Link>
         )}
-        {/* {isLogin && (
-          <Link to="/cart">
-            <button className="courseCard__buy" onClick={clickHandler}>
-              Buy now
-            </button>
-          </Link>
-        )} */}
-        {/* {!isLogin && (
-          <Link to="/login">
-            <button className="courseCard__buy">Buy now</button>
-          </Link>
-        )} */}
-        {/*   <small>30-Day Money-Back Guarantee</small> */}
       </div>
 
       <div className="courseCard__includes">
@@ -122,9 +101,10 @@ const CourseCard = ({ data }) => {
               <li>
                 <Article /> <span>{courseIncludes[1].title}</span>
               </li>
-              {/* <li>
+              <li>
                 <Download /> <span>{courseIncludes[2].title}</span>
-              </li> */}
+              </li>
+
               <li>
                 <Lifetime /> <span>{courseIncludes[3].title}</span>
               </li>

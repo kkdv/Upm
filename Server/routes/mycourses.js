@@ -3,6 +3,8 @@ const router = express.Router();
 const Users = require("../models/Users");
 const Courses = require("../models/Courses");
 const passport = require("passport");
+const util = require("util");
+const { error } = require("console");
 
 router.get(
   "/get",
@@ -11,6 +13,7 @@ router.get(
   }),
   async (req, res) => {
     const user = req.user;
+    console.log("called /get, user=" + user);
     res.status(200).json(user.myCourses);
   }
 );
@@ -37,8 +40,8 @@ router.get(
       email: email,
     }).then((user) => {
       /* console.log("router.get/add-->" + JSON.stringify(
-                user, null,
-                "\t")); */
+                      user, null,
+                      "\t")); */
       user.myCourses.push(...student_user);
 
       user.save();
@@ -111,23 +114,25 @@ router.post(
 //   }
 // );
 
-// Start course
 router.post(
   "/start",
   passport.authenticate("jwt", {
     session: false,
   }),
   async (req, res) => {
-    const { title, id } = req.body;
     const user = req.user;
-    //console.log("course start=>" + JSON.stringify(req.body) + " id=" + id);
-    const courses = await Courses.findById(id).then((course) => {
-      res.status(200).json({
-        success: true,
-        course,
-      });
+    const x_c = [];
+    //console.log("payd =>" + JSON.stringify(req.body, null, "\t"));
+
+    const id = req.body.payd;
+
+    //console.log(" id=" + JSON.stringify(id, null, "\t") + "\n");
+
+    Courses.findById(id, function (er, crs) {
+      //console.log("course er =>" + JSON.stringify(er, null, "\t"));
+      console.log("course crs =>" + JSON.stringify(crs, null, "\t"));
+      res.status(200).json(crs);
     });
   }
 );
-
 module.exports = router;
