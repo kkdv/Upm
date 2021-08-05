@@ -1,15 +1,33 @@
-# Upm LMS System Prototype
+# Healthcare Learning Management System Prototype
 
-React js, Node js, Express js, Mongodb
+# Components:
 
+React.js
+Node.js
+Express.js
+Mongodb
+Passport.js
+mongoose
+JWT
+
+# Install package
+
+```
 npm install
+```
 
-for running backend:
+# for starting server:
+
+```
+cd Server
 
 npm start
+```
 
-for running frontend:
+# for starting frontend:
 
+```
 cd Frontend
 
 npm start
+```

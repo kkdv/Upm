@@ -1,14 +1,14 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 import "./TopCategories.css";
-import kidney_img from "../../images/logo/upmc/kidney.jpeg";
-import surgery_img from "../../images/logo/upmc/surgery.jpeg";
-import general_med_img from "../../images/logo/upmc/general_med.jpeg";
-import urology_img from "../../images/logo/upmc/urology.jpeg";
-import ent_img from "../../images/logo/upmc/ent.jpeg";
-import womens_img from "../../images/logo/upmc/womens.jpeg";
-import mental_img from "../../images/logo/upmc/mental.jpeg";
-import endocrine_img from "../../images/logo/upmc/endocrine.jpeg";
+import kidney_img from "../../images/logo/lms/kidney.jpeg";
+import surgery_img from "../../images/logo/lms/surgery.jpeg";
+import general_med_img from "../../images/logo/lms/general_med.jpeg";
+import urology_img from "../../images/logo/lms/urology.jpeg";
+import ent_img from "../../images/logo/lms/ent.jpeg";
+import womens_img from "../../images/logo/lms/womens.jpeg";
+import mental_img from "../../images/logo/lms/mental.jpeg";
+import endocrine_img from "../../images/logo/lms/endocrine.jpeg";
 
 function TopCategories() {
   return (

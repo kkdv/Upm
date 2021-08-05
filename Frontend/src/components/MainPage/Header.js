@@ -6,7 +6,7 @@ import { logoutUser } from "../../app/actions/authAction";
 import { ADD_ALL } from "../../app/actions/types";
 import { ReactComponent as CartSvg } from "../../images/logo/cart.svg";
 import { ReactComponent as Search } from "../../images/logo/search.svg";
-import LMSLogo from "../../images/logo/upmc/lms.jpg";
+import LMSLogo from "../../images/logo/lms/lms.jpg";
 import "./Header.scss";
 
 const Header = () => {
