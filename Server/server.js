@@ -7,7 +7,9 @@ const userCart = require("./routes/userCart");
 const users = require("./routes/users");
 const payment = require("./routes/payment");
 const myCourses = require("./routes/mycourses");
+const upload_file = require("./routes/upload_file");
 const passport = require("passport");
+const cors = require('cors')
 
 const app = express();
 
@@ -30,6 +32,8 @@ app.use((req, res, next) => {
         "GET, POST, PATCH, DELETE,PUT");
     next();
 });
+
+app.options('*', cors())
 
 //passport middleware
 app.use(passport.initialize());
@@ -54,6 +58,7 @@ app.use("/api/users", users);
 app.use("/api/users/cart", userCart);
 app.use("/api/payment", payment);
 app.use("/api/mycourses", myCourses);
+app.use("/api/upload_file", upload_file);
 
 const port = process.env.PORT || 5000;
 

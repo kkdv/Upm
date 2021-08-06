@@ -58,9 +58,9 @@ const Header = () => {
     <header className="header">
       <Link to="/">
         <img src={LMSLogo} alt="logo" className="header__logo" />
-      </Link>{" "}
+      </Link>
       <div className="header__search">
-        <a href="#categories"> Categories </a>{" "}
+        <a href="#categories"> Categories </a>
         <form className="header__searchbar" onSubmit={submitHandler}>
           <input
             onChange={(event) => setData(event.target.value)}
@@ -68,48 +68,52 @@ const Header = () => {
           />
           <button type="submit">
             <Search />
-          </button>{" "}
-        </form>{" "}
-        {isLogin && <p> Welcome {user.name} </p>}{" "}
+          </button>
+        </form>
+        {isLogin && <p> Welcome {user.name} </p>}
         {isLogin && (
           <Link className="mycourses" to="/mycourses">
-            <p> My Courses </p>{" "}
+            <p> My Courses </p>
           </Link>
-        )}{" "}
-      </div>{" "}
+        )}
+      </div>
       <div className="header__right">
-        {" "}
         {isLogin && (
           <Link to="/cart">
             <div className="header__cart">
-              <CartSvg className="header__cartLogo" />{" "}
+              <CartSvg className="header__cartLogo" />
               {cartCount > 0 && (
                 <span className="header__quantity"> {cartCount} </span>
-              )}{" "}
-            </div>{" "}
+              )}
+            </div>
           </Link>
-        )}{" "}
+        )}
         {!isLogin && (
           <Link to="/login">
-            <button className="header__btn header__login"> Log in </button>{" "}
+            <button className="header__btn header__login"> Log in </button>
           </Link>
-        )}{" "}
+        )}
         {!isLogin && (
           <Link to="/signup">
-            <button className="header__btn header__signup"> Sign up </button>{" "}
+            <button className="header__btn header__signup"> Sign up </button>
           </Link>
-        )}{" "}
+        )}
         {isLogin && (
           <Link to="/">
             <button
               className="header__btn header__signup"
               onClick={logoutHandler}
             >
-              Log Out{" "}
-            </button>{" "}
+              Log Out
+            </button>
           </Link>
-        )}{" "}
-      </div>{" "}
+        )}
+      </div>
+      {isLogin && (
+        <Link to="/fileupload">
+          <button className="header__btn header__signup"> Upload</button>
+        </Link>
+      )}
     </header>
   );
 };

@@ -13,13 +13,12 @@ import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../app/actions/authAction";
 import jwt_decode from "jwt-decode";
 import MyCourses from "../components/MyCourses/MyCourses";
-
+import FileUpload from "../../src/utils/FileUpload.jsx";
 const mainApp = (
   <>
     <div className="app__body">
-      {" "}
-      {<Banner />} {<TopCategories />}{" "}
-    </div>{" "}
+      {<Banner />} {<TopCategories />}
+    </div>
   </>
 );
 
@@ -36,27 +35,29 @@ function App() {
       <Switch>
         <Route path="/cart">
           <Cart />
-        </Route>{" "}
+        </Route>
         <Route path="/search">
           <Search />
-        </Route>{" "}
+        </Route>
         <Route path="/mycourses">
           <MyCourses />
-        </Route>{" "}
+        </Route>
         <Route path="/course/:courseId">
           <Course />
-        </Route>{" "}
+        </Route>
         <Route path="/login">
           <Login />
-        </Route>{" "}
+        </Route>
         <Route path="/signup">
           <Signup />
-        </Route>{" "}
+        </Route>
         <Route exact path="/">
-          {" "}
-          {mainApp}{" "}
-        </Route>{" "}
-      </Switch>{" "}
+          {mainApp}
+        </Route>
+        <Route path="/fileupload">
+          <FileUpload />
+        </Route>
+      </Switch>
     </div>
   );
 }

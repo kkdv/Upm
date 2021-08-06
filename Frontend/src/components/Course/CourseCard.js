@@ -20,8 +20,8 @@ const CourseCard = ({ data }) => {
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.auth.isAuthenticated);
-  const isProfessor = useSelector((state) =>
-    state.auth.usertype === "P" ? true : false
+  const isInstructor = useSelector((state) =>
+    state.auth.usertype === "I" ? true : false
   );
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const CourseCard = ({ data }) => {
           <span className="courseCard__currPrice">&#36;{currPrice}</span>
           <span className="courseCard__orgPrice">&#36;{orgPrice}</span>
         </div> */}
-        {isProfessor && !status && isLogin && (
+        {isInstructor && !status && isLogin && (
           <button className="courseCard__cart" onClick={clickHandler}>
             {!status && !loading ? (
               "Subscribe"
@@ -78,7 +78,7 @@ const CourseCard = ({ data }) => {
             )}
           </button>
         )}
-        {isProfessor && !isLogin && (
+        {isInstructor && !isLogin && (
           <Link to="/login">
             <button className="courseCard__cart">Subscribe</button>
           </Link>

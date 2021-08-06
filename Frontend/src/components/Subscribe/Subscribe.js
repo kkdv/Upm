@@ -70,7 +70,7 @@ function Subscribe() {
               _id={us._id}
               name={us.name}
               email={us.email}
-              usertype={us.usertype === "S" ? "Student" : "Professor"}
+              usertype={us.usertype === "S" ? "Student" : "Instructor"}
             />
           );
         })

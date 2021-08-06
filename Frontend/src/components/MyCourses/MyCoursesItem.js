@@ -9,6 +9,7 @@ import "../MainPage/Banner.scss";
 import "../Subscribe/UserList.css";
 import "../Search/SearchList.css";
 import "../MainPage/Header";
+import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
 
 import VideoAd from "../MainPage/VideoAd";
 import MyCourses from "./MyCourses";
@@ -36,7 +37,11 @@ function MyCoursesItem(props) {
   };
 
   const openInNewTab = (url) => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    const newWindow = window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer,height=100,width=100"
+    );
     if (newWindow) newWindow.opener = null;
   };
 
@@ -66,7 +71,12 @@ function MyCoursesItem(props) {
         />
       </td>
       <td>
-        <h4 onClick={() => openInNewTab(props.docURL)}>Document</h4>
+        <img
+          onClick={() => openInNewTab(props.docURL)}
+          className="myCoursesItem__image"
+          alt="Document"
+          src={PDFLogo}
+        ></img>
       </td>
     </div>
   );

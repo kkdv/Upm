@@ -3,7 +3,7 @@ import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
 import user from "../../images/logo/user.svg";
 import { Link, useHistory } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { registeruser } from "../../app/actions/authAction";
 import { REMOVE_FORM_ERRORS } from "../../app/actions/types";
@@ -55,7 +55,7 @@ function Signup() {
 
   return (
     <form className="form" onSubmit={submitHandler}>
-      <div className="form__header"> Sign Up and Start Learning! </div>{" "}
+      <div className="form__header"> Sign Up and Start Learning! </div>
       <div className="form__content">
         <div className="form__input">
           <img className="form__icon" src={user} alt="user" />
@@ -66,24 +66,28 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>{" "}
+        </div>
         {nameError && (
           <div className="error">
-            <p> {nameError} </p>{" "}
+            <p> {nameError} </p>
           </div>
-        )}{" "}
+        )}
         <div className="form__select">
-          <label for="usertype"> Select user type: </label>{" "}
+          <label for="usertype"> Instructor or Student? : </label>
           <select
             name="usertype"
             id="usertype"
+            placeholder="User Type"
             onChange={changeHandler}
             required
           >
-            <option value=""> </option> <option value="P"> Professor </option>{" "}
-            <option value="S"> Student </option>{" "}
-          </select>{" "}
-        </div>{" "}
+            <option value="" disabled>
+              User Type
+            </option>
+            <option value="I"> Instructor </option>
+            <option value="S"> Student </option>
+          </select>
+        </div>
         <div className="form__input">
           <img className="form__icon" src={email} alt="email" />
           <input
@@ -93,12 +97,12 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>{" "}
+        </div>
         {EmailError && (
           <div className="error">
-            <p> {EmailError} </p>{" "}
+            <p> {EmailError} </p>
           </div>
-        )}{" "}
+        )}
         <div className="form__input">
           <img className="form__icon" src={password} alt="password" />
           <input
@@ -108,28 +112,28 @@ function Signup() {
             onChange={changeHandler}
             required
           />
-        </div>{" "}
+        </div>
         {passwordError && (
           <div className="error">
-            <p> {passwordError} </p>{" "}
+            <p> {passwordError} </p>
           </div>
-        )}{" "}
+        )}
         <div className="form__button">
           <button type="submit" name="submit">
-            Sign Up{" "}
-          </button>{" "}
-          <span> By signing up, you agree to our </span>{" "}
-          <a> Terms of Use and Privacy Policy. </a>{" "}
-        </div>{" "}
-      </div>{" "}
+            Sign Up
+          </button>
+          <span> By signing up, you agree to our </span>
+          <a> Terms of Use and Privacy Policy. </a>
+        </div>
+      </div>
       <div className="form__footer">
         <div>
           Already have an account ?
           <Link className="form__link" to="/login">
-            Login{" "}
-          </Link>{" "}
-        </div>{" "}
-      </div>{" "}
+            Login
+          </Link>
+        </div>
+      </div>
     </form>
   );
 }
