@@ -5,7 +5,7 @@ import { loginUser } from "../../app/actions/authAction";
 import { REMOVE_FORM_ERRORS } from "../../app/actions/types";
 import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
-import "./login.css";
+import "./Login.css";
 
 function Login() {
   const [formEmail, setformEmail] = useState("");

@@ -149,9 +149,12 @@ router.post("/login", async (req, res) => {
 
 router.get("/userlist", async (req, res) => {
     const userlist = await Users.find({
-        usertype: 'S'
+        usertype: 'S',
+        name: {
+            $ne: 'admin'
+        }
     });
-    console.log("called /userlist");
+    //console.log("called userlist");
 
     res.status(200).json({
         success: true,

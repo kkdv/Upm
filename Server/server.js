@@ -7,9 +7,11 @@ const userCart = require("./routes/userCart");
 const users = require("./routes/users");
 const payment = require("./routes/payment");
 const myCourses = require("./routes/mycourses");
-const upload_file = require("./routes/upload_file");
+const uploadfile = require("./routes/uploadfile");
 const passport = require("passport");
 const cors = require('cors')
+const fileUpload = require('express-fileupload');
+
 
 const app = express();
 
@@ -20,7 +22,9 @@ app.use(bodyParser.json());
 
 //DB config
 const db = require("./config/keys").mongoURL;
-
+app.use(fileUpload({
+    createParentPath: true
+}));
 //CORS POLICY
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -58,7 +62,7 @@ app.use("/api/users", users);
 app.use("/api/users/cart", userCart);
 app.use("/api/payment", payment);
 app.use("/api/mycourses", myCourses);
-app.use("/api/upload_file", upload_file);
+app.use("/api/uploadfile", uploadfile);
 
 const port = process.env.PORT || 5000;
 

@@ -5,11 +5,7 @@ import { useHistory } from "react-router";
 import { ClipLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import {
-  ADD_ALL,
-  ADD_COURSES_FAIL,
-  ADD_FILTERD_COURSES_SUCCESS,
-} from "../../app/actions/types";
+import { ADD_ALL } from "../../app/actions/types";
 import { Link, useLocation } from "react-router-dom";
 //import NewWindow from "react-new-window";
 
@@ -33,7 +29,11 @@ function Subscribe() {
   async function selectUser(selectedUser) {
     setLoading(true);
     await axios.get("http://localhost:5000/api/mycourses/add", {
-      params: { selectedUser: { selectedUser } },
+      params: {
+        selectedUser: {
+          selectedUser,
+        },
+      },
     });
     await dispatch({
       type: ADD_ALL,
@@ -52,7 +52,7 @@ function Subscribe() {
         .then((response) => {
           setData(response.data.userlist);
           setData((state) => {
-            console.log("UserData-->" + JSON.stringify(response, null, "\t"));
+            //console.log("UserData-->" + JSON.stringify(response, null, "\t"));
             return state;
           });
         });
@@ -60,34 +60,30 @@ function Subscribe() {
     }
   }, [location]);
 
-  const mapCourse = (
-    <div>
-      {!loading && data ? (
-        data.map((us) => {
-          return (
-            <UserList
-              key={us._id}
-              _id={us._id}
-              name={us.name}
-              email={us.email}
-              usertype={us.usertype === "S" ? "Student" : "Instructor"}
-            />
-          );
-        })
-      ) : (
-        <List />
-      )}
-    </div>
-  );
-
   return (
-    <div>
-      <div className="userlist">
-        <p>List of Students </p>
-      </div>
-
-      <div className="userlist">{mapCourse}</div>
-      <p className="userlist__info">
+    <table className="styled-table">
+      <caption>List of Students</caption>
+      <thead>
+        <tr>
+          <th> Email </th> <th> Name </th>
+        </tr>
+      </thead>
+      <tbody>
+        {!loading && data ? (
+          data.map((us) => {
+            return (
+              <UserList
+                key={us._id}
+                _id={us._id}
+                name={us.name}
+                email={us.email}
+                usertype={us.usertype === "S" ? "Student" : "Instructor"}
+              />
+            );
+          })
+        ) : (
+          <List />
+        )}
         <button
           className="checkOutButton"
           onClick={() =>
@@ -96,8 +92,8 @@ function Subscribe() {
         >
           Assign
         </button>
-      </p>
-    </div>
+      </tbody>
+    </table>
   );
 }
 

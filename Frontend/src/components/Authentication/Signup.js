@@ -55,7 +55,7 @@ function Signup() {
 
   return (
     <form className="form" onSubmit={submitHandler}>
-      <div className="form__header"> Sign Up and Start Learning! </div>
+      <div className="form__header"> Sign Up </div>
       <div className="form__content">
         <div className="form__input">
           <img className="form__icon" src={user} alt="user" />
@@ -73,16 +73,16 @@ function Signup() {
           </div>
         )}
         <div className="form__select">
-          <label for="usertype"> Instructor or Student? : </label>
           <select
+            className="form__select"
             name="usertype"
             id="usertype"
             placeholder="User Type"
             onChange={changeHandler}
             required
           >
-            <option value="" disabled>
-              User Type
+            <option value="" disabled selected>
+              Choose User type
             </option>
             <option value="I"> Instructor </option>
             <option value="S"> Student </option>
@@ -92,7 +92,7 @@ function Signup() {
           <img className="form__icon" src={email} alt="email" />
           <input
             name="email"
-            placeholder="Example@gmail.com"
+            placeholder="example@email.com"
             type="Email"
             onChange={changeHandler}
             required

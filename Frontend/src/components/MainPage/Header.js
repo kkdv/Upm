@@ -16,6 +16,7 @@ const Header = () => {
   const isLogin = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user);
   const cartCount = useSelector((state) => state.cart.basketItem);
+  const isadmin = user.name === "admin" ? true : false;
 
   useEffect(() => {
     async function fetchData() {
@@ -108,12 +109,12 @@ const Header = () => {
             </button>
           </Link>
         )}
+        {isLogin && isadmin && (
+          <Link to="/fileupload">
+            <button className="header__btn header__signup"> Upload</button>
+          </Link>
+        )}
       </div>
-      {isLogin && (
-        <Link to="/fileupload">
-          <button className="header__btn header__signup"> Upload</button>
-        </Link>
-      )}
     </header>
   );
 };

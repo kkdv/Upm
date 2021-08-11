@@ -1,0 +1,119 @@
+.fileupload__form {
+  border-radius: 6px;
+  color: #29303b;
+  width: 380px;
+  margin: auto;
+  max-width: 100%;
+}
+.ffileupload__orm .form__content {
+  padding: 24px 24px 16px 16px;
+}
+
+.fileupload__form .form__footer {
+  display: block;
+  padding: 0 0 24px;
+  text-align: center;
+}
+.fileupload__form .form__footer .form__link {
+  font-weight: 700;
+}
+
+.fileupload__form a {
+  color: #007791;
+  background-color: transparent;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fileupload__form__header {
+  border-bottom: solid 1px #dedfe0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #000000;
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 50px 64px 24px 24px;
+}
+
+.fileupload__form__input {
+  z-index: 1;
+}
+
+.fileupload__form__input input {
+  margin-bottom: 8px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  line-height: 1.43;
+  color: #29303b;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  border: 1px solid #8a92a3;
+  border-radius: 5px;
+  padding: 11px 45px 12px 40px;
+}
+
+.fileupload__form__input input:focus {
+  outline: none;
+  border: 1px solid #01aacf;
+  box-shadow: inset 0 0 1px #01aacf;
+}
+
+.fileupload__form__select {
+  margin: 0 0 20px;
+  border: 1px solid #8a92a3;
+  box-shadow: inset 0 0 1px #01aacf;
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  line-height: 1.43;
+  text-align: left;
+}
+
+.fileupload__form__input img {
+  position: absolute;
+}
+
+.fileupload__form__icon {
+  width: 15px;
+  transform: translate(13px, 15px);
+  z-index: 2;
+}
+
+.fileupload__form__button {
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.fileupload__form__button button {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  height: 48px;
+  margin-bottom: 16px;
+  width: 100%;
+  color: #fff;
+  background-color: #30d12b;
+  border: none;
+}
+
+.fileupload__form__button button:hover {
+  background-color: #c74b4b;
+}
+
+.fileupload__form .error {
+  width: 80%;
+  width: 340px;
+  margin-bottom: 10px;
+  background: #faebeb;
+}
+.fileupload__form .error p {
+  color: #521822;
+  font-weight: 400;
+  padding: 13px;
+}

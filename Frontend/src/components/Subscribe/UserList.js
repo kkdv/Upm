@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import {
-  ADD_ALL,
-  ADD_COURSES_FAIL,
-  ADD_FILTERD_COURSES_SUCCESS,
-} from "../../app/actions/types";
-import { Link, useLocation } from "react-router-dom";
+import { ADD_ALL } from "../../app/actions/types";
+
 import "./UserList.css";
 
 import { useHistory } from "react-router";
@@ -22,7 +17,11 @@ function UserList(props) {
   async function selectUser(selectedUser) {
     setLoading(true);
     await axios.get("http://localhost:5000/api/mycourses/add", {
-      params: { selectedUser: { selectedUser } },
+      params: {
+        selectedUser: {
+          selectedUser,
+        },
+      },
     });
     dispatch({
       type: ADD_ALL,
@@ -32,21 +31,18 @@ function UserList(props) {
     setLoading(false);
   }
   return (
-    <div className="userlist__info">
-      <tr>
-        <td>
-          <input
-            type="radio"
-            class="userc"
-            id="v"
-            name="usercheck"
-            value={props.email}
-          ></input>
-          <label for="v"> {props.email}</label>
-        </td>
-        <td>{props.name}</td>
-      </tr>
-    </div>
+    <tr>
+      <td>
+        <input
+          type="radio"
+          class="userc"
+          name="usercheck"
+          value={props.email}
+        ></input>
+        <label for="userc"> {props.email} </label>
+      </td>
+      <td> {props.name} </td>
+    </tr>
   );
 }
 

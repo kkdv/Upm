@@ -63,22 +63,8 @@ function Subtotal({ cart }) {
           <ClipLoader loading={loading} size={60} color="#3c3b37" />
         </div>
       )}
-
-      <ToastContainer />
     </div>
   );
 }
 
 export default Subtotal;
-/*
-        <StripeCheckout
-          stripeKey="pk_test_51Ik2o1SC4PUMUVRnJmttcc7VqoegdemrDUDlEF5ReXtrAymYlGmfPNw1StRHj5uEO4tyy00YQk516lO54QBp9g9v00mQDM0U3A"
-          token={getBasketTotal(cart) > 0 ? handleToken : null}
-          amount={getBasketTotal(cart) * 100}
-          name="Upm"
-          currency="USD"
-          email={user.email}
-          description="Safe & Secure Payment">
-          <button className="checkOutButton">Assign</button>
-        </StripeCheckout>
-*/
