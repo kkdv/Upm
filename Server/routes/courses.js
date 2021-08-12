@@ -5,7 +5,7 @@ const Users = require("../models/Users");
 const DEBUG = false;
 
 router.get("/courses", async (req, res) => {
-    console.log("called /courses");
+    //console.log("called /courses");
     const courses = await Courses.find();
 
     res.status(200).json({

@@ -12,3 +12,4 @@ Frontend/.eslintcache
 .DS_Store
 Frontend/.eslintcache
 
+Server/config/.env

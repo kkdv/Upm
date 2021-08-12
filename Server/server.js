@@ -12,7 +12,6 @@ const passport = require("passport");
 const cors = require('cors')
 const fileUpload = require('express-fileupload');
 
-
 const app = express();
 
 app.use(bodyParser.urlencoded({
@@ -51,13 +50,10 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
-    .then(() => console.log("mongodb connected"))
+    .then(() => console.log("Connected..."))
     .catch((err) => console.log(err));
 
 app.use("/api/", courses);
-
-//app.use("/api/startcourse", startcourse);
-
 app.use("/api/users", users);
 app.use("/api/users/cart", userCart);
 app.use("/api/payment", payment);

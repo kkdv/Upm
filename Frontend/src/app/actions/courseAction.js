@@ -62,9 +62,9 @@ export const getSingleCourse = (id) => async (dispatch) => {
             type: ADD_COURSES_REQUEST
         });
 
-        console.log(
-            "get_SingleCourse: http://localhost:5000/api/course/${id}"
-        );
+        /*   console.log(
+              "get_SingleCourse: http://localhost:5000/api/course/${id}"
+          ); */
 
         const {
             data

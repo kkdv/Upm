@@ -14,7 +14,7 @@ function Search() {
     fetchData();
     async function fetchData() {
       setLoading(true);
-      console.log("DEBUG: location.state.detail: " + location.state.detail);
+      //console.log("DEBUG: location.state.detail: " + location.state.detail);
       const response = await axios.get(
         `http://localhost:5000/api/course/find/${location.state.detail}`
       );
@@ -26,6 +26,7 @@ function Search() {
 
   const mapCourse = (
     <div>
+      {" "}
       {!loading && data ? (
         data.map((course) => {
           return (
@@ -47,19 +48,20 @@ function Search() {
         })
       ) : (
         <List />
-      )}
+      )}{" "}
     </div>
   );
 
   return (
     <div>
-      {mapCourse}
+      {" "}
+      {mapCourse}{" "}
       {data && !loading && data.length === 0 && (
         <p className="cannotfind">
-          Sorry, we couldn't find any results for <br />"{location.state.detail}
-          "
+          Sorry, we couldn 't find any results for <br />"
+          {location.state.detail}"{" "}
         </p>
-      )}
+      )}{" "}
     </div>
   );
 }

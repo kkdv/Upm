@@ -39,8 +39,8 @@ export const loginUser = (userData, history) => (dispatch) => {
             const decoded = jwt_decode(token);
             dispatch(setCurrentUser(decoded));
 
-            console.log("DEBUG(loginUser): res.data:=>" + JSON
-                .stringify(res.data));
+            /*             console.log("DEBUG(loginUser): res.data:=>" + JSON
+                            .stringify(res.data)); */
             history.push("/");
 
 
