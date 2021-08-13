@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import StripeCheckout from "react-stripe-checkout";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Subtotal.css";
 import { useHistory } from "react-router";
@@ -16,8 +15,6 @@ function Subtotal({ cart }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const user = useSelector((state) => state.auth.user);
-  const usertype = useSelector((state) => state.auth.usertype);
 
   async function handleToken(token) {
     /*     setLoading(true);

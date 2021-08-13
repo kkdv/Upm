@@ -13,7 +13,8 @@ import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../app/actions/authAction";
 import jwt_decode from "jwt-decode";
 import MyCourses from "../components/MyCourses/MyCourses";
-import FileUpload from "../../src/utils/FileUpload.jsx";
+import FileUpload from "../utils/FileUpload.jsx";
+import StartCourse from "../components/MyCourses/StartCourse";
 const mainApp = (
   <>
     <div className="app__body">
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/fileupload">
           <FileUpload />
+        </Route>
+        <Route path="/startcourse/:vURL">
+          <StartCourse />
         </Route>
       </Switch>
     </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { ADD_ALL_COURSES } from "../../app/actions/types";
 // import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
 import "./MyCoursesItem.css";
@@ -12,7 +13,7 @@ import "../MainPage/Header";
 import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
 
 import VideoAd from "../MainPage/VideoAd";
-import MyCourses from "./MyCourses";
+import StartCourse from "./StartCourse";
 
 function MyCoursesItem(props) {
   const dispatch = useDispatch();
@@ -36,9 +37,9 @@ function MyCoursesItem(props) {
     });
   };
 
-  const openInNewTab = (url) => {
+  const openInNewTab = (videoURL, docURL) => {
     const newWindow = window.open(
-      url,
+      videoURL,
       "_blank",
       "noopener,noreferrer,height=100,width=100"
     );
@@ -58,26 +59,44 @@ function MyCoursesItem(props) {
           <p className="myCoursesItem__author">By {props.author} </p>
         </div>
         <div className="myCoursesItem__down">
-          <p> START </p> <p onClick={onClickHandler}> DROP </p>
+          {/*   <p onClick={() => openInNewTab(props.videoURL, props.docURL)}>
+          <p onClick={() => history.push(`/course/${props.id}`)}>START</p>
+            START
+          </p> */}
+          <div className="myCoursesItem__down">
+            <button
+              className="header__btn header__login"
+              onClick={() =>
+                history.push(
+                  `/startcourse/${encodeURIComponent(props.videoURL)}`
+                )
+              }
+            >
+              START
+            </button>
+
+            <p>
+              <button onClick={onClickHandler}> DROP </button>
+            </p>
+          </div>
         </div>
       </div>
-
-      <td>
+      <div className="myCoursesItem__info">
         <VideoAd
           videoURL={props.videoURL}
           title={props.title}
-          height={240}
-          width={340}
+          height={340}
+          width={440}
+          isEnrolled={false}
         />
-      </td>
-      <td>
+      </div>
+      <div className="myCoursesItem__info">
         <img
-          onClick={() => openInNewTab(props.docURL)}
           className="myCoursesItem__image"
           alt="Document"
           src={PDFLogo}
         ></img>
-      </td>
+      </div>
     </div>
   );
 }

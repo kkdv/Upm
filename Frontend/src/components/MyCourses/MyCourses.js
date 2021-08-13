@@ -35,14 +35,8 @@ function MyCourses() {
         /* console.log("After FetchCourseData crs=" + JSON.stringify(crs, null, "\t")); */
 
         // Insert the new key/value pair of courseIncludes
-        wD_arr.data[i].courseIncludes = [
-          {
-            videoURL: "",
-          },
-          {
-            docURL: "",
-          },
-        ];
+        wD_arr.data[i].courseIncludes = [{ videoURL: "" }, { docURL: "" }];
+
         wD_arr.data[i].courseIncludes[0]["videoURL"] =
           crs.data.courseIncludes[0].videoURL;
 
@@ -74,15 +68,14 @@ function MyCourses() {
   return (
     <div>
       <div className="myCourses__top">
-        <h3> My Learning </h3>{" "}
+        <h3> Assigned Courses </h3>
       </div>
       <div className="myCourses__info">
-        {" "}
         {loading && (
           <div className="course__loader">
             <ClipLoader loading={loading} size={60} color="#3c3b37" />
           </div>
-        )}{" "}
+        )}
         {myC.data &&
           myC.data.map((item, index) => (
             <MyCoursesItem
@@ -95,16 +88,16 @@ function MyCourses() {
               author={item.author}
               index={index}
             />
-          ))}{" "}
-      </div>{" "}
+          ))}
+      </div>
       {myC.data && myC.data.length === 0 && (
         <p className="cannotfind">
-          When you enroll in a course, it will appear here.{" "}
+          When you are assigned a course, it will appear here.
           <Link className="browse" to="/">
-            <span> Browse now. </span>{" "}
-          </Link>{" "}
+            <span> Browse now. </span>
+          </Link>
         </p>
-      )}{" "}
+      )}
     </div>
   );
 }

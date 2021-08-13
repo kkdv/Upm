@@ -3,48 +3,53 @@ import "./SearchList.css";
 
 import { useHistory } from "react-router";
 import VideoAd from "../MainPage/VideoAd";
+import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
 
 function SearchList(props) {
   const history = useHistory();
 
-  return (
-    <div>
-      <div
-        className="searchcard"
-        onClick={() => history.push(`/course/${props.id}`)}
-      >
-        {/* <div className="searchcard__image">
-                      <div className="searchcard__imageWrapper"></div>
-                      <img src={props.image} alt="" />
-                    </div> */}
+  const openInNewTab = (url) => {
+    const newWindow = window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer,height=100,width=100"
+    );
+    if (newWindow) newWindow.opener = null;
+  };
 
-        <div className="searchcard__info">
-          <h2> {props.title} </h2> <h4> {props.description} </h4>
-          <small> {props.author} </small>
-          <p className="searchcard__starContainer">
-            <strong>
-              <span className="searchcard__rating">{props.stars}</span>
-            </strong>
-            <span className="searchcard__star">⭐</span>
-            <span className="searchcard__noBuys">({props.noOfStudents})</span>
-          </p>
-          {props.bestSeller ? (
-            <div className="bestSeller">Bestseller</div>
-          ) : null}
-        </div>
-        <div>
-          <VideoAd videoURL={props.videoURL} title={props.title} />
-        </div>
-        {/*         <div className="searchcard__priceinfo">
-                      <p className="searchcard__price">
-                        <span className="searchcard__currentPrice">
-                          <strong>&#36;{props.currPrice}</strong>
-                        </span>
-                        <span className="searchcard__originalPrice">
-                          &#3;{props.orgPrice}
-                        </span>
-                      </p>
-                    </div> */}
+  return (
+    <div
+      className="searchcard"
+      onClick={() => history.push(`/course/${props.id}`)}
+    >
+      <div className="searchcard__info">
+        <h2> {props.title} </h2> <h4> {props.description} </h4> <p></p>
+        <small> {props.author} </small>
+        <p className="searchcard__starContainer">
+          <strong>
+            <span className="searchcard__rating"> {props.stars} </span>
+          </strong>
+          <span className="searchcard__star"> ⭐ </span>
+          <span className="searchcard__noBuys"> ({props.noOfStudents}) </span>
+        </p>
+        {props.bestSeller ? (
+          <div className="bestSeller"> Bestseller </div>
+        ) : null}
+      </div>
+      <div className="searchcard__info">
+        <VideoAd
+          videoURL={props.videoURL}
+          title={props.title}
+          height={440}
+          width={540}
+        />
+      </div>
+      <div className="searchcard_image">
+        <img
+          className="myCoursesItem__image"
+          alt="Document"
+          src={PDFLogo}
+        ></img>
       </div>
     </div>
   );

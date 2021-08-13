@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Video } from "../../images/logo/yt.svg";
 import { ReactComponent as Article } from "../../images/logo/Article.svg";

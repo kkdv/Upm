@@ -2,13 +2,20 @@ import { React, useEffect, useState } from "react";
 import SearchList from "./SearchList";
 import "./Search.css";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { List } from "react-content-loader";
+import { useHistory } from "react-router";
+import video_icon from "../../images/logo/lms/video_icon.png";
+import pdf_icon from "../../images/logo/lms/PDF_icon.jpg";
 
 function Search() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState();
+  const isLogin = useSelector((state) => state.auth.isAuthenticated);
+  const usertype = useSelector((state) => state.auth.usertype);
+  const history = useHistory();
 
   useEffect(() => {
     fetchData();
@@ -25,6 +32,10 @@ function Search() {
   }, [location]);
 
   const mapCourse = (
+    /*    <div
+          className="searchcard"
+          onClick={() => history.push(`/course/${props.id}`)}
+        > */
     <div>
       {" "}
       {!loading && data ? (
@@ -35,7 +46,16 @@ function Search() {
               id={course._id}
               title={course.title}
               image={course.imageURL}
-              videoURL={course.courseIncludes[0].videoURL}
+              videoURL={
+                isLogin && usertype === "I"
+                  ? course.courseIncludes[0].videoURL
+                  : course.courseIncludes[0].videoURL
+              }
+              docURL={
+                isLogin && usertype === "I"
+                  ? course.courseIncludes[1].docURL
+                  : pdf_icon
+              }
               description={course.description}
               author={course.author}
               stars={course.stars}
@@ -58,8 +78,7 @@ function Search() {
       {mapCourse}{" "}
       {data && !loading && data.length === 0 && (
         <p className="cannotfind">
-          Sorry, we couldn 't find any results for <br />"
-          {location.state.detail}"{" "}
+          Cannot find content for <br /> "{location.state.detail}"{" "}
         </p>
       )}{" "}
     </div>

@@ -1,13 +1,13 @@
 .searchcard {
   display: flex;
   margin-top: 0%;
-  padding: 10px 50px;
+  padding: 5px 10px;
   flex-direction: row;
   overflow: hidden;
   max-width: 100%;
   height: auto;
   cursor: pointer;
-  border-bottom: 1px solid #dcdacb;
+  border-bottom: 3px solid #dcdacb;
 }
 
 .searchcard__image {
