@@ -23,8 +23,9 @@ function SearchList(props) {
       onClick={() => history.push(`/course/${props.id}`)}
     >
       <div className="searchcard__info">
-        <h2> {props.title} </h2> <h4> {props.description} </h4> <p></p>
-        <small> {props.author} </small>
+        <p className="searchcard__title"> {props.title}</p>
+        <p className="searchcard__title">{props.description} </p>
+        <p className="searchcard__author"> {props.author} </p>
         <p className="searchcard__starContainer">
           <strong>
             <span className="searchcard__rating"> {props.stars} </span>
@@ -40,16 +41,20 @@ function SearchList(props) {
         <VideoAd
           videoURL={props.videoURL}
           title={props.title}
-          height={440}
-          width={540}
+          height={340}
+          width={440}
         />
       </div>
-      <div className="searchcard_image">
-        <img
-          className="myCoursesItem__image"
-          alt="Document"
-          src={PDFLogo}
-        ></img>
+      <div className="searchcard__info">
+        <div className="searchcard__image">
+          <div className="searchcard__image">
+            <img
+              className="searchcard__image"
+              alt="Document"
+              src={PDFLogo}
+            ></img>
+          </div>
+        </div>
       </div>
     </div>
   );

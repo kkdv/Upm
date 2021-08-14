@@ -31,56 +31,49 @@ function Search() {
     }
   }, [location]);
 
-  const mapCourse = (
-    /*    <div
-          className="searchcard"
-          onClick={() => history.push(`/course/${props.id}`)}
-        > */
-    <div>
-      {" "}
-      {!loading && data ? (
-        data.map((course) => {
-          return (
-            <SearchList
-              key={course._id}
-              id={course._id}
-              title={course.title}
-              image={course.imageURL}
-              videoURL={
-                isLogin && usertype === "I"
-                  ? course.courseIncludes[0].videoURL
-                  : course.courseIncludes[0].videoURL
-              }
-              docURL={
-                isLogin && usertype === "I"
-                  ? course.courseIncludes[1].docURL
-                  : pdf_icon
-              }
-              description={course.description}
-              author={course.author}
-              stars={course.stars}
-              noOfStudents={course.noOfStudents}
-              currPrice={course.currPrice}
-              orgPrice={course.orgPrice}
-              bestSeller={course.bestSeller}
-            />
-          );
-        })
-      ) : (
-        <List />
-      )}{" "}
-    </div>
-  );
-
   return (
     <div>
-      {" "}
-      {mapCourse}{" "}
+      <div className="myCourses__top">
+        <h3> Available Courses</h3>
+      </div>
+      <div className="myCourses__info">
+        {!loading && data ? (
+          data.map((course) => {
+            return (
+              <SearchList
+                key={course._id}
+                id={course._id}
+                title={course.title}
+                image={course.imageURL}
+                videoURL={
+                  isLogin && usertype === "I"
+                    ? course.courseIncludes[0].videoURL
+                    : course.courseIncludes[0].videoURL
+                }
+                docURL={
+                  isLogin && usertype === "I"
+                    ? course.courseIncludes[1].docURL
+                    : pdf_icon
+                }
+                description={course.description}
+                author={course.author}
+                stars={course.stars}
+                noOfStudents={course.noOfStudents}
+                currPrice={course.currPrice}
+                orgPrice={course.orgPrice}
+                bestSeller={course.bestSeller}
+              />
+            );
+          })
+        ) : (
+          <List />
+        )}
+      </div>
       {data && !loading && data.length === 0 && (
         <p className="cannotfind">
-          Cannot find content for <br /> "{location.state.detail}"{" "}
+          Cannot find course content for <br /> "{location.state.detail}"
         </p>
-      )}{" "}
+      )}
     </div>
   );
 }

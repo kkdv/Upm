@@ -17,34 +17,37 @@ function VideoAd(props) {
     }
   };
   const imgURL = gvt(); // get Youtube thumbnail image
-  const isEnrolled = useSelector((state) => state.auth.isEnrolled);
 
   return (
-    <div className="videoAdDiv" onClick={() => gvt(props.videoURL)}>
-      <div className="videoDiv content">
-        {props.isEnrolled && (
+    <div>
+      {props.isEnrolled && (
+        <div
+          className="videoWrapper"
+          Style="--aspect-ratio: 3 / 4;"
+          onClick={() => gvt(props.videoURL)}
+        >
           <iframe
             className="iframe1"
             title={props.title}
             allow="accelerometer; autoplay; encrypted-media; gyroscope;picture-in-picture; enablejsapi; controls"
-            allowFullScreen={true}
             src={props.videoURL}
             frameBorder="0"
             height={props.height}
             width={props.width}
           ></iframe>
-        )}
+        </div>
+      )}
 
-        {!props.isEnrolled && (
-          <img
-            height={props.height / 2}
-            width={props.width / 2}
-            alt="video"
-            src={imgURL}
-          ></img>
-        )}
-        <div>
-          {/*  
+      {!props.isEnrolled && (
+        <img
+          height={props.height / 2}
+          width={props.width / 2}
+          alt="video"
+          src={imgURL}
+        ></img>
+      )}
+
+      {/*  
           <iframe
             className="iframe1"
             title={props.title}
@@ -64,8 +67,6 @@ function VideoAd(props) {
                height="264"
                data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"}], "youtube": { "ytControls": 2 } }'
            ></video> */}
-        </div>
-      </div>
     </div>
   );
 }

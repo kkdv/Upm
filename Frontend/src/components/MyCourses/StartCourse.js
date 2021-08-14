@@ -42,29 +42,42 @@ function StartCourse() {
 
   return (
     <div>
-      <div className="StartCoursesItem">
-        <div className="StartCoursesItem__Info">
+      <div className="StartCourses__container">
+        <div className="course_video">
           <VideoAd
             videoURL={decodeURIComponent(vURL)}
             title="video title"
-            height={"550px"}
-            width={"1000px"}
+            height={"560"}
+            width={"1000"}
             isEnrolled={true}
           />
         </div>
-      </div>
-      <div className="StartCoursesItem">
-        <div className="StartCoursesItem__Info">Lots of Text Stuff</div>
-      </div>
-      <div className="StartCoursesItem">
-        <div className="StartCoursesItem__image">
+
+        <div className="course_details">
+          Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux,
+          React Routing, Animations, Next.js and way more! If the promise is
+          rejected, catch returns a new promise with undefined payload (data).
+          If there is a return statement in the handler function, it returns a
+          fulfilled promise with that return value as the payload. finally
+          returns a new promise with undefined payload (data). If there is a
+          return statement in the handler function, it returns a fulfilled
+          promise with that return value as the payload. Only first then is
+          invoked when the promise is fulfilled and only first catch is invoked
+          when the promise is rejected. After that, depending on the appearance
+          of then and catch handlers, the handler function will be called. Let’s
+          see an example of this in details.
+        </div>
+        <div className="course_progress">
           <img
+            className="StartCourses__image"
             onClick={() => openInNewTab("docURL...")}
             alt="Document"
             src={PDFLogo}
           ></img>
         </div>
-        <div className="StartCoursesItem__image">Other stuff</div>
+        <div className="course_timer">
+          Other stuff <button className="red_button">Test</button>
+        </div>
       </div>
     </div>
   );

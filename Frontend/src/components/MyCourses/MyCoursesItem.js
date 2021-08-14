@@ -47,38 +47,27 @@ function MyCoursesItem(props) {
   };
 
   return (
-    <div className="searchcard">
-      <div className="searchcard__info">
-        {/* <img
-          src={props.imageURL}
-          className="myCoursesItem__image"
-          alt={props.title}
-        /> */}
-        <div className="myCoursesItem__info">
-          <p className="myCoursesItem__title">{props.title}</p>
-          <p className="myCoursesItem__author">By {props.author} </p>
-        </div>
-        <div className="myCoursesItem__down">
-          {/*   <p onClick={() => openInNewTab(props.videoURL, props.docURL)}>
-          <p onClick={() => history.push(`/course/${props.id}`)}>START</p>
-            START
-          </p> */}
-          <div className="myCoursesItem__down">
-            <button
-              className="header__btn header__login"
-              onClick={() =>
-                history.push(
-                  `/startcourse/${encodeURIComponent(props.videoURL)}`
-                )
-              }
-            >
-              START
-            </button>
+    <div className="myCoursesItem">
+      <div className="myCoursesItem__info">
+        <p className="myCoursesItem__title">{props.title}</p>
+        <p></p>
+        <p className="myCoursesItem__author">By {props.author} </p>
 
-            <p>
-              <button onClick={onClickHandler}> DROP </button>
-            </p>
-          </div>
+        <div className="myCoursesItem__down">
+          <button
+            className="green_button"
+            onClick={() =>
+              history.push(`/startcourse/${encodeURIComponent(props.videoURL)}`)
+            }
+          >
+            START
+          </button>
+
+          <p>
+            <button className="red_button" onClick={onClickHandler}>
+              DROP
+            </button>
+          </p>
         </div>
       </div>
       <div className="myCoursesItem__info">
@@ -91,11 +80,15 @@ function MyCoursesItem(props) {
         />
       </div>
       <div className="myCoursesItem__info">
-        <img
-          className="myCoursesItem__image"
-          alt="Document"
-          src={PDFLogo}
-        ></img>
+        <p className="myCoursesItem__title">Downloadable Content</p> <p></p>
+        <div className="myCoursesItem__image">
+          <img
+            className="myCoursesItem__image"
+            alt="Document"
+            src={PDFLogo}
+            Style="  float: left;"
+          ></img>
+        </div>
       </div>
     </div>
   );

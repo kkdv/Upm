@@ -1,4 +1,4 @@
-.searchcard {
+/* .searchcard {
   display: flex;
   margin-top: 0%;
   padding: 5px 10px;
@@ -8,20 +8,24 @@
   height: auto;
   cursor: pointer;
   border-bottom: 3px solid #dcdacb;
+} */
+
+.searchcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgb(114, 5, 5);
+  margin: 10px;
+  width: 250px;
 }
 
 .searchcard__image {
-  position: relative;
-  border: 1px solid #dcdacb;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.searchcard__image img {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: 50%;
+  float: left;
 }
 
-.searchcard__image .searchcard__imageWrapper {
+/* .searchcard__image .searchcard__imageWrapper {
   transition: all 150ms ease;
   position: absolute;
   top: 0;
@@ -29,15 +33,14 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.01);
-}
+} */
 
 .searchcard:hover .searchcard__imageWrapper {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 .searchcard__info {
-  padding: 0px 20px;
-  width: 950px;
+  padding: 10px 5px;
 }
 
 .searchcard__info h3 {
