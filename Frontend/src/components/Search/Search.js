@@ -26,7 +26,7 @@ function Search() {
         `http://localhost:5000/api/course/find/${location.state.detail}`
       );
       setData(response.data.response);
-      console.log("Search.js->" + JSON.stringify(response, null, "\t"));
+      //console.log("Search.js->" + JSON.stringify(response, null, "\t"));
       setLoading(false);
     }
   }, [location]);
@@ -34,7 +34,7 @@ function Search() {
   return (
     <div>
       <div className="myCourses__top">
-        <h3> Available Courses</h3>
+        <h3> Available Courses on {location.state.detail}</h3>
       </div>
       <div className="myCourses__info">
         {!loading && data ? (

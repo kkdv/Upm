@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { ReactComponent as Search } from "../../images/logo/search.svg";
 import "./Banner.scss";
+//import Category from "./Unused/Category";
 
 const Banner = () => {
   const [input, setInput] = useState();
@@ -28,7 +29,7 @@ const Banner = () => {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="What do you want to learn?"
+            placeholder="Enter a search term"
           />
           <button type="submit">
             <Search />

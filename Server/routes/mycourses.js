@@ -12,6 +12,7 @@ router.get(
   "/get",
   passport.authenticate("jwt", {
     session: false,
+    failureRedirect: "/login",
   }),
   async (req, res) => {
     const user = req.user;

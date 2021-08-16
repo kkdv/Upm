@@ -1,31 +1,50 @@
-import React from "react";
+import { useEffect, useState } from "react";
+
 import CategoryCard from "./CategoryCard";
 import "./TopCategories.css";
-import kidney_img from "../../images/logo/lms/kidney.jpeg";
-import surgery_img from "../../images/logo/lms/surgery.jpeg";
-import general_med_img from "../../images/logo/lms/general_med.jpeg";
-import urology_img from "../../images/logo/lms/urology.jpeg";
-import ent_img from "../../images/logo/lms/ent.jpeg";
-import womens_img from "../../images/logo/lms/womens.jpeg";
-import mental_img from "../../images/logo/lms/mental.jpeg";
-import endocrine_img from "../../images/logo/lms/endocrine.jpeg";
+
+import category_data from "../../data/category.js";
+
+const descriptionSubstring = (string) =>
+  string.length > 255 ? string.slice(0, 255) + "..." : string;
 
 function TopCategories() {
+  const [catoption, setOption] = useState("All");
+
+  function handleChange(event) {
+    setOption(event.target.value);
+  }
+
   return (
     <div id="categories" className="topCategories">
-      <h2 className="categoryHeading"> Course Listing for </h2>{" "}
+      <div className="categoryHeading">
+        <p>
+          <h4>
+            Course Listing for
+            <select id="categorylist" onChange={handleChange}>
+              <option value="All">All</option>
+
+              {category_data.map((item, index) => (
+                <option key={index} value={item.category}>
+                  {item.category}
+                </option>
+              ))}
+            </select>
+          </h4>
+        </p>
+      </div>
       <div className="categories">
-        <CategoryCard imgSrc={surgery_img} title={"Surgery"} />{" "}
-        <CategoryCard imgSrc={general_med_img} title={"General Medicine"} />{" "}
-        <CategoryCard imgSrc={kidney_img} title={"Kidney"} />{" "}
-        <CategoryCard imgSrc={ent_img} title={"Ear, Nose, Throat"} />{" "}
-        <CategoryCard imgSrc={endocrine_img} title={"Endocrinology"} />{" "}
-        <CategoryCard imgSrc={urology_img} title={"Urology"} />{" "}
-        <CategoryCard imgSrc={mental_img} title={"Mental Health"} />{" "}
-        <CategoryCard imgSrc={womens_img} title={"Women's health"} />{" "}
-      </div>{" "}
+        {category_data
+          .filter((cat) => cat.category === catoption || catoption === "All")
+          .map((item, index) => (
+            <CategoryCard
+              key={item.id}
+              imgSrc={item.imageURL}
+              title={item.category}
+            />
+          ))}
+      </div>
     </div>
   );
 }
-
 export default TopCategories;

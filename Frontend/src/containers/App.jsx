@@ -15,10 +15,12 @@ import jwt_decode from "jwt-decode";
 import MyCourses from "../components/MyCourses/MyCourses";
 import FileUpload from "../utils/FileUpload.jsx";
 import StartCourse from "../components/MyCourses/StartCourse";
+import VideoJS from "../components/MainPage/Videojs";
 const mainApp = (
   <>
     <div className="app__body">
-      {<Banner />} {<TopCategories />}
+      {<Banner />}
+      {<TopCategories />}
     </div>
   </>
 );
@@ -58,8 +60,11 @@ function App() {
         <Route path="/fileupload">
           <FileUpload />
         </Route>
-        <Route path="/startcourse/:vURL">
+        <Route path="/startcourse/:courseID">
           <StartCourse />
+        </Route>
+        <Route path="/videojs">
+          <VideoJS />
         </Route>
       </Switch>
     </div>

@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 
-// import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
 import "./StartCourse.css";
 
-import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
+import PDFIcon from "../../images/logo/lms/PDF_icon.jpg";
 
-import VideoAd from "../MainPage/VideoAd";
+import VideoPlayer from "../MainPage/VideoPlayer";
 
 function StartCourse() {
   const dispatch = useDispatch();
@@ -18,11 +17,62 @@ function StartCourse() {
   const user = useSelector((state) => state.auth.user);
   const usertype = useSelector((state) => state.auth.usertype);
 
-  const [data, setData] = useState([]);
+  // intitalize the data array to the correct JSON structure for first render
+  const [cdata, setData] = useState({
+    data: {
+      success: true,
+      courses: {
+        learn: [" "],
+        courseIncludes: [
+          {
+            Icon: " ",
+            title: " ",
+            videoURL: "",
+          },
+          {
+            Icon: " ",
+            title: " ",
+            docURL: " ",
+          },
+          {
+            Icon: " ",
+            title: " ",
+          },
+          {
+            Icon: " ",
+            title: " ",
+          },
+          {
+            Icon: " ",
+            title: " ",
+          },
+          {
+            Icon: " ",
+            title: " ",
+          },
+        ],
+        audience: [""],
+        _id: " ",
+        ratings: "",
+        orgPrice: "",
+        noOfStudents: "",
+        category: " ",
+        imageURL: " ",
+        title: " ",
+        description: " ",
+        author: " ",
+        stars: 0,
+        currPrice: 0,
+        bestSeller: true,
+        language: "",
+        __v: 0,
+      },
+    },
+  });
 
   const [loading, setLoading] = useState(false);
 
-  const { vURL } = useParams();
+  //const { vURL } = useParams();
 
   const openInNewTab = (videoURL, docURL) => {
     const newWindow = window.open(
@@ -32,53 +82,78 @@ function StartCourse() {
     );
     if (newWindow) newWindow.opener = null;
   };
-  //const { courseID } = useParams();
-  /* async function fetchData(courseID) {
-    const rs = await axios.get(`http://localhost:5000/api/course/${courseID}`);
-    console.log("rs=" + JSON.stringify(rs, null, "\t"));
-    vURL = rs.courseIncludes[0].videoURL;
-  }
-  fetchData(courseID); */
+
+  const { courseID } = useParams();
+  //console.log("OutcourseID=" + courseID);
+
+  useEffect(() => {
+    async function fetchData(p_courseID) {
+      console.log("p_courseID=" + p_courseID);
+
+      const rs = await axios.get(
+        `http://localhost:5000/api/course/${p_courseID}`
+      );
+
+      //console.log("rs=" + JSON.stringify(rs, null, "\t"));
+      return rs;
+    }
+
+    setLoading(true);
+    fetchData(courseID).then((cid) => {
+      /* console.log(
+        "fetchData:MyCourses->" +
+          courseID +
+          ":" +
+          JSON.stringify(cid, null, "\t")
+      ); */
+
+      setData(cid);
+      setData((state) => {
+        return state;
+      });
+    });
+
+    setLoading(false);
+  }, [setData, courseID]);
 
   return (
     <div>
-      <div className="StartCourses__container">
-        <div className="course_video">
-          <VideoAd
-            videoURL={decodeURIComponent(vURL)}
-            title="video title"
-            height={"560"}
-            width={"1000"}
-            isEnrolled={true}
-          />
-        </div>
+      {!loading && (
+        <div className="StartCourses__container">
+          <div className="course_video">
+            <VideoPlayer
+              videoURL={cdata.data.courses.courseIncludes[0].videoURL}
+              //videoURL="http://vjs.zencdn.net/v/oceans.mp4"
+              //videoType="video/youtube"
+              title="video title"
+              height={"760"}
+              width={"1050"}
+              isEnrolled={true}
+            />
+          </div>
 
-        <div className="course_details">
-          Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux,
-          React Routing, Animations, Next.js and way more! If the promise is
-          rejected, catch returns a new promise with undefined payload (data).
-          If there is a return statement in the handler function, it returns a
-          fulfilled promise with that return value as the payload. finally
-          returns a new promise with undefined payload (data). If there is a
-          return statement in the handler function, it returns a fulfilled
-          promise with that return value as the payload. Only first then is
-          invoked when the promise is fulfilled and only first catch is invoked
-          when the promise is rejected. After that, depending on the appearance
-          of then and catch handlers, the handler function will be called. Let’s
-          see an example of this in details.
+          <div className="course_details">
+            <p className="StartCoursesItem__author">
+              {cdata.data.courses.learn[0]}
+            </p>
+          </div>
+          <div className="course_add_content">
+            <p>
+              <h4> Documents Available</h4>
+            </p>
+            <div className="StartCourses__image">
+              <img
+                className="StartCourses__image"
+                onClick={() =>
+                  openInNewTab(cdata.data.courses.courseIncludes[1].docURL)
+                }
+                alt="Document"
+                src={PDFIcon}
+              ></img>
+            </div>
+          </div>
         </div>
-        <div className="course_progress">
-          <img
-            className="StartCourses__image"
-            onClick={() => openInNewTab("docURL...")}
-            alt="Document"
-            src={PDFLogo}
-          ></img>
-        </div>
-        <div className="course_timer">
-          Other stuff <button className="red_button">Test</button>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

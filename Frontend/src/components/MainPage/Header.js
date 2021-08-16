@@ -18,6 +18,10 @@ const Header = () => {
   const cartCount = useSelector((state) => state.cart.basketItem);
   const isadmin = user.name === "admin" ? true : false;
 
+  const courseCount = useSelector((state) => state.cart.courseItem);
+
+  //alert(courseCount);
+
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
@@ -74,6 +78,12 @@ const Header = () => {
         {isLogin && <p> Welcome {user.name} </p>}
         {isLogin && (
           <Link className="mycourses" to="/mycourses">
+            {courseCount > 0 && (
+              <span className="header__quantity">
+                {courseCount}
+                99
+              </span>
+            )}
             <p> My Courses </p>
           </Link>
         )}
@@ -111,9 +121,12 @@ const Header = () => {
         )}
         {isLogin && isadmin && (
           <Link to="/fileupload">
-            <button className="header__btn header__signup"> Upload</button>
+            <button className="header__btn header__signup"> Upload </button>
           </Link>
         )}
+        <Link to="/videojs">
+          <button className="header__btn header__signup"> V </button>
+        </Link>
       </div>
     </header>
   );

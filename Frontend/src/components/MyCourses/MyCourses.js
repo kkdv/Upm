@@ -68,7 +68,7 @@ function MyCourses() {
   return (
     <div>
       <div className="myCourses__top">
-        <h3> Assigned Courses </h3>
+        <h3> Courses Assigned to You </h3>
       </div>
       <div className="myCourses__info">
         {loading && (

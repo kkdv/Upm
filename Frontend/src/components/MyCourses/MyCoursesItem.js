@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { ADD_ALL_COURSES } from "../../app/actions/types";
 // import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
+
 import "./MyCoursesItem.css";
 import "../MainPage/Banner.scss";
 import "../Subscribe/UserList.css";
@@ -12,8 +13,7 @@ import "../Search/SearchList.css";
 import "../MainPage/Header";
 import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
 
-import VideoAd from "../MainPage/VideoAd";
-import StartCourse from "./StartCourse";
+import VideoPlayer from "../MainPage/VideoPlayer";
 
 function MyCoursesItem(props) {
   const dispatch = useDispatch();
@@ -49,20 +49,18 @@ function MyCoursesItem(props) {
   return (
     <div className="myCoursesItem">
       <div className="myCoursesItem__info">
-        <p className="myCoursesItem__title">{props.title}</p>
-        <p></p>
-        <p className="myCoursesItem__author">By {props.author} </p>
-
+        <p className="myCoursesItem__title"> {props.title} </p> <p> </p>
+        <p className="myCoursesItem__author"> By {props.author} </p>
         <div className="myCoursesItem__down">
           <button
             className="green_button"
             onClick={() =>
-              history.push(`/startcourse/${encodeURIComponent(props.videoURL)}`)
+              //history.push(`/startcourse/${encodeURIComponent(props.videoURL)}`)
+              history.push(`/startcourse/${encodeURIComponent(props.id)}`)
             }
           >
             START
           </button>
-
           <p>
             <button className="red_button" onClick={onClickHandler}>
               DROP
@@ -71,7 +69,7 @@ function MyCoursesItem(props) {
         </div>
       </div>
       <div className="myCoursesItem__info">
-        <VideoAd
+        <VideoPlayer
           videoURL={props.videoURL}
           title={props.title}
           height={340}
@@ -80,13 +78,12 @@ function MyCoursesItem(props) {
         />
       </div>
       <div className="myCoursesItem__info">
-        <p className="myCoursesItem__title">Downloadable Content</p> <p></p>
+        <p className="myCoursesItem__title"> Downloadable Content </p> <p></p>
         <div className="myCoursesItem__image">
           <img
             className="myCoursesItem__image"
             alt="Document"
             src={PDFLogo}
-            Style="  float: left;"
           ></img>
         </div>
       </div>

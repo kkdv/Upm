@@ -2,20 +2,11 @@ import React from "react";
 import "./SearchList.css";
 
 import { useHistory } from "react-router";
-import VideoAd from "../MainPage/VideoAd";
+import VideoPlayer from "../MainPage/VideoPlayer";
 import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
 
 function SearchList(props) {
   const history = useHistory();
-
-  const openInNewTab = (url) => {
-    const newWindow = window.open(
-      url,
-      "_blank",
-      "noopener,noreferrer,height=100,width=100"
-    );
-    if (newWindow) newWindow.opener = null;
-  };
 
   return (
     <div
@@ -23,8 +14,8 @@ function SearchList(props) {
       onClick={() => history.push(`/course/${props.id}`)}
     >
       <div className="searchcard__info">
-        <p className="searchcard__title"> {props.title}</p>
-        <p className="searchcard__title">{props.description} </p>
+        <p className="searchcard__title"> {props.title} </p>
+        <p className="searchcard__title"> {props.description} </p>
         <p className="searchcard__author"> {props.author} </p>
         <p className="searchcard__starContainer">
           <strong>
@@ -38,7 +29,7 @@ function SearchList(props) {
         ) : null}
       </div>
       <div className="searchcard__info">
-        <VideoAd
+        <VideoPlayer
           videoURL={props.videoURL}
           title={props.title}
           height={340}

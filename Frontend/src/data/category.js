@@ -1,30 +1,67 @@
+import kidney_img from "../images/logo/lms/kidney.jpeg";
+import surgery_img from "../images/logo/lms/surgery.jpeg";
+import general_med_img from "../images/logo/lms/general_med.jpeg";
+import urology_img from "../images/logo/lms/urology.jpeg";
+import ent_img from "../images/logo/lms/ent.jpeg";
+import womens_img from "../images/logo/lms/womens.jpeg";
+import mental_img from "../images/logo/lms/mental.jpeg";
+import endocrine_img from "../images/logo/lms/endocrine.jpeg";
+
 const data = [{
         id: 11,
-        category: 'python',
-        title: 'Expand your career opportunities with Python999999999999',
-        description: "Whether you work in machine learning or finance, or are pursuing a career in web development or data science, Python is one of the most important skills you can learn. Python's simple syntax is especially suited for desktop, web, and business applications. Python's design philosophy emphasizes readability and usability. Python was developed upon the premise that there should be only one way (and preferably one obvious way) to do things, a philosophy that has resulted in a strict level of code standardization. The core programming language is quite small and the standard library is also large. In fact, Python's large library is one of its greatest benefits, providing a variety of different tools for programmers suited for many different tasks.",
-        imageURL: 'https://s.udemycdn.com/topic-images/lohp-topic-banners/GettyImages-1166389425_opt.jpg',
+        category: 'Surgery',
+        title: 'Study of Surgery',
+        description: "the branch of medical practice that treats injuries, diseases, and deformities by the physical removal, repair, or readjustment of organs and tissues, often involving cutting into the body.",
+        imageURL: surgery_img,
     },
     {
         id: 12,
-        category: 'Excel',
-        title: 'Analyze and visualize data with Excel',
-        description: "Regardless of the industry you work in, Microsoft Office Excel is an invaluable spreadsheet program for organizing and representing data. Excel offers functions, formulas, and pivot tables to help you aggregate and then analyze large sets of information. Excel first truly appeared on the scene way back in 1987, when a version was released for Windows. Excel is a complex and powerful software today, and it gives you a great degree of control over the data in your spreadsheet. Yet, it's easy for even beginners to learn it.",
-        imageURL: 'https://s.udemycdn.com/topic-images/lohp-topic-banners/GettyImages-154946064_opt.jpg',
+        category: 'General Medicine',
+        title: 'Study of General Medicine',
+        description: "the branch of medicine that deals with the diagnosis and (nonsurgical) treatment of diseases of the internal organs (especially in adults)",
+        imageURL: general_med_img,
     },
     {
         id: 13,
-        category: 'web-development',
-        title: 'Build websites and applications with Web Development',
-        description: 'The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.',
-        imageURL: 'https://s.udemycdn.com/topic-images/lohp-topic-banners/GettyImages-1175266254_opt.jpg',
+        category: 'Kidney',
+        title: 'Study of Kidney',
+        description: 'Human kidneys are shaped like large beans, and this is where the "kidney bean," a common red-colored bean, gets its name. The organs called kidneys are vital to life, as they filter bad stuff from your blood, help your body get rid of waste, regulate your blood pressure, and even produce hormones. The word kidney is probably a compound of the Old English cwið, "womb," and ey, "egg," describing the organ\'s shape.',
+        imageURL: kidney_img,
     },
     {
         id: 14,
-        category: 'javascript',
-        title: 'Grow your software development skills with JavaScript',
+        category: 'Ear, Nose, Throat',
+        title: 'Study of Ear, Nose, Throat',
+        description: "Jcalled otolaryngology-head and neck surgery because specialists are trained in both medicine and surgery. An otolaryngologist is often called an ear, nose, and throat doctor, or an ENT for short.",
+        imageURL: ent_img,
+    },
+    {
+        id: 15,
+        category: 'Endocrinology',
+        title: 'Study of the Endocrine System',
+        description: "Endocrinologists are doctors who specialize in glands and the hormones they make. They deal with metabolism, or all the biochemical processes that make your body work, including how your body changes food into energy and how it grows.",
+        imageURL: endocrine_img,
+    },
+    {
+        id: 16,
+        category: 'Urology',
+        title: 'Study of Kidney and the Urine Function',
         description: "JavaScript is one of the most ubiquitous programming languages on the planet, mostly because it's the backbone of interactive web applications. On top of that, JavaScript is a great language for beginners because it gives them a chance to write code that does something visual, which is exciting and helpful when you're just getting started as a programmer. Dynamic content is the hot topic in web development right now. Dynamic content refers to content that constantly changes and adapts to specific users whenever possible. For example, JavaScript can be used to determine if a website visitor is using a computer or a mobile device before deciding whether or not to render the mobile version of the website. It's these small things behind the scenes that create genuine value in using JavaScript to create dynamic web pages.",
-        imageURL: 'https://s.udemycdn.com/topic-images/lohp-topic-banners/GettyImages-1150611961_opt.jpg',
+        imageURL: urology_img,
+    },
+    {
+        id: 17,
+        category: 'Mental Health',
+        title: 'Study of Mental Health',
+        description: "Psychopathology is a term which refers to either the study of mental illness or mental distress or the manifestation of behaviours and experiences which may be indicative of mental illness or psychological impairment. The many different professions may be involved in studying mental illness or distress.",
+        imageURL: mental_img,
+    },
+    {
+        id: 18,
+        category: 'Womens Health',
+        title: 'Study of Womens Health',
+        description: "Women's health refers to the branch of medicine that focuses on the treatment and diagnosis of diseases and conditions that affect a woman's physical and emotional well-being.",
+        imageURL: womens_img,
     },
 ];
 export default data;

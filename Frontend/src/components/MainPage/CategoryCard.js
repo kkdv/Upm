@@ -9,7 +9,9 @@ function CategoryCard(props) {
     history.push({
       pathname: `/search`,
       search: `?category=${props.title}`,
-      state: { detail: props.title },
+      state: {
+        detail: props.title,
+      },
     });
   };
 
@@ -19,8 +21,8 @@ function CategoryCard(props) {
         src={props.imgSrc}
         alt={props.title + " img"}
         className="categoryImg"
-      ></img>
-      <h3 className="categoryTitle">{props.title}</h3>
+      ></img>{" "}
+      <p className="categoryTitle"> {props.title} </p>{" "}
     </div>
   );
 }

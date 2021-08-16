@@ -23,15 +23,14 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="cart__top">
-        <h3> Cart </h3>{" "}
-      </div>{" "}
+        <h3> Cart </h3>
+      </div>
       <div className="cart__info">
         <div className="cart__items">
           <p className="cart__itemsnumber">
-            {" "}
             {cart && cart.length}
-            Courses in Cart{" "}
-          </p>{" "}
+            Courses in Cart
+          </p>
           {cart &&
             cart.map((item) => (
               <CheckoutProduct
@@ -41,11 +40,11 @@ const Cart = () => {
                 author={item.author}
                 currPrice={item.currPrice}
               />
-            ))}{" "}
-        </div>{" "}
-        <Subtotal cart={cart} />{" "}
-      </div>{" "}
-      <div className="cart__checkout"> </div>{" "}
+            ))}
+        </div>
+        <Subtotal cart={cart} />
+      </div>
+      <div className="cart__checkout"> </div>
     </div>
   );
 };
