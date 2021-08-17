@@ -9,7 +9,7 @@ import { ADD_ALL } from "../../app/actions/types";
 import { Link, useLocation } from "react-router-dom";
 //import NewWindow from "react-new-window";
 
-import UserList from "./UserList";
+import UserList from "./UserList.jsx";
 import "./UserList.css";
 import "../Cart/Cart.scss";
 

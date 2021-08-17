@@ -1,7 +1,7 @@
 import { ReactComponent as World } from "../../images/logo/world.svg";
 import { ReactComponent as WishList } from "../../images/logo/wishlist.svg";
 import { ReactComponent as Share } from "../../images/logo/share.svg";
-import CourseInfo from "./CourseInfo";
+import CourseInfo from "./CourseInfo.jsx";
 import "./CourseTop.scss";
 const CourseTop = ({ data }) => {
   const {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./VideoPlayer.css";
-import "./Header";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "videojs-youtube/dist/Youtube.min.js";
+import "@devmobiliza/videojs-vimeo/dist/videojs-vimeo.cjs";
 
 export const VideoJS = (props) => {
   const videoRef = React.useRef(null);

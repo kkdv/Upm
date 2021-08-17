@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ADD_ALL } from "../../app/actions/types";
 import { Link } from "react-router-dom";
-import Subscribe from "../Subscribe/Subscribe";
+import Subscribe from "../Subscribe/Subscribe.jsx";
 
 function Subtotal({ cart }) {
   toast.configure();

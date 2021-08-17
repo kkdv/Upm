@@ -124,9 +124,9 @@ const Header = () => {
             <button className="header__btn header__signup"> Upload </button>
           </Link>
         )}
-        <Link to="/videojs">
-          <button className="header__btn header__signup"> V </button>
-        </Link>
+        {/* <Link to="/videojs">
+                                  <button className="header__btn header__signup"> - </button>
+                                </Link> */}
       </div>
     </header>
   );

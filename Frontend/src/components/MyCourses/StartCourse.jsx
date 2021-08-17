@@ -88,7 +88,7 @@ function StartCourse() {
 
   useEffect(() => {
     async function fetchData(p_courseID) {
-      console.log("p_courseID=" + p_courseID);
+      //console.log("p_courseID=" + p_courseID);
 
       const rs = await axios.get(
         `http://localhost:5000/api/course/${p_courseID}`

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CourseTop from "./CourseTop";
-import CourseHeader from "./CourseHeader";
+import CourseTop from "./CourseTop.jsx";
+import CourseHeader from "./CourseHeader.jsx";
 import "./Course.scss";
 
 import { ClipLoader } from "react-spinners";
 import { ReactComponent as Tick } from "../../images/logo/tick.svg";
-import CourseCard from "./CourseCard";
+import CourseCard from "./CourseCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleCourse } from "../../app/actions/courseAction";
 

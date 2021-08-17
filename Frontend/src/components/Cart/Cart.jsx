@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./Cart.scss";
-import CheckoutProduct from "./CheckoutProduct";
-import Subtotal from "./Subtotal";
+import CheckoutProduct from "./CheckoutProduct.jsx";
+import Subtotal from "./Subtotal.jsx";
 
 const Cart = () => {
   const [cart, setcart] = useState();

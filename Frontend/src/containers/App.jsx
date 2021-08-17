@@ -1,21 +1,20 @@
 import "./App.scss";
-import Header from "../components/MainPage/Header";
-import Banner from "../components/MainPage/Banner";
-import Cart from "../components/Cart/Cart";
-import Course from "../components/Course/Course";
+import Header from "../components/MainPage/Header.jsx";
+import Banner from "../components/MainPage/Banner.jsx";
+import Cart from "../components/Cart/Cart.jsx";
+import Course from "../components/Course/Course.jsx";
 import { Route, Switch } from "react-router-dom";
-import TopCategories from "../components/MainPage/TopCategories";
-import Login from "../components/Authentication/Login";
-import Signup from "../components/Authentication/Signup";
-import Search from "../components/Search/Search";
+import TopCategories from "../components/MainPage/TopCategories.jsx";
+import Login from "../components/Authentication/Login.jsx";
+import Signup from "../components/Authentication/Signup.jsx";
+import Search from "../components/Search/Search.jsx";
 import store from "../app/store";
 import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../app/actions/authAction";
 import jwt_decode from "jwt-decode";
-import MyCourses from "../components/MyCourses/MyCourses";
+import MyCourses from "../components/MyCourses/MyCourses.jsx";
 import FileUpload from "../utils/FileUpload.jsx";
-import StartCourse from "../components/MyCourses/StartCourse";
-import VideoJS from "../components/MainPage/Videojs";
+import StartCourse from "../components/MyCourses/StartCourse.jsx";
 const mainApp = (
   <>
     <div className="app__body">
@@ -62,9 +61,6 @@ function App() {
         </Route>
         <Route path="/startcourse/:courseID">
           <StartCourse />
-        </Route>
-        <Route path="/videojs">
-          <VideoJS />
         </Route>
       </Switch>
     </div>
