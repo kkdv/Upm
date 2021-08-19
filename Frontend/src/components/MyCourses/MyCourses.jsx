@@ -3,7 +3,7 @@ import MyCoursesItem from "./MyCoursesItem";
 import "./MyCourses.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { useParams } from "react-router-dom";
 
@@ -11,6 +11,7 @@ function MyCourses() {
   //const myCourses = useSelector((state) => state.courses.courses);
   // const userEmail = useSelector((state) => state.user.userData);
   const courseItem = useSelector((state) => state.cart.courseItem);
+  const history = useHistory();
 
   //console.log("state=" + state.cart.courseItem);
   const [myC, setmyCourses] = useState([]);
@@ -68,7 +69,10 @@ function MyCourses() {
         setloading(false);
       })
       .catch(function (err) {
-        console.log("Error FetchData:" + JSON.stringify(err, null, "\t"));
+        console.log("Error FetchData:" + err.response.data);
+        if (err.response.status === 404) {
+          history.push("/logout");
+        }
       });
   }, [setmyCourses, courseItem]);
 

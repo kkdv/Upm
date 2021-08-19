@@ -53,7 +53,8 @@ router.post("/signup", async (req, res) => {
                 payload,
                 key.secretKey,
                 {
-                  expiresIn: 3600,
+                  //expiresIn: 3600,
+                  expiresIn: 30,
                 },
                 (err, token) => {
                   res.json({

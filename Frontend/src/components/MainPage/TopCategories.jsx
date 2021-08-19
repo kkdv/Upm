@@ -19,19 +19,17 @@ function TopCategories() {
     <div id="categories" className="topCategories">
       <div className="categoryHeading">
         <p>
-          <h4>
-            Course Listing for
-            <select id="categorylist" onChange={handleChange}>
-              <option value="All">All</option>
-
-              {category_data.map((item, index) => (
-                <option key={index} value={item.category}>
-                  {item.category}
-                </option>
-              ))}
-            </select>
-          </h4>
+          <h4>Course Listing for </h4>
         </p>
+        <select id="categorylist" onChange={handleChange}>
+          <option value="All">All</option>
+
+          {category_data.map((item, index) => (
+            <option key={index} value={item.category}>
+              {item.category}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="categories">
         {category_data

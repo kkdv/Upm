@@ -3,7 +3,6 @@ const router = express.Router();
 const Courses = require("../models/Courses");
 const Users = require("../models/Users");
 const DEBUG = false;
-
 router.get("/courses", async (req, res) => {
     //console.log("called /courses");
     const courses = await Courses.find();

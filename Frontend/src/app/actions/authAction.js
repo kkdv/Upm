@@ -43,9 +43,12 @@ export const loginUser = (userData, history) => (dispatch) => {
             history.push("/");
         })
         .catch((err) =>
+
             dispatch({
                 type: GET_FORM_ERRORS,
                 payload: err.response.data,
+
+                //payload: err.response.data,
             })
         );
 };

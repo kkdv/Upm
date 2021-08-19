@@ -38,6 +38,8 @@ export const VideoJS = (props) => {
 };
 
 function VideoPlayer(props) {
+  const [video_tn, setDatav] = useState("");
+
   const gvt = () => {
     let video_array = [];
 
@@ -72,26 +74,25 @@ function VideoPlayer(props) {
       video_array[2] =
         "https://img.youtube.com/vi/" + youtube_video_id + "/0.jpg";
     } else if (props.videoURL.includes("vimeo")) {
-      const regExp =
-        /(http:|https:|)\/\/(player.|www.|m.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/;
-      const vimeo_video_id = props.videoURL
-
-        .match(/vimeo\.com.*(\/)(.{9})/)
-        .pop();
       video_array[0] = props.videoURL;
       video_array[1] = "video/vimeo";
+
+      const vimeo_video_id = props.videoURL
+        .match(/vimeo\.com.*(\/)(.{9})/)
+        .pop();
       axios
-        .get("https://vimeo.com/api/v2/video/" + vimeo_video_id + ".json")
-        .then((rs) => {
-          const vimeo_data = JSON.parse(rs);
-          video_array[2] =
-            vimeo_data[0].thumbnail_large !== null
-              ? vimeo_data[0].thumbnail_large
-              : "Vimeo thumbnail";
+        .post("http://localhost:5000/api/mycourses/geturl", {
+          url: "https://vimeo.com/api/v2/video/" + vimeo_video_id + ".json",
         })
-        .catch((err) => {
-          video_array[2] = "Vimeo thumbnail" + err;
+        .then((rs) => {
+          const rsdata = JSON.parse(rs.data);
+          /* console.log(
+            "got back from vimeo thumbnail=" +
+              JSON.stringify(rsdata[0].thumbnail_large, null, "\t")
+          ); */
+          setDatav(rsdata[0].thumbnail_large);
         });
+      video_array[2] = video_tn;
     } else if (props.videoURL.includes("mp4")) {
       video_array[0] = props.videoURL;
       video_array[1] = "video/mp4";
@@ -100,9 +101,8 @@ function VideoPlayer(props) {
     return video_array;
   };
 
-  const [videoURL, videoType, thumbnailURL] = gvt(); // get Youtube thumbnail image
-
-  //console.log(videoType + ":" + thumbnailURL);
+  const [videoURL, videoType, thumbnailURL] = gvt(); // get Youtube/Vimeo thumbnail image
+  //console.log("video array=" + videoURL + ":" + videoType + ":" + thumbnailURL);
 
   const videoJsOptions = {
     // lookup the options in the docs for more options
