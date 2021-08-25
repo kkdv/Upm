@@ -49,7 +49,7 @@ function MyCoursesItem(props) {
     <div className="myCoursesItem">
       <div className="myCoursesItem__info">
         <p className="myCoursesItem__title"> {props.title} </p> <p> </p>
-        <p className="myCoursesItem__author"> By {props.author} </p>{" "}
+        <p className="myCoursesItem__author"> By {props.author} </p>
         <div className="myCoursesItem__down">
           <button
             className="green_button"
@@ -58,15 +58,15 @@ function MyCoursesItem(props) {
               history.push(`/startcourse/${encodeURIComponent(props.id)}`)
             }
           >
-            START{" "}
-          </button>{" "}
+            START
+          </button>
           <p>
             <button className="red_button" onClick={onClickHandler}>
-              DROP{" "}
-            </button>{" "}
-          </p>{" "}
-        </div>{" "}
-      </div>{" "}
+              DROP
+            </button>
+          </p>
+        </div>
+      </div>
       <div className="myCoursesItem__info">
         <VideoPlayer
           videoURL={props.videoURL}
@@ -74,8 +74,8 @@ function MyCoursesItem(props) {
           height={340}
           width={440}
           isEnrolled={false}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       <div className="myCoursesItem__info">
         <p className="myCoursesItem__title"> Downloadable Content </p> <p></p>
         <div className="myCoursesItem__image">
@@ -83,9 +83,9 @@ function MyCoursesItem(props) {
             className="myCoursesItem__image"
             alt="Document"
             src={PDFLogo}
-          ></img>{" "}
-        </div>{" "}
-      </div>{" "}
+          ></img>
+        </div>
+      </div>
     </div>
   );
 }

@@ -15,6 +15,7 @@ import jwt_decode from "jwt-decode";
 import MyCourses from "../components/MyCourses/MyCourses.jsx";
 import FileUpload from "../utils/FileUpload.jsx";
 import StartCourse from "../components/MyCourses/StartCourse.jsx";
+import Profile from "../components/Authentication/Profile";
 const mainApp = (
   <>
     <div className="app__body">
@@ -61,6 +62,9 @@ function App() {
         </Route>
         <Route path="/startcourse/:courseID">
           <StartCourse />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </div>

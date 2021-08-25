@@ -18,9 +18,7 @@ function TopCategories() {
   return (
     <div id="categories" className="topCategories">
       <div className="categoryHeading">
-        <p>
-          <h4>Course Listing for </h4>
-        </p>
+        <p>Course Listing for</p>
         <select id="categorylist" onChange={handleChange}>
           <option value="All">All</option>
 

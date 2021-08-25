@@ -4,6 +4,8 @@ const Users = require("../models/Users");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const key = require("../config/keys");
+
+const util = require("util");
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
@@ -136,4 +138,40 @@ router.get("/userlist", async (req, res) => {
     userlist,
   });
 });
+
+router.get("/updateuser/:userid/:courseid", async (req, res) => {
+  //console.log("userid=" + JSON.stringify(req.params.userid, null, "\t"));
+  //console.log("courseid=" + JSON.stringify(req.params.courseid, null, "\t"));
+  const id = req.params.userid;
+
+  const res2 = await Users.findOne({
+    _id: req.params.userid,
+    // "myCourses._id": req.params.courseid,
+  });
+
+  if (!res2) {
+    return res.status(404).json({
+      id: "User not found!",
+    });
+  }
+  const i = res2.myCourses.findIndex((obj) => obj._id == req.params.courseid);
+
+  //console.log("res2=" + JSON.stringify(res2.myCourses[i], null, "\t"));
+  const today = new Date();
+
+  today.setDate(today.getDate() + 10);
+
+  const date =
+    today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
+
+  res2.myCourses[i].startDate = date;
+
+  res2.markModified("myCourses");
+
+  const err = await res2.save().catch((err) => err);
+  //console.log("err=" + JSON.stringify(err, null, "\t"));
+
+  res.status(200).json(res2);
+});
+
 module.exports = router;

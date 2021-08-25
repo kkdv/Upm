@@ -5,6 +5,9 @@ const Courses = require("../models/Courses");
 const passport = require("passport");
 const util = require("util");
 const got = require('got');
+const {
+    syncIndexes
+} = require("../models/Users");
 
 /* const {
     pipeline
@@ -22,6 +25,8 @@ const {
 const {
     response
 } = require("express"); */
+
+
 
 router.get("/get",
     passport.authenticate("jwt", {
@@ -49,6 +54,7 @@ router.get("/add",
         });
 
         //loop thrrough the cart
+        let usercart = null;
         for (idx = 0; idx < req.user.cart.length; idx++) {
             /* console.log(
               " : idx=" + idx + " cart=" + JSON.stringify(req.user.cart, null, "\t")
@@ -58,14 +64,28 @@ router.get("/add",
                 email: student_email,
                 "myCourses._id": req.user.cart[idx]._id,
             });
+
+
             if (!res2) {
-                student_user.myCourses.push(req.user.cart[idx]);
-                /* console.log(
-                  "inserting current_user_cart to student myCourses=" +
-                    JSON.stringify(student_user.myCourses, null, "\t")
-                ); */
-            } else {
-                //console.log("duplicate found, res2=" + res2);
+                // add additional fields for the instructor to track of student progress.
+                const today = new Date();
+                const date = today.getFullYear() + '/' + (today
+                    .getMonth() + 1) + '/' + today.getDate();
+                req.user.cart[idx] = {
+                    ...req.user.cart[idx],
+                    assignedBy: req.user.email,
+                    assignedDate: date,
+                    startDate: "",
+                    endDate: "",
+                    expirationDate: ""
+                };
+
+                //console.log("user.cart[idx]=" + JSON.stringify(req.user.cart[idx]));
+
+                student_user.myCourses.push(
+                    req.user.cart[idx]);
+                usercart = null;
+
             }
         } //exit for loop
         //console.log("done, saving to student_user myCourses=" + student_user);
@@ -110,15 +130,16 @@ router.post("/remove",
     }
 );
 
-// router.get(
-//   "/cartcount",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     const user = req.user;
-//     const length = user.cart.length;
-//     res.json(length);
-//   }
-// );
+router.get("/mycoursecount",
+    passport.authenticate("jwt", {
+        session: false
+    }),
+    async (req, res) => {
+        const user = req.user;
+        const length = user.myCourses.length;
+        res.json(length);
+    }
+);
 
 // router.post(
 //   "/cartstatus",
@@ -143,7 +164,7 @@ router.post("/remove",
 //   }
 // );
 
-router.post("/start",
+router.post("/getcourse_detail",
     passport.authenticate("jwt", {
         session: false,
     }),

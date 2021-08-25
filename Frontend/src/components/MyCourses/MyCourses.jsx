@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MyCoursesItem from "./MyCoursesItem";
+import MyCoursesItem from "./MyCoursesItem.jsx";
 import "./MyCourses.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -28,7 +28,7 @@ function MyCourses() {
       // Lookup course by ID and creeate a new key/value pair in the courses object
       for (const index of rs.data) {
         const crs = await axios.post(
-          "http://localhost:5000/api/mycourses/start",
+          "http://localhost:5000/api/mycourses/getcourse_detail",
           {
             payd: index._id,
           }
@@ -79,15 +79,14 @@ function MyCourses() {
   return (
     <div>
       <div className="myCourses__top">
-        <h3> Courses Assigned to You </h3>{" "}
-      </div>{" "}
+        <h3> Courses Assigned to You </h3>
+      </div>
       <div className="myCourses__info">
-        {" "}
         {loading && (
           <div className="course__loader">
             <ClipLoader loading={loading} size={60} color="#3c3b37" />
           </div>
-        )}{" "}
+        )}
         {myC.data &&
           myC.data.map((item, index) => (
             <MyCoursesItem
@@ -100,16 +99,16 @@ function MyCourses() {
               author={item.author}
               index={index}
             />
-          ))}{" "}
-      </div>{" "}
+          ))}
+      </div>
       {myC.data && myC.data.length === 0 && (
         <p className="cannotfind">
-          When you are assigned a course, it will appear here.{" "}
+          When you are assigned a course, it will appear here.
           <Link className="browse" to="/">
-            <span> Browse now. </span>{" "}
-          </Link>{" "}
+            <span> Browse now. </span>
+          </Link>
         </p>
-      )}{" "}
+      )}
     </div>
   );
 }

@@ -27,6 +27,27 @@ export const registeruser = (userData, history) => (dispatch) => {
         );
 };
 
+export const saveuserprofile = (userData, history) => (dispatch) => {
+    axios
+        .post("http://localhost:5000/api/users/saveuserprofile", userData)
+        .then((res) => {
+            const {
+                token
+            } = res.data;
+            localStorage.setItem("jwtToken", token);
+            setAuthToken(token);
+            const decoded = jwt_decode(token);
+            dispatch(setCurrentUser(decoded));
+            history.push("/");
+        })
+        .catch((err) =>
+            dispatch({
+                type: GET_FORM_ERRORS,
+                payload: err.response.data,
+            })
+        );
+};
+
 export const loginUser = (userData, history) => (dispatch) => {
     axios
         .post("http://localhost:5000/api/users/login", userData)

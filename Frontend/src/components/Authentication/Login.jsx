@@ -49,7 +49,7 @@ function Login() {
           <img className="form__icon" src={email} alt="email" />
           <input
             name="email"
-            placeholder="Example@gmail.com"
+            placeholder="Enter your email address"
             type="Email"
             onChange={changeHandler}
             required

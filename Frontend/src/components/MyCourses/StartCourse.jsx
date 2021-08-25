@@ -89,12 +89,20 @@ function StartCourse() {
   useEffect(() => {
     async function fetchData(p_courseID) {
       //console.log("p_courseID=" + p_courseID);
-
       const rs = await axios.get(
         `http://localhost:5000/api/course/${p_courseID}`
       );
-
       //console.log("rs=" + JSON.stringify(rs, null, "\t"));
+      return rs;
+    }
+    async function updateUserData() {
+      console.log("updating user: " + user.email);
+      const courseid = "12345";
+      const rs = await axios.get(
+        `http://localhost:5000/api/users/updateuser/${user.id}/${courseID}`
+      );
+      // params: { userid: user.id, courseid: "123445666" },
+
       return rs;
     }
 
@@ -110,6 +118,11 @@ function StartCourse() {
       setData(cid);
       setData((state) => {
         return state;
+      });
+      updateUserData().then((rs) => {
+        console.log(
+          "back form updateuser=" + JSON.stringify(rs.data, null, "\t")
+        );
       });
     });
 
