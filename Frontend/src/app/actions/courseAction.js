@@ -8,6 +8,8 @@ import {
     ADD_FILTERD_COURSES_SUCCESS,
 } from "./types";
 
+const api_host = process.env.REACT_APP_API_HOST;
+
 export const getCourses = () => async (dispatch) => {
     try {
         dispatch({
@@ -16,7 +18,7 @@ export const getCourses = () => async (dispatch) => {
 
         const {
             data
-        } = await axios.get("http://localhost:5000/api/courses");
+        } = await axios.get(`http://${api_host}:5000/api/courses`);
 
         dispatch({
             type: ADD_COURSES_SUCCESS,
@@ -38,7 +40,7 @@ export const getFilteredCourses = (category) => async (dispatch) => {
 
         const {
             data
-        } = await axios.get("http://localhost:5000/api/courses");
+        } = await axios.get(`http://${api_host}:5000/api/courses`);
 
         const filterdData = await data.courses.filter(
             (course) => course.category === category
@@ -62,13 +64,9 @@ export const getSingleCourse = (id) => async (dispatch) => {
             type: ADD_COURSES_REQUEST
         });
 
-        /*   console.log(
-              "get_SingleCourse: http://localhost:5000/api/course/${id}"
-          ); */
-
         const {
             data
-        } = await axios.get(`http://localhost:5000/api/course/${id}`);
+        } = await axios.get(`http://${api_host}:5000/api/course/${id}`);
         dispatch({
             type: ADD_SINGLE_COURSES_SUCCESS,
             payload: data,

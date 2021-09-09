@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 import "./StartCourse.css";
 
@@ -10,12 +10,11 @@ import PDFIcon from "../../images/logo/lms/PDF_icon.jpg";
 import VideoPlayer from "../MainPage/VideoPlayer";
 
 function StartCourse() {
-  const dispatch = useDispatch();
-
+  /* const dispatch = useDispatch();
   const history = useHistory();
-
-  const user = useSelector((state) => state.auth.user);
   const usertype = useSelector((state) => state.auth.usertype);
+ */
+  const user = useSelector((state) => state.auth.user);
 
   // intitalize the data array to the correct JSON structure for first render
   const [cdata, setData] = useState({
@@ -85,21 +84,21 @@ function StartCourse() {
 
   const { courseID } = useParams();
   //console.log("OutcourseID=" + courseID);
-
+  const api_host = process.env.REACT_APP_API_HOST;
   useEffect(() => {
     async function fetchData(p_courseID) {
       //console.log("p_courseID=" + p_courseID);
       const rs = await axios.get(
-        `http://localhost:5000/api/course/${p_courseID}`
+        `http://${api_host}:5000/api/course/${p_courseID}`
       );
       //console.log("rs=" + JSON.stringify(rs, null, "\t"));
       return rs;
     }
     async function updateUserData() {
       console.log("updating user: " + user.email);
-      const courseid = "12345";
+      //const courseid = "12345";
       const rs = await axios.get(
-        `http://localhost:5000/api/users/updateuser/${user.id}/${courseID}`
+        `http://${api_host}:5000/api/users/updateuser/${user.id}/${courseID}`
       );
       // params: { userid: user.id, courseid: "123445666" },
 

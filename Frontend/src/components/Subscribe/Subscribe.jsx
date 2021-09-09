@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
-import { ClipLoader } from "react-spinners";
-import { useDispatch, useSelector } from "react-redux";
+//import { ClipLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { ADD_ALL } from "../../app/actions/types";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 //import NewWindow from "react-new-window";
 
 import UserList from "./UserList.jsx";
@@ -20,15 +20,15 @@ function Subscribe() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const user = useSelector((state) => state.auth.user);
-  const usertype = useSelector((state) => state.auth.usertype);
+  /*   const user = useSelector((state) => state.auth.user);
+  const usertype = useSelector((state) => state.auth.usertype); */
   const [data, setData] = useState([]);
 
   const location = useLocation();
-
+  const api_host = process.env.REACT_APP_API_HOST;
   async function selectUser(selectedUser) {
     setLoading(true);
-    await axios.get("http://localhost:5000/api/mycourses/add", {
+    await axios.get(`http://${api_host}:5000/api/mycourses/add`, {
       params: {
         selectedUser: {
           selectedUser,
@@ -48,7 +48,7 @@ function Subscribe() {
     async function fetchData() {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/api/users/userlist`)
+        .get(`http://${api_host}:5000/api/users/userlist`)
         .then((response) => {
           setData(response.data.userlist);
           setData((state) => {

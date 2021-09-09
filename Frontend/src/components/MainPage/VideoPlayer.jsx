@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
@@ -40,6 +39,8 @@ export const VideoJS = (props) => {
 function VideoPlayer(props) {
   const [video_tn, setDatav] = useState("");
 
+  const api_host = process.env.REACT_APP_API_HOST;
+
   const gvt = () => {
     let video_array = [];
 
@@ -57,9 +58,10 @@ function VideoPlayer(props) {
     //const re = props.videoURL.match(rExp);
 
     if (props.videoURL.includes("youtube")) {
-      const regExp =
+      /* const regExp =
         /(http:|https:|)\/\/(player.|www.|m.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/;
-      // "/^(?:https?://)?(?:m.|www.)?(?:youtu.be/|youtube.com/(?:embed/|v/|watch?v=|watch?.+&v=))((w|-){11})(?:S+)?$/";
+      //  "/^(?:https?://)?(?:m.|www.)?(?:youtu.be/|youtube.com/(?:embed/|v/|watch?v=|watch?.+&v=))((w|-){11})(?:S+)?$/";
+      */
 
       if (props.videoURL.length < 11) {
         return "not found";
@@ -81,7 +83,7 @@ function VideoPlayer(props) {
         .match(/vimeo\.com.*(\/)(.{9})/)
         .pop();
       axios
-        .post("http://localhost:5000/api/mycourses/geturl", {
+        .post(`http://${api_host}:5000/api/mycourses/geturl`, {
           url: "https://vimeo.com/api/v2/video/" + vimeo_video_id + ".json",
         })
         .then((rs) => {

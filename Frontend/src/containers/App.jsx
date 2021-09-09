@@ -16,6 +16,9 @@ import MyCourses from "../components/MyCourses/MyCourses.jsx";
 import FileUpload from "../utils/FileUpload.jsx";
 import StartCourse from "../components/MyCourses/StartCourse.jsx";
 import Profile from "../components/Authentication/Profile";
+
+console.log(" REACT_APP_API_HOST=" + process.env.REACT_APP_API_HOST);
+
 const mainApp = (
   <>
     <div className="app__body">

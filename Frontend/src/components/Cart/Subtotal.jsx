@@ -2,32 +2,24 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Subtotal.css";
-import { useHistory } from "react-router";
+
 import { ClipLoader } from "react-spinners";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { ADD_ALL } from "../../app/actions/types";
+
 import { Link } from "react-router-dom";
 import Subscribe from "../Subscribe/Subscribe.jsx";
 
 function Subtotal({ cart }) {
   toast.configure();
-  const history = useHistory();
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  /*   const history = useHistory();
+  const dispatch = useDispatch();
 
-  async function handleToken(token) {
-    /*     setLoading(true);
-    const response = await axios.post("http://localhost:5000/api/payment", {
-      token: token,
-      product: cart,
-      amount: getBasketTotal(cart),
-    });
-    setLoading(false); */
+  const api_host = process.env.REACT_APP_API_HOST; */
+  /*   async function handleToken(token) {
     const status = "success";
     // if (response.data.status === "success") {
     if (status === "success") {
-      await axios.get("http://localhost:5000/api/mycourses/add");
+      await axios.get(`http://${api_host}:5000/api/mycourses/add`);
       await dispatch({
         type: ADD_ALL,
         payload: 0,
@@ -38,7 +30,7 @@ function Subtotal({ cart }) {
         type: "error",
       });
     }
-  }
+  } */
 
   const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => item.currPrice + amount, 0);

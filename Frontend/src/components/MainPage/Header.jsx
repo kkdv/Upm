@@ -8,11 +8,11 @@ import { ReactComponent as CartSvg } from "../../images/logo/cart.svg";
 import { ReactComponent as Search } from "../../images/logo/search.svg";
 import LMSLogo from "../../images/logo/lms/lms.jpg";
 import {
-  Button,
+  // Button,
   ButtonGroup,
   DropdownButton,
   Dropdown,
-  MenuItem,
+  // MenuItem,
 } from "react-bootstrap";
 
 import "./Header.scss";
@@ -26,16 +26,15 @@ const Header = () => {
   const user = useSelector((state) => state.auth.user);
   const cartCount = useSelector((state) => state.cart.basketItem);
   const isadmin = user.name === "admin" ? true : false;
-
   const courseCount = useSelector((state) => state.cart.courseItem);
 
   //alert(courseCount);
-
+  const api_host = process.env.REACT_APP_API_HOST;
   useEffect(() => {
     // get  course count in carrt from users-->cart
     async function fetchData() {
       const response = await axios.get(
-        "http://localhost:5000/api/users/cart/cartcount"
+        `http://${api_host}:5000/api/users/cart/cartcount`
       );
 
       await dispatch({
@@ -48,7 +47,7 @@ const Header = () => {
     // get enrolled course count from users-->myCourses
     async function fetchData2() {
       const response = await axios.get(
-        "http://localhost:5000/api/mycourses/mycoursecount"
+        `http://${api_host}:5000/api/mycourses/mycoursecount`
       );
       await dispatch({
         type: ADD_ALL_COURSES,

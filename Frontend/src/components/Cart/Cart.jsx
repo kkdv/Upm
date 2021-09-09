@@ -10,11 +10,12 @@ const Cart = () => {
   const [cart, setcart] = useState();
   const cartNumber = useSelector((state) => state.cart.basketItem);
   const history = useHistory();
+  const api_host = process.env.REACT_APP_API_HOST;
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/users/cart/get"
+          `http://${api_host}:5000/api/users/cart/get`
         );
         await setcart(response.data);
       } catch (err) {

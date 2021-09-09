@@ -1,5 +1,5 @@
 require('dotenv').config({
-    path: './config/.env'
+    path: __dirname + `/../../.env`
 });
 
 mURL =
@@ -8,6 +8,8 @@ mURL =
     process.env.DB_HOST + "/" +
     process.env.DB_NAME +
     "?authSource=admin&retryWrites=true&w=majority";
+
+console.log("Using environment config file:" + __dirname + `/../../.env`);
 
 console.log("Connecting to " + process.env.DB_HOST + "@" + process.env.DB_NAME +
     " database")

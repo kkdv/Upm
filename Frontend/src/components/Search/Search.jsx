@@ -2,11 +2,10 @@ import { React, useEffect, useState } from "react";
 import SearchList from "./SearchList";
 import "./Search.css";
 import { useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { List } from "react-content-loader";
-import { useHistory } from "react-router";
-import video_icon from "../../images/logo/lms/video_icon.png";
+//import video_icon from "../../images/logo/lms/video_icon.png";
 import pdf_icon from "../../images/logo/lms/PDF_icon.jpg";
 
 function Search() {
@@ -15,15 +14,15 @@ function Search() {
   const [data, setData] = useState();
   const isLogin = useSelector((state) => state.auth.isAuthenticated);
   const usertype = useSelector((state) => state.auth.usertype);
-  const history = useHistory();
-
+  //const history = useHistory();
+  const api_host = process.env.REACT_APP_API_HOST;
   useEffect(() => {
     fetchData();
     async function fetchData() {
       setLoading(true);
       //console.log("DEBUG: location.state.detail: " + location.state.detail);
       const response = await axios.get(
-        `http://localhost:5000/api/course/find/${location.state.detail}`
+        `http://${api_host}:5000/api/course/find/${location.state.detail}`
       );
       setData(response.data.response);
       //console.log("Search.js->" + JSON.stringify(response, null, "\t"));
@@ -34,7 +33,7 @@ function Search() {
   return (
     <div>
       <div className="myCourses__top">
-        <h3> Available Courses on {location.state.detail}</h3>
+        <h3> Available Courses on {location.state.detail} </h3>
       </div>
       <div className="myCourses__info">
         {!loading && data ? (

@@ -28,7 +28,7 @@ DB_KEY="secret key"
 DB_USER_PWD="userid:token"
 ```
 
-## OR install and use MongDB locally
+## OR install and use MongoDB locally
 
 ```
 brew update
@@ -43,8 +43,12 @@ mongod --config /usr/local/etc/mongod.conf --fork
 ## for starting backend Server:
 
 ```
-cd Server
+# Start MongoDB
 
+brew services start mongodb
+
+#Start backend Express server
+cd Server
 npm start
 ```
 

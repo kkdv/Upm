@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import { ADD_ALL } from "../../app/actions/types";
-
 import "./UserList.css";
 
-import { useHistory } from "react-router";
-//onClick={() => history.push(`/course/${props.id}`)}
-
 function UserList(props) {
+  /*
   const history = useHistory();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-
-  async function selectUser(selectedUser) {
+  const api_host = process.env.REACT_APP_API_HOST;
+   async function selectUser(selectedUser) {
     setLoading(true);
-    await axios.get("http://localhost:5000/api/mycourses/add", {
+    await axios.get(`http://${api_host}:5000/api/mycourses/add`, {
       params: {
         selectedUser: {
           selectedUser,
@@ -29,7 +23,7 @@ function UserList(props) {
     });
     history.push("/cart");
     setLoading(false);
-  }
+  } */
   return (
     <tr>
       <td>

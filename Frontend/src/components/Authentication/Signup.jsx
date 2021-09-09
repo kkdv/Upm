@@ -20,7 +20,7 @@ function Signup() {
   const nameError = useSelector((state) => state.auth.errors.name);
   const EmailError = useSelector((state) => state.auth.errors.email);
   const passwordError = useSelector((state) => state.auth.errors.password);
-  const usertypeError = useSelector((state) => state.auth.errors.usertype);
+  //const usertypeError = useSelector((state) => state.auth.errors.usertype);
 
   useEffect(() => {
     dispatch({
@@ -123,7 +123,7 @@ function Signup() {
             Sign Up
           </button>
           <span> By signing up, you agree to our </span>
-          <a> Terms of Use and Privacy Policy. </a>
+          <Link> Terms of Use and Privacy Policy. </Link>
         </div>
       </div>
       <div className="form__footer">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { setState, useState } from "react";
+import React, { useState } from "react";
 import "./FileUpload.css";
 
 const FormData = require("form-data");
@@ -14,7 +14,7 @@ function FileUpload() {
     //alert(JSON.stringify(event.target.files[0]));
     setS(event.target.files[0]);
   };
-
+  const api_host = process.env.REACT_APP_API_HOST;
   // On file upload (click the upload button)
   const onFileUpload = () => {
     // Create an object of formData
@@ -38,7 +38,7 @@ function FileUpload() {
     // Request made to the backend api
     // Send formData object
     axios
-      .post("http://localhost:5000/api/uploadfile/load", formData)
+      .post(`http://localh${api_host}:5000/api/uploadfile/load`, formData)
       .then((res) => {
         return (
           <div>
@@ -50,18 +50,18 @@ function FileUpload() {
     //alert(rs);
     //axios.post("api/uploadfile", formData);
   };
-
+  /* 
   function readFile(file) {
     const reader = new FileReader();
     reader.addEventListener("load", (event) => {
       alert("file=" + event.target.result);
     });
     reader.readAsText(file);
-  }
+  } */
 
   // File content to be displayed after
   // file upload is complete
-  const fileData = () => {
+  /*   const fileData = () => {
     if (selectedFile) {
       return (
         <div>
@@ -77,7 +77,7 @@ function FileUpload() {
         </div>
       );
     }
-  };
+  }; */
 
   return (
     <div className="fileupload__form">

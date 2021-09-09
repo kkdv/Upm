@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import MyCoursesItem from "./MyCoursesItem.jsx";
 import "./MyCourses.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import { useParams } from "react-router-dom";
 
 function MyCourses() {
   //const myCourses = useSelector((state) => state.courses.courses);
@@ -16,19 +15,20 @@ function MyCourses() {
   //console.log("state=" + state.cart.courseItem);
   const [myC, setmyCourses] = useState([]);
   const [loading, setloading] = useState(false);
+  const api_host = process.env.REACT_APP_API_HOST;
 
   useEffect(() => {
     async function fetchData() {
       //console.log("Executing FetchData");
 
       // Get myCourses from the users table
-      const rs = await axios.get("http://localhost:5000/api/mycourses/get");
+      const rs = await axios.get(`http://${api_host}:5000/api/mycourses/get`);
       let wD_arr = JSON.parse(JSON.stringify(rs));
       let i = 0;
       // Lookup course by ID and creeate a new key/value pair in the courses object
       for (const index of rs.data) {
         const crs = await axios.post(
-          "http://localhost:5000/api/mycourses/getcourse_detail",
+          `http://${api_host}:5000/api/mycourses/getcourse_detail`,
           {
             payd: index._id,
           }

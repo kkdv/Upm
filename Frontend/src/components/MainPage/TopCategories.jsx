@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import CategoryCard from "./CategoryCard";
 import "./TopCategories.css";
 
 import category_data from "../../data/category.js";
 
-const descriptionSubstring = (string) =>
-  string.length > 255 ? string.slice(0, 255) + "..." : string;
+//const descriptionSubstring = (string) => string.length > 255 ? string.slice(0, 255) + "..." : string;
 
 function TopCategories() {
   const [catoption, setOption] = useState("All");

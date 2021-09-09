@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+
 import { ADD_ALL_COURSES } from "../../app/actions/types";
 // import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
 
@@ -18,31 +18,24 @@ function MyCoursesItem(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const user = useSelector((state) => state.auth.user);
+  /*  const user = useSelector((state) => state.auth.user);
   const usertype = useSelector((state) => state.auth.usertype);
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); 
+  const [loading, setLoading] = useState(false);
+  */
 
   const courseItem = useSelector((state) => state.cart.courseItem);
-  const [loading, setLoading] = useState(false);
 
+  const api_host = process.env.REACT_APP_API_HOST;
   const onClickHandler = async () => {
-    await axios.post("http://localhost:5000/api/mycourses/remove", {
+    await axios.post(`http://${api_host}:5000/api/mycourses/remove`, {
       title: props.title,
     });
     await dispatch({
       type: ADD_ALL_COURSES,
       payload: courseItem - 1,
     });
-  };
-
-  const openInNewTab = (videoURL, docURL) => {
-    const newWindow = window.open(
-      videoURL,
-      "_blank",
-      "noopener,noreferrer,height=100,width=100"
-    );
-    if (newWindow) newWindow.opener = null;
   };
 
   return (

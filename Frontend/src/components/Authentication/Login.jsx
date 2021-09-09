@@ -78,7 +78,7 @@ function Login() {
         )}
         <div className="form__button">
           <button type="submit"> Log In </button> <span> or </span>
-          <a> Forgot your password ? </a>
+          <Link> Forgot your password ? </Link>
         </div>
       </div>
       <div className="form__footer">
@@ -88,7 +88,7 @@ function Login() {
             Sign up
           </Link>
         </div>
-        <a className="form__link"> Log in with your organization </a>
+        <Link className="form__link"> Log in with your organization </Link>
       </div>
     </form>
   );

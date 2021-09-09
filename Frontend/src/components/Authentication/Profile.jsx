@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import email from "../../images/logo/email.svg";
 import password from "../../images/logo/password.svg";
 import user from "../../images/logo/user.svg";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { saveuserprofile } from "../../app/actions/authAction";
@@ -27,7 +27,7 @@ function Profile() {
   const nameError = useSelector((state) => state.auth.errors.name);
   const EmailError = useSelector((state) => state.auth.errors.email);
   const passwordError = useSelector((state) => state.auth.errors.password);
-  const usertypeError = useSelector((state) => state.auth.errors.usertype);
+  //const usertypeError = useSelector((state) => state.auth.errors.usertype);
 
   useEffect(() => {
     dispatch({
