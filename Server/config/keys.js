@@ -1,5 +1,8 @@
+const env_file = process.env.NODE_ENV ? ".env" + process.env.NODE_ENV :
+    ".env.development"
+
 require('dotenv').config({
-    path: __dirname + `/../../.env`
+    path: __dirname + `/../../${env_file}`
 });
 
 mURL =
@@ -9,7 +12,8 @@ mURL =
     process.env.DB_NAME +
     "?authSource=admin&retryWrites=true&w=majority";
 
-console.log("Using environment config file:" + __dirname + `/../../.env`);
+console.log("Using environment config file:" + __dirname +
+    `/../../${env_file}`);
 
 console.log("Connecting to " + process.env.DB_HOST + "@" + process.env.DB_NAME +
     " database")
