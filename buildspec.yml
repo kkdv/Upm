@@ -3,10 +3,12 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
+      - cd Frontend
       - npm install
   build:
     commands:
       - echo Build started on `date`
+      - cd Frontend
       - npm run build
   post_build:
     commands:
