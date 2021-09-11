@@ -17,3 +17,6 @@ Server/config/.env
 Frontend/.eslintcache
 Frontend/.eslintcache
 .env.development
+Frontend/.eslintcache
+Frontend/lms.gz
+.env.production
