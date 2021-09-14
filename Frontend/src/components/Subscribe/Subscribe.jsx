@@ -28,7 +28,7 @@ function Subscribe() {
   const api_host = process.env.REACT_APP_API_HOST;
   async function selectUser(selectedUser) {
     setLoading(true);
-    await axios.get(`http://${api_host}:5000/api/mycourses/add`, {
+    await axios.get(`https://${api_host}:5443/api/mycourses/add`, {
       params: {
         selectedUser: {
           selectedUser,
@@ -48,7 +48,7 @@ function Subscribe() {
     async function fetchData() {
       setLoading(true);
       await axios
-        .get(`http://${api_host}:5000/api/users/userlist`)
+        .get(`https://${api_host}:5443/api/users/userlist`)
         .then((response) => {
           setData(response.data.userlist);
           setData((state) => {

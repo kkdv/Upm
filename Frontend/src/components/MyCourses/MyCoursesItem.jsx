@@ -29,7 +29,7 @@ function MyCoursesItem(props) {
 
   const api_host = process.env.REACT_APP_API_HOST;
   const onClickHandler = async () => {
-    await axios.post(`http://${api_host}:5000/api/mycourses/remove`, {
+    await axios.post(`https://${api_host}:5443/api/mycourses/remove`, {
       title: props.title,
     });
     await dispatch({

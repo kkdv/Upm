@@ -10,7 +10,7 @@ const api_host = process.env.REACT_APP_API_HOST;
 export const registeruser = (userData, history) => (dispatch) => {
 
     axios
-        .post(`http://${api_host}:5000/api/users/signup`, userData)
+        .post(`https://${api_host}:5443/api/users/signup`, userData)
         .then((res) => {
             const {
                 token
@@ -31,7 +31,8 @@ export const registeruser = (userData, history) => (dispatch) => {
 
 export const saveuserprofile = (userData, history) => (dispatch) => {
     axios
-        .post(`http://${api_host}:5000/api/users/saveuserprofile`, userData)
+        .post(`https://${api_host}:5443/api/users/saveuserprofile`,
+            userData)
         .then((res) => {
             const {
                 token
@@ -52,7 +53,7 @@ export const saveuserprofile = (userData, history) => (dispatch) => {
 
 export const loginUser = (userData, history) => (dispatch) => {
     axios
-        .post(`http://${api_host}:5000/api/users/login`, userData)
+        .post(`https://${api_host}:5443/api/users/login`, userData)
         .then((res) => {
             const {
                 token

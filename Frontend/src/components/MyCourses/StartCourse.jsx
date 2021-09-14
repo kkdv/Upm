@@ -89,7 +89,7 @@ function StartCourse() {
     async function fetchData(p_courseID) {
       //console.log("p_courseID=" + p_courseID);
       const rs = await axios.get(
-        `http://${api_host}:5000/api/course/${p_courseID}`
+        `https://${api_host}:5443/api/course/${p_courseID}`
       );
       //console.log("rs=" + JSON.stringify(rs, null, "\t"));
       return rs;
@@ -98,7 +98,7 @@ function StartCourse() {
       console.log("updating user: " + user.email);
       //const courseid = "12345";
       const rs = await axios.get(
-        `http://${api_host}:5000/api/users/updateuser/${user.id}/${courseID}`
+        `https://${api_host}:5443/api/users/updateuser/${user.id}/${courseID}`
       );
       // params: { userid: user.id, courseid: "123445666" },
 

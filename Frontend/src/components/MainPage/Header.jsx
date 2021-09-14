@@ -34,7 +34,7 @@ const Header = () => {
     // get  course count in carrt from users-->cart
     async function fetchData() {
       const response = await axios.get(
-        `http://${api_host}:5000/api/users/cart/cartcount`
+        `https://${api_host}:5443/api/users/cart/cartcount`
       );
 
       await dispatch({
@@ -47,7 +47,7 @@ const Header = () => {
     // get enrolled course count from users-->myCourses
     async function fetchData2() {
       const response = await axios.get(
-        `http://${api_host}:5000/api/mycourses/mycoursecount`
+        `https://${api_host}:5443/api/mycourses/mycoursecount`
       );
       await dispatch({
         type: ADD_ALL_COURSES,

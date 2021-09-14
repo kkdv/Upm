@@ -44,7 +44,7 @@ const CourseCard = ({ data }) => {
     setloading(true);
 
     const response = await axios.post(
-      `http://${api_host}:5000/api/users/cart/cartstatus`,
+      `https://${api_host}:5443/api/users/cart/cartstatus`,
       {
         title: title,
       }

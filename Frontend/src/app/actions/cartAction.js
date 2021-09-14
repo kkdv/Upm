@@ -5,7 +5,7 @@ import {
 } from "./types";
 const api_host = process.env.REACT_APP_API_HOST;
 export const addToCart = (course) => async (dispatch) => {
-    await axios.post(`http://${api_host}:5000/api/users/cart/add`, {
+    await axios.post(`https://${api_host}:5443/api/users/cart/add`, {
         course: course,
     });
 
@@ -15,7 +15,7 @@ export const addToCart = (course) => async (dispatch) => {
 };
 
 export const removeFromCart = (title) => async (dispatch) => {
-    await axios.post(`http://${api_host}:5000/api/users/cart/remove`, {
+    await axios.post(`https://${api_host}:5443/api/users/cart/remove`, {
         title: title,
     });
 
