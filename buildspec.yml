@@ -11,11 +11,11 @@ phases:
     commands:
       - echo Build started on `date`
       - cd Frontend && npm run build-prod
-  post_build:
-    commands:
-      # copy the contents of /build to S3
-      #- cd Frontend && aws s3 cp --recursive --acl public-read ./build s3://lmssk-useast2/
-      - cd Frontend && aws s3 cp --recursive ./build s3://lmssk-useast2/
+  #post_build:
+  #  commands:
+  # copy the contents of /build to S3
+  #- cd Frontend && aws s3 cp --recursive --acl public-read ./build s3://lmssk-useast2/
+  #    - cd Frontend && aws s3 cp --recursive ./build s3://lmssk-useast2/
 
   # set the cache-control headers for service-worker.js to prevent
   # browser caching
