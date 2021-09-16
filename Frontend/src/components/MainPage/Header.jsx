@@ -90,7 +90,7 @@ const Header = () => {
         <form className="header__searchbar" onSubmit={submitHandler}>
           <input
             onChange={(event) => setData(event.target.value)}
-            placeholder="Search for training content"
+            placeholder="Search for training-content"
           />
           <button type="submit">
             <Search />
