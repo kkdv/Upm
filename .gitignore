@@ -20,3 +20,5 @@ Frontend/.eslintcache
 Frontend/.eslintcache
 Frontend/lms.gz
 
+Server/config/ec2_cert.pem
+Frontend/.eslintcache
