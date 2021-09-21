@@ -83,7 +83,7 @@ function VideoPlayer(props) {
         .match(/vimeo\.com.*(\/)(.{9})/)
         .pop();
       axios
-        .post(`https://${api_host}:5443/api/mycourses/geturl`, {
+        .post(`https://${api_host}/api/mycourses/geturl`, {
           url: "https://vimeo.com/api/v2/video/" + vimeo_video_id + ".json",
         })
         .then((rs) => {

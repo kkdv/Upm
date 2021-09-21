@@ -19,7 +19,7 @@ function Subtotal({ cart }) {
     const status = "success";
     // if (response.data.status === "success") {
     if (status === "success") {
-      await axios.get(`https://${api_host}:5443/api/mycourses/add`);
+      await axios.get(`https://${api_host}/api/mycourses/add`);
       await dispatch({
         type: ADD_ALL,
         payload: 0,

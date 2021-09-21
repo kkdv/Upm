@@ -22,7 +22,7 @@ function Search() {
       setLoading(true);
       //console.log("DEBUG: location.state.detail: " + location.state.detail);
       const response = await axios.get(
-        `https://${api_host}:5443/api/course/find/${location.state.detail}`
+        `https://${api_host}/api/course/find/${location.state.detail}`
       );
       setData(response.data.response);
       //console.log("Search.js->" + JSON.stringify(response, null, "\t"));

@@ -15,7 +15,7 @@ const Cart = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://${api_host}:5443/api/users/cart/get`
+          `https://${api_host}/api/users/cart/get`
         );
         await setcart(response.data);
       } catch (err) {

@@ -22,13 +22,13 @@ function MyCourses() {
       //console.log("Executing FetchData");
 
       // Get myCourses from the users table
-      const rs = await axios.get(`https://${api_host}:5443/api/mycourses/get`);
+      const rs = await axios.get(`https://${api_host}/api/mycourses/get`);
       let wD_arr = JSON.parse(JSON.stringify(rs));
       let i = 0;
       // Lookup course by ID and creeate a new key/value pair in the courses object
       for (const index of rs.data) {
         const crs = await axios.post(
-          `https://${api_host}:5443/api/mycourses/getcourse_detail`,
+          `https://${api_host}/api/mycourses/getcourse_detail`,
           {
             payd: index._id,
           }
