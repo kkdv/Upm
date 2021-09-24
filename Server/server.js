@@ -66,14 +66,11 @@ app.use("/api/uploadfile", uploadfile);
 const port = process.env.PORT || 5000;
 const SSLport = process.env.SSLPORT || 5443;
 
-const options = {
+/* const options = {
     key: fs.readFileSync('./config/key.pem'),
     cert: fs.readFileSync('./config/cert.pem')
-};
+}; */
 
-//app.listen(port);
-
-//app.listen(SSLport);
 // Listen both http & https ports
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(options, app);
@@ -82,6 +79,7 @@ httpServer.listen(5000, () => {
     console.log('HTTP Server running on port 5000');
 });
 
-httpsServer.listen(5443, () => {
+/* httpsServer.listen(5443, () => {
     console.log('HTTPS Server running on port 5443');
 });
+ */
