@@ -11,6 +11,7 @@ import { addToCart } from "../../app/actions/cartAction";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+import VideoPlayer from "../MainPage/VideoPlayer";
 
 const CourseCard = ({ data }) => {
   const { _id, imageURL, author, currPrice, title, orgPrice, courseIncludes } =
@@ -62,7 +63,19 @@ const CourseCard = ({ data }) => {
 
   return (
     <div className={`courseCard ${show ? "show" : ""}`}>
-      <img src={imageURL} alt={title} className="courseCard__image" />
+      {/* <img src={imageURL} alt={title} className="courseCard__image" /> */}
+      {courseIncludes && (
+        <div className="courseCard__includes">
+          <h4> Preview </h4>
+          <VideoPlayer
+            videoURL={courseIncludes[0].videoURL}
+            title="video title"
+            height={"360"}
+            width={"600"}
+            isEnrolled={isInstructor && !status && isLogin}
+          />
+        </div>
+      )}
       <div className="courseCard__priceInfo">
         {isInstructor && !status && isLogin && (
           <button className="courseCard__cart" onClick={clickHandler}>
@@ -97,9 +110,9 @@ const CourseCard = ({ data }) => {
               <li>
                 <Article /> <span> {courseIncludes[1].title} </span>
               </li>
-              <li>
+              {/* <li>
                 <Download /> <span> {courseIncludes[2].title} </span>
-              </li>
+              </li> */}
               <li>
                 <Lifetime /> <span> {courseIncludes[3].title} </span>
               </li>

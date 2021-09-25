@@ -26,7 +26,7 @@ const data = [{
         },
         {
             "_id": "60e49c4c47cffde9e74b89fe",
-            "imageURL": "/images/logo/upmc/general_med.jpeg",
+            "imageURL": "/images/logo/lms/general_med.jpeg",
             "title": "General Medicine",
             "author": "Albert Einstein",
             "currPrice": 900000
@@ -68,7 +68,7 @@ const data = [{
     },
     "cart": [{
         "_id": "60e49c4c47cffde9e74b89fe",
-        "imageURL": "/images/logo/upmc/general_med.jpeg",
+        "imageURL": "/images/logo/lms/general_med.jpeg",
         "title": "General Medicine",
         "author": "Albert Einstein",
         "currPrice": 900000

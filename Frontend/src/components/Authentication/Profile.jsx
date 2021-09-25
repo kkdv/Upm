@@ -14,7 +14,7 @@ function Profile() {
   const useremail = useSelector((state) => state.auth.user.email);
   const userepwd = useSelector((state) => state.auth.user.password);
 
-  console.log("type=" + usertype);
+  //console.log("type=" + usertype);
 
   const [formEmail, setformEmail] = useState(useremail);
   const [formPassword, setformPassword] = useState(userepwd);

@@ -7,18 +7,19 @@ Frontend/f/
 Frontend/n2/
 .eslintcache
 .vscode
-
-
-Frontend/.eslintcache
 .DS_Store
-Frontend/.eslintcache
+ 
 
 Server/config/.env
-Frontend/.eslintcache
-Frontend/.eslintcache
 .env.development
-Frontend/.eslintcache
+ 
 Frontend/lms.gz
 
 Server/config/ec2_cert.pem
 Frontend/.eslintcache
+lms.drawio
+Server/config/prod/fullchain.pem
+Server/config/prod/nginx.conf
+Server/config/prod/privkey.pem
+.gitignore
+Server/config/prod/default

@@ -90,7 +90,7 @@ const data = [{
             "Students who have at least high school knowledge in math and who want to start learning Machine Learning.",
         ],
         category: "general medicine",
-        imageURL: "/images/logo/upmc/general_med.jpeg",
+        imageURL: "/images/logo/lms/general_med.jpeg",
         title: "General Medicine",
         description: "Using telescope",
         author: "Albert Einstein",
