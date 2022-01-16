@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import * as fn from "../Helpers/Helper";
 
 import "./StartCourse.css";
 
@@ -113,6 +114,9 @@ function StartCourse() {
           ":" +
           JSON.stringify(cid, null, "\t")
       ); */
+
+      //Product Analytics
+      fn.pa("Course Video Started");
 
       setData(cid);
       setData((state) => {

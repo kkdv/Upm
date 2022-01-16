@@ -5,14 +5,14 @@ import { useHistory } from "react-router";
 
 import { ADD_ALL_COURSES } from "../../app/actions/types";
 // import { REMOVE_FROM_MYCOURSES } from "../app/actions/types";
-
 import "./MyCoursesItem.css";
 import "../MainPage/Banner.scss";
 import "../Subscribe/UserList.css";
 import "../Search/SearchList.css";
 import PDFLogo from "../../images/logo/lms/PDF_icon.jpg";
-
 import VideoPlayer from "../MainPage/VideoPlayer";
+
+import * as fn from "../Helpers/Helper";
 
 function MyCoursesItem(props) {
   const dispatch = useDispatch();
@@ -36,6 +36,8 @@ function MyCoursesItem(props) {
       type: ADD_ALL_COURSES,
       payload: courseItem - 1,
     });
+    // Product Analytics
+    fn.pa("Dropped Course :" + props.title);
   };
 
   return (

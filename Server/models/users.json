@@ -1,0 +1,86 @@
+[{
+  "_id": {
+    "$oid": "613a9cac76e75516f4c0f0f6"
+  },
+  "cart": [],
+  "myCourses": [],
+  "name": "kk",
+  "email": "kk@kk.com",
+  "password": "$2a$10$e3GxVNcs9kpb5Rl7PFjxsuEjowvyeZvLCiUGN/Q9wVsApclyJEeqC",
+  "usertype": "I",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "613b9bd3ebfdb72c08fecd37"
+  },
+  "cart": [
+    {
+      "_id": "60e49c4c47cffde9e74b89fe",
+      "imageURL": "https://picsum.photos/300",
+      "title": "General Medicine",
+      "author": "Dr. Albert Einstein",
+      "currPrice": 900000
+    }
+  ],
+  "myCourses": [],
+  "name": "professor1",
+  "email": "professor1@gmail.com",
+  "password": "$2a$10$jtXsR2Ub9OOleIS1m76rOuZLp95vyyMsI5t0h5Kc6kG2fVPM4sdBm",
+  "usertype": "I",
+  "__v": 18
+},{
+  "_id": {
+    "$oid": "6142a070eb6f226cf2fc0a34"
+  },
+  "cart": [],
+  "myCourses": [
+    {
+      "_id": "60e49c4c47cffde9e74b89fe",
+      "imageURL": "/images/logo/upmc/general_med.jpeg",
+      "title": "General Medicine",
+      "author": "Dr. Albert Einstein",
+      "currPrice": 900000,
+      "assignedBy": "professor1@gmail.com",
+      "assignedDate": "2021/9/16",
+      "startDate": "2021/10/8",
+      "endDate": "",
+      "expirationDate": ""
+    },
+    {
+      "_id": "611ad91c3fbd236bda0ffd89",
+      "imageURL": "https://picsum.photos/200",
+      "title": "Kidney treatment with vimeo",
+      "author": "John Doe",
+      "currPrice": 120000,
+      "assignedBy": "professor1@gmail.com",
+      "assignedDate": "2021/9/24",
+      "startDate": "2021/10/8",
+      "endDate": "",
+      "expirationDate": ""
+    }
+  ],
+  "name": "student1",
+  "email": "student1@gmail.com",
+  "password": "$2a$10$lgR2Rg03WRQ/l/cuBezIA.hzUWMxMHC3sBJK4s3RfNeD6fT4DyXzq",
+  "usertype": "S",
+  "__v": 10
+},{
+  "_id": {
+    "$oid": "615279770f819240d12a12a7"
+  },
+  "cart": [
+    {
+      "_id": "60e49c4c47cffde9e74b89fe",
+      "imageURL": "https://picsum.photos/300",
+      "title": "General Medicine",
+      "author": "Dr. Albert Einstein",
+      "currPrice": 900000
+    }
+  ],
+  "myCourses": [],
+  "name": "Shivali",
+  "email": "dwjdnwln@ke.com",
+  "password": "$2a$10$5mp95YQH0/UPDBYEWoIgH.gQnr9Rgzg3bUuA/5oddQH36Juo1qx2C",
+  "usertype": "I",
+  "__v": 1
+}]

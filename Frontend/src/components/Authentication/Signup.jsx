@@ -7,6 +7,7 @@ import "./Login1.css";
 import { useDispatch, useSelector } from "react-redux";
 import { registeruser } from "../../app/actions/authAction";
 import { REMOVE_FORM_ERRORS } from "../../app/actions/types";
+import * as fn from "../Helpers/Helper";
 
 function Signup() {
   const [formEmail, setformEmail] = useState("");
@@ -51,6 +52,9 @@ function Signup() {
     };
 
     dispatch(registeruser(userData, history));
+
+    // Product Analytics
+    fn.pa("Sign Up Completed");
   };
 
   return (

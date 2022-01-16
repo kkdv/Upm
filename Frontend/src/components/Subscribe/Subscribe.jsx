@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { ADD_ALL } from "../../app/actions/types";
 import { useLocation } from "react-router-dom";
+import * as fn from "../Helpers/Helper";
+
 //import NewWindow from "react-new-window";
 
 import UserList from "./UserList.jsx";
@@ -41,6 +43,9 @@ function Subscribe() {
     });
     history.push("/");
     setLoading(false);
+
+    // Product Analytics
+    fn.pa("Assigned Course to Student");
   }
 
   useEffect(() => {

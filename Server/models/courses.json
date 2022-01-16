@@ -1,0 +1,515 @@
+[{
+  "_id": {
+    "$oid": "60d95a92a3092a1203b34b05"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "Robotic-assisted surgery with the daVinci® Surgical System allows surgeons to perform complex minimally invasive surgical procedures with precision and accuracy. The system is an advanced robotic platform designed to expand the surgeon's capabilities and offer an option to open surgery."
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/6RxGcqmVvBA"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.upmc.com/-/media/upmc/services/hvi/documents/hvi-what-to-expect.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "22 Articles",
+      "docURL": ""
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Anyone interested in Surgery"
+  ],
+  "category": "Surgery",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Learn to do Davinci heart surgery",
+  "description": "Using DaVinci Machine",
+  "author": "Dr. Joe",
+  "stars": 4.6,
+  "currPrice": 10000,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60e49c4c47cffde9e74b89fe"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "Also called family doctors or internists, general practitioners often develop an ongoing relationship with you, providing continuity of care. They treat common medical conditions and perform routine exams. They refer you to other medical services or doctors if you need urgent or specialized treatment.\n\nA general practitioner focuses on your overall health: physical and mental. They serve an important role in a much wider healthcare system. One of their main goals is to keep you healthy and out of the hospital. "
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/x3y_vgfgpIk"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://medicine.uci.edu/PDF/inpatient_handbook_2010-11.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "general medicine",
+  "imageURL": "https://picsum.photos/300",
+  "title": "General Medicine",
+  "description": "the branch of medicine that deals with the diagnosis and (nonsurgical) treatment of diseases of the internal organs (especially in adults)",
+  "author": "Dr. Albert Einstein",
+  "stars": 4.6,
+  "currPrice": 900000,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f58dc647cffde9e74b8a03"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "The kidneys are two bean-shaped organs in the renal system. They help the body pass waste as urine. They also help filter blood before sending it back to the heart.\n\nThe kidneys perform many crucial functions, including:\n\nmaintaining overall fluid balance\nregulating and filtering minerals from blood\nfiltering waste materials from food, medications, and toxic substances\ncreating hormones that help produce red blood cells, promote bone health, and regulate blood pressure"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/FN3MFhYPWWo"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.kidney.org/sites/default/files/11-50-0214_hemodialysis.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Anyone interested in Surgery, Students who have at least high school knowledge in surgery and medicine, the branch of medical practice that treats injuries, diseases, and deformities by the physical removal, repair, or readjustment of organs and tissues, often involving cutting into the body. Students who have at least high school knowledge in math and who want to start learning Machine Learning.",
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Kidney",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Kidney",
+  "description": "Dialysis",
+  "author": "John Doe",
+  "stars": 4.6,
+  "currPrice": 120000,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f5b1cb47cffde9e74b8a04"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "Endocrinology is the study of medicine that relates to the endocrine system, which is the system that controls hormones. Endocrinologists are specially trained physicians who diagnose diseases related to the glands. Because these doctors specialize in these conditions, which can be complex and have\nhard-to-spot symptoms, an endocrinologist is your best advocate when dealing with hormonal issues."
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/HXPCQBD_WGI"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "http://www.yahoo.com"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "cutting-edge information is presented on healthcare delivery, clinical practice, medical research, quality improvements and more to help physicians, advanced practice providers, and nurses best serve the patient."
+  ],
+  "category": "Endocrine system",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Endocrinology",
+  "description": "Endocrine System",
+  "author": "Jane Doe",
+  "stars": 4.6,
+  "currPrice": 4550,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611489684d9c2735ac95059b"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "5000",
+  "learn": [
+    "An ear, nose, and throat doctor (ENT) specializes in everything having to do with those parts of the body. They’re also called otolaryngologists.\n\nSome historians believe this to be one of the oldest medical specialties in the United States. It started in the 1800s when doctors realized that a person’s ears, nose, and throat had delicately connected systems that required special knowledge. "
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/EF9gsbve6oA"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.entuk.org/sites/default/files/files/Ear%20Nose%20and%20Throat_%20The%20Offici%20-%20SFO%20UK%20-%20compressed.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Ear, Nose, Throat",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Ear, Nose, Throat",
+  "description": "Ear, Nose, Throat",
+  "author": "Michael Jackson",
+  "stars": 4.6,
+  "currPrice": 4550,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61148a6f4d9c2735ac95059c"
+  },
+  "ratings": "3434",
+  "orgPrice": "8,640",
+  "noOfStudents": "663",
+  "learn": [
+    "Learn to operate. Using knives and axe"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/3nXGodYAbAI"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "http://www.unc.edu.eg/images/files/Basic_Clinical_Urology.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Urology",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Urology",
+  "description": "Study of Urology",
+  "author": "John Doe",
+  "stars": 5,
+  "currPrice": 3434,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61148d404d9c2735ac95059d"
+  },
+  "ratings": "3434",
+  "orgPrice": "8,640",
+  "noOfStudents": "663",
+  "learn": [
+    "Learn to operate. Using knives and axe"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "10 hours on-demand video",
+      "videoURL": "http://vjs.zencdn.net/v/oceans.mp4"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.who.int/mental_health/evidence/en/promoting_mhh.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Mental Health",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Mental Health",
+  "description": "Study of Mental Health",
+  "author": "Aristotle",
+  "stars": 5,
+  "currPrice": 3434,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61148dba4d9c2735ac95059e"
+  },
+  "ratings": "3434",
+  "orgPrice": "8,640",
+  "noOfStudents": "663",
+  "learn": [
+    "Women's health refers to the branch of medicine that focuses on the treatment and diagnosis of diseases and conditions that affect a woman's physical and emotional well-being.\n\nInformation\nWomen's health includes a wide range of specialties and focus areas, such as:\n\nBirth control, sexually transmitted infections (STIs), and gynecology\nBreast cancer, ovarian cancer, and other female cancers\nMammography\nMenopause and hormone therapy\nOsteoporosis\nPregnancy and childbirth\nSexual health\nWomen and heart disease\nBenign conditions affecting the function of the female reproductive organs"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "8 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/z9TsqUzcAYg"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.who.int/gender/women_health_report/full_report_20091104_en.pdf"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Women's Health",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Women's Health",
+  "description": "Study of Womens Health",
+  "author": "Dr Jane Doe",
+  "stars": 5,
+  "currPrice": 3434,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149d7d4d9c2735ac9505a3"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "Run the machine"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://www.youtube.com/embed/fELn4Fe9Ccc"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf?hsLang=en"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Anyone interested in Surgery, Students who have at least high school knowledge in surgery and medicine, the branch of medical practice that treats injuries, diseases, and deformities by the physical removal, repair, or readjustment of organs and tissues, often involving cutting into the body. Students who have at least high school knowledge in math and who want to start learning Machine Learning.",
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Kidney",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Kidney Transplant surgery",
+  "description": "Transplant",
+  "author": "John Doe",
+  "stars": 4.6,
+  "currPrice": 120000,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ad91c3fbd236bda0ffd89"
+  },
+  "ratings": "340,358",
+  "orgPrice": "8,640",
+  "noOfStudents": "1,198,240",
+  "learn": [
+    "Run the machine"
+  ],
+  "courseIncludes": [
+    {
+      "Icon": "Video",
+      "title": "22 hours on-demand video",
+      "videoURL": "https://vimeo.com/126100721"
+    },
+    {
+      "Icon": "Article",
+      "title": "14 articles",
+      "docURL": "https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf?hsLang=en"
+    },
+    {
+      "Icon": "Download",
+      "title": "19 coding exercises"
+    },
+    {
+      "Icon": "Lifetime",
+      "title": "Full lifetime access"
+    },
+    {
+      "Icon": "Mobile",
+      "title": "Access on mobile and TV"
+    },
+    {
+      "Icon": "Certificate",
+      "title": "Certificate of completion"
+    }
+  ],
+  "audience": [
+    "Anyone interested in Surgery, Students who have at least high school knowledge in surgery and medicine, the branch of medical practice that treats injuries, diseases, and deformities by the physical removal, repair, or readjustment of organs and tissues, often involving cutting into the body. Students who have at least high school knowledge in math and who want to start learning Machine Learning.",
+    "Students who have at least high school knowledge in math and who want to start learning Machine Learning."
+  ],
+  "category": "Kidney",
+  "imageURL": "https://picsum.photos/200",
+  "title": "Kidney treatment with vimeo",
+  "description": "Treatment",
+  "author": "John Doe",
+  "stars": 4.6,
+  "currPrice": 120000,
+  "bestSeller": true,
+  "language": "English",
+  "__v": 0
+}]

@@ -12,6 +12,7 @@ import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 import VideoPlayer from "../MainPage/VideoPlayer";
+import * as fn from "../Helpers/Helper";
 
 const CourseCard = ({ data }) => {
   const { _id, imageURL, author, currPrice, title, orgPrice, courseIncludes } =
@@ -58,6 +59,9 @@ const CourseCard = ({ data }) => {
     } else {
       dispatch(addToCart(course));
       setstatus(true);
+
+      // Product Analytics
+      fn.pa("Subscribed to Course");
     }
   };
 
