@@ -27,3 +27,5 @@ Server/config/*.pem
 Server/config/prod/default
 Frontend/shivalikattumadam_root.pem
 
+package-lock.json
+
