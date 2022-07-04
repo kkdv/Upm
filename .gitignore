@@ -21,5 +21,9 @@ lms.drawio
 Server/config/prod/fullchain.pem
 Server/config/prod/nginx.conf
 Server/config/prod/privkey.pem
+Server/config/prod/*.pem
+Server/config/*.pem
 .gitignore
 Server/config/prod/default
+Frontend/shivalikattumadam_root.pem
+

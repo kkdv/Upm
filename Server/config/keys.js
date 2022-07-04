@@ -1,4 +1,4 @@
-const env_file = process.env.NODE_ENV ? ".env" + process.env.NODE_ENV :
+const env_file = process.env.NODE_ENV ? ".env." + process.env.NODE_ENV :
     ".env.development"
 
 require('dotenv').config({
