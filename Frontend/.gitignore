@@ -1,5 +1,35 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+node_modules
+Frontend/node_modules/.bin/*
+Frontend/node_modules/
+Server/node_modules/*
+.DS_Store
+Frontend/f/
+Frontend/n2/
+.eslintcache
+.vscode
+.DS_Store
+ 
+
+Server/config/.env
+.env.development
+ 
+Frontend/lms.gz
+
+Server/config/ec2_cert.pem
+Frontend/.eslintcache
+lms.drawio
+Server/config/prod/fullchain.pem
+Server/config/prod/nginx.conf
+Server/config/prod/privkey.pem
+Server/config/prod/*.pem
+Server/config/*.pem
+.gitignore
+Server/config/prod/default
+Frontend/shivalikattumadam_root.pem
+
+
 # dependencies
 /node_modules
 /.pnp
